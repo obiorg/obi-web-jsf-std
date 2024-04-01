@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewUserLoginDataExternalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewUserLoginDataExternalLabel_id}"/>
+                    <h:outputText value="#{userLoginDataExternalController.selected.id}" title="#{oBI.ViewUserLoginDataExternalTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewUserLoginDataExternalLabel_deleted}"/>
+                    <h:outputText value="#{userLoginDataExternalController.selected.deleted}" title="#{oBI.ViewUserLoginDataExternalTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewUserLoginDataExternalLabel_created}"/>
+                    <h:outputText value="#{userLoginDataExternalController.selected.created}" title="#{oBI.ViewUserLoginDataExternalTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewUserLoginDataExternalLabel_changed}"/>
+                    <h:outputText value="#{userLoginDataExternalController.selected.changed}" title="#{oBI.ViewUserLoginDataExternalTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewUserLoginDataExternalLabel_tokenExternalProvider}"/>
+                    <h:outputText value="#{userLoginDataExternalController.selected.tokenExternalProvider}" title="#{oBI.ViewUserLoginDataExternalTitle_tokenExternalProvider}"/>
+                    <h:outputText value="#{oBI.ViewUserLoginDataExternalLabel_externalProvider}"/>
+                    <h:outputText value="#{userLoginDataExternalController.selected.externalProvider}" title="#{oBI.ViewUserLoginDataExternalTitle_externalProvider}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{userLoginDataExternalController.destroyAndView}" value="#{oBI.ViewUserLoginDataExternalDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewUserLoginDataExternalEditLink}"/>
+                <br />
+                <h:commandLink action="#{userLoginDataExternalController.prepareCreate}" value="#{oBI.ViewUserLoginDataExternalCreateLink}" />
+                <br />
+                <h:commandLink action="#{userLoginDataExternalController.prepareList}" value="#{oBI.ViewUserLoginDataExternalShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewUserLoginDataExternalIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

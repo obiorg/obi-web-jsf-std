@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ListAnalyseAllowedTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{oBI.ListAnalyseAllowedEmpty}" rendered="#{analyseAllowedController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{analyseAllowedController.items.rowCount > 0}">
+                    <h:outputText value="#{analyseAllowedController.pagination.pageFirstItem + 1}..#{analyseAllowedController.pagination.pageLastItem + 1}/#{analyseAllowedController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{analyseAllowedController.previous}" value="#{oBI.Previous} #{analyseAllowedController.pagination.pageSize}" rendered="#{analyseAllowedController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{analyseAllowedController.next}" value="#{oBI.Next} #{analyseAllowedController.pagination.pageSize}" rendered="#{analyseAllowedController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{analyseAllowedController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseAllowedTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseAllowedTitle_deleted}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deleted}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseAllowedTitle_created}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.created}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseAllowedTitle_changed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.changed}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseAllowedTitle_designation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.designation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseAllowedTitle_enable}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enable}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseAllowedTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseAllowedTitle_point}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.point}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseAllowedTitle_type}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.type}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseAllowedTitle_company}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.company}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseAllowedTitle_tag}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tag}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{analyseAllowedController.prepareView}" value="#{oBI.ListAnalyseAllowedViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{analyseAllowedController.prepareEdit}" value="#{oBI.ListAnalyseAllowedEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{analyseAllowedController.destroy}" value="#{oBI.ListAnalyseAllowedDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{analyseAllowedController.prepareCreate}" value="#{oBI.ListAnalyseAllowedCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ListAnalyseAllowedIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

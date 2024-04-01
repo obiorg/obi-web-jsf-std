@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewMeasUnitsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewMeasUnitsLabel_id}"/>
+                    <h:outputText value="#{measUnitsController.selected.id}" title="#{oBI.ViewMeasUnitsTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewMeasUnitsLabel_deleted}"/>
+                    <h:outputText value="#{measUnitsController.selected.deleted}" title="#{oBI.ViewMeasUnitsTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewMeasUnitsLabel_created}"/>
+                    <h:outputText value="#{measUnitsController.selected.created}" title="#{oBI.ViewMeasUnitsTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewMeasUnitsLabel_changed}"/>
+                    <h:outputText value="#{measUnitsController.selected.changed}" title="#{oBI.ViewMeasUnitsTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewMeasUnitsLabel_sizeName}"/>
+                    <h:outputText value="#{measUnitsController.selected.sizeName}" title="#{oBI.ViewMeasUnitsTitle_sizeName}"/>
+                    <h:outputText value="#{oBI.ViewMeasUnitsLabel_sizeSymbol}"/>
+                    <h:outputText value="#{measUnitsController.selected.sizeSymbol}" title="#{oBI.ViewMeasUnitsTitle_sizeSymbol}"/>
+                    <h:outputText value="#{oBI.ViewMeasUnitsLabel_unitName}"/>
+                    <h:outputText value="#{measUnitsController.selected.unitName}" title="#{oBI.ViewMeasUnitsTitle_unitName}"/>
+                    <h:outputText value="#{oBI.ViewMeasUnitsLabel_unitSymbol}"/>
+                    <h:outputText value="#{measUnitsController.selected.unitSymbol}" title="#{oBI.ViewMeasUnitsTitle_unitSymbol}"/>
+                    <h:outputText value="#{oBI.ViewMeasUnitsLabel_dimension}"/>
+                    <h:outputText value="#{measUnitsController.selected.dimension}" title="#{oBI.ViewMeasUnitsTitle_dimension}"/>
+                    <h:outputText value="#{oBI.ViewMeasUnitsLabel_group}"/>
+                    <h:outputText value="#{measUnitsController.selected.group}" title="#{oBI.ViewMeasUnitsTitle_group}"/>
+                    <h:outputText value="#{oBI.ViewMeasUnitsLabel_tagging}"/>
+                    <h:outputText value="#{measUnitsController.selected.tagging}" title="#{oBI.ViewMeasUnitsTitle_tagging}"/>
+                    <h:outputText value="#{oBI.ViewMeasUnitsLabel_comment}"/>
+                    <h:outputText value="#{measUnitsController.selected.comment}" title="#{oBI.ViewMeasUnitsTitle_comment}"/>
+                    <h:outputText value="#{oBI.ViewMeasUnitsLabel_entity}"/>
+                    <h:outputText value="#{measUnitsController.selected.entity}" title="#{oBI.ViewMeasUnitsTitle_entity}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{measUnitsController.destroyAndView}" value="#{oBI.ViewMeasUnitsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewMeasUnitsEditLink}"/>
+                <br />
+                <h:commandLink action="#{measUnitsController.prepareCreate}" value="#{oBI.ViewMeasUnitsCreateLink}" />
+                <br />
+                <h:commandLink action="#{measUnitsController.prepareList}" value="#{oBI.ViewMeasUnitsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewMeasUnitsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

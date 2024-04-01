@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateAnalysePointsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateAnalysePointsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{analysePointsController.selected.id}" title="#{oBI.CreateAnalysePointsTitle_id}" required="true" requiredMessage="#{oBI.CreateAnalysePointsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateAnalysePointsLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{analysePointsController.selected.deleted}" title="#{oBI.CreateAnalysePointsTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.CreateAnalysePointsLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{analysePointsController.selected.created}" title="#{oBI.CreateAnalysePointsTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateAnalysePointsLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{analysePointsController.selected.changed}" title="#{oBI.CreateAnalysePointsTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateAnalysePointsLabel_point}" for="point" />
+                    <h:inputText id="point" value="#{analysePointsController.selected.point}" title="#{oBI.CreateAnalysePointsTitle_point}" required="true" requiredMessage="#{oBI.CreateAnalysePointsRequiredMessage_point}"/>
+                    <h:outputLabel value="#{oBI.CreateAnalysePointsLabel_designation}" for="designation" />
+                    <h:inputText id="designation" value="#{analysePointsController.selected.designation}" title="#{oBI.CreateAnalysePointsTitle_designation}" />
+                    <h:outputLabel value="#{oBI.CreateAnalysePointsLabel_available}" for="available" />
+                    <h:inputText id="available" value="#{analysePointsController.selected.available}" title="#{oBI.CreateAnalysePointsTitle_available}" />
+                    <h:outputLabel value="#{oBI.CreateAnalysePointsLabel_picture}" for="picture" />
+                    <h:inputText id="picture" value="#{analysePointsController.selected.picture}" title="#{oBI.CreateAnalysePointsTitle_picture}" />
+                    <h:outputLabel value="#{oBI.CreateAnalysePointsLabel_description}" for="description" />
+                    <h:inputTextarea rows="4" cols="30" id="description" value="#{analysePointsController.selected.description}" title="#{oBI.CreateAnalysePointsTitle_description}" />
+                    <h:outputLabel value="#{oBI.CreateAnalysePointsLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{analysePointsController.selected.company}" title="#{oBI.CreateAnalysePointsTitle_company}" required="true" requiredMessage="#{oBI.CreateAnalysePointsRequiredMessage_company}">
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.CreateAnalysePointsLabel_equipement}" for="equipement" />
+                    <h:selectOneMenu id="equipement" value="#{analysePointsController.selected.equipement}" title="#{oBI.CreateAnalysePointsTitle_equipement}" >
+                        <f:selectItems value="#{equipementsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{analysePointsController.create}" value="#{oBI.CreateAnalysePointsSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{analysePointsController.prepareList}" value="#{oBI.CreateAnalysePointsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateAnalysePointsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

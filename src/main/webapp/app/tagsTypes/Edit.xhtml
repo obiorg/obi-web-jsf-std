@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.EditTagsTypesTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+
+<!--            <h:outputLabel value="#{OBI.EditTagsTypesLabel_id}" for="id" />
+            <h:inputText id="id" value="#{tagsTypesController.selected.id}" title="#{OBI.EditTagsTypesTitle_id}" required="true" requiredMessage="#{OBI.EditTagsTypesRequiredMessage_id}"/>
+
+            <h:outputLabel value="#{OBI.EditTagsTypesLabel_created}" for="created" />
+            <h:inputText id="created" value="#{tagsTypesController.selected.created}" title="#{OBI.EditTagsTypesTitle_created}" >
+                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+            </h:inputText>
+            <h:outputLabel value="#{OBI.EditTagsTypesLabel_changed}" for="changed" />
+            <h:inputText id="changed" value="#{tagsTypesController.selected.changed}" title="#{OBI.EditTagsTypesTitle_changed}" >
+                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+            </h:inputText>-->
+
+
+
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{OBI.EditTagsTypesLabel_type}" for="type" />
+                    <h:inputText id="type" value="#{tagsTypesController.selected.type}" title="#{OBI.EditTagsTypesTitle_type}" required="true" requiredMessage="#{OBI.EditTagsTypesRequiredMessage_type}"/>
+
+                    <h:outputLabel value="#{OBI.EditTagsTypesLabel_designation}" for="designation" />
+                    <h:inputText id="designation" value="#{tagsTypesController.selected.designation}" title="#{OBI.EditTagsTypesTitle_designation}" />
+
+                    <h:outputLabel value="#{OBI.EditTagsTypesLabel_bit}" for="bit" />
+                    <h:inputText id="bit" value="#{tagsTypesController.selected.bit}" title="#{OBI.EditTagsTypesTitle_bit}" />
+                    <h:outputLabel value="#{OBI.EditTagsTypesLabel_byte1}" for="byte1" />
+                    <h:inputText id="byte1" value="#{tagsTypesController.selected.byte1}" title="#{OBI.EditTagsTypesTitle_byte1}" />
+                    <h:outputLabel value="#{OBI.EditTagsTypesLabel_word}" for="word" />
+                    <h:inputText id="word" value="#{tagsTypesController.selected.word}" title="#{OBI.EditTagsTypesTitle_word}" />
+                    <h:outputLabel value="#{OBI.EditTagsTypesLabel_group}" for="group" />
+                    <h:inputText id="group" value="#{tagsTypesController.selected.group}" title="#{OBI.EditTagsTypesTitle_group}" />
+
+                    <h:outputLabel value="#{OBI.EditTagsTypesLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{tagsTypesController.selected.deleted}" title="#{OBI.EditTagsTypesTitle_deleted}" />
+
+                </h:panelGrid>
+                <h:commandLink action="#{tagsTypesController.update}" value="#{OBI.EditTagsTypesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{OBI.EditTagsTypesViewLink}"/>
+                <br />
+                <h:commandLink action="#{tagsTypesController.prepareList}" value="#{OBI.EditTagsTypesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.EditTagsTypesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

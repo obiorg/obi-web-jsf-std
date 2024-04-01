@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.ViewEntitiesTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+
+
+
+
+
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{OBI.ViewEntitiesLabel_id}"/>
+                    <h:outputText value="#{entitiesController.selected.id}" title="#{OBI.ViewEntitiesTitle_id}"/>
+                    <h:outputText value="#{OBI.ViewEntitiesLabel_deleted}"/>
+                    <h:outputText value="#{entitiesController.selected.deleted}" title="#{OBI.ViewEntitiesTitle_deleted}"/>
+
+                    <h:outputText value="#{OBI.ViewEntitiesLabel_created}"/>
+                    <h:outputText value="#{entitiesController.selected.created}" title="#{OBI.ViewEntitiesTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewEntitiesLabel_changed}"/>
+                    <h:outputText value="#{entitiesController.selected.changed}" title="#{OBI.ViewEntitiesTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+
+                    <h:outputText value="#{OBI.ViewEntitiesLabel_entity}"/>
+                    <h:outputText value="#{entitiesController.selected.entity}" 
+                                  title="#{OBI.ViewEntitiesTitle_entity}"/>
+                    <h:outputText value="#{OBI.ViewEntitiesLabel_designation}"/>
+                    <h:outputText value="#{entitiesController.selected.designation}" title="#{OBI.ViewEntitiesTitle_designation}"/>
+                    <h:outputText value="#{OBI.ViewEntitiesLabel_builded}"/>
+                    <h:outputText value="#{entitiesController.selected.builded}" title="#{OBI.ViewEntitiesTitle_builded}"/>
+                    <h:outputText value="#{OBI.ViewEntitiesLabel_main}"/>
+                    <h:outputText value="#{entitiesController.selected.main}" title="#{OBI.ViewEntitiesTitle_main}"/>
+                    <h:outputText value="#{OBI.ViewEntitiesLabel_activated}"/>
+                    <h:outputText value="#{entitiesController.selected.activated}" title="#{OBI.ViewEntitiesTitle_activated}"/>
+                    <h:outputText value="#{OBI.ViewEntitiesLabel_logoPath}"/>
+                    <h:outputText value="#{entitiesController.selected.logoPath}" title="#{OBI.ViewEntitiesTitle_logoPath}"/>
+                    <h:outputText value="#{OBI.ViewEntitiesLabel_location}"/>
+                    <h:outputText value="#{entitiesController.selected.location}" title="#{OBI.ViewEntitiesTitle_location}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{entitiesController.destroyAndView}" value="#{OBI.ViewEntitiesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{OBI.ViewEntitiesEditLink}"/>
+                <br />
+                <h:commandLink action="#{entitiesController.prepareCreate}" value="#{OBI.ViewEntitiesCreateLink}" />
+                <br />
+                <h:commandLink action="#{entitiesController.prepareList}" value="#{OBI.ViewEntitiesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.ViewEntitiesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

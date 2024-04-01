@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.EditLocationsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{locationsController.selected.id}" title="#{oBI.EditLocationsTitle_id}" required="true" requiredMessage="#{oBI.EditLocationsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{locationsController.selected.deleted}" title="#{oBI.EditLocationsTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{locationsController.selected.created}" title="#{oBI.EditLocationsTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{locationsController.selected.changed}" title="#{oBI.EditLocationsTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_location}" for="location" />
+                    <h:inputText id="location" value="#{locationsController.selected.location}" title="#{oBI.EditLocationsTitle_location}" />
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_designation}" for="designation" />
+                    <h:inputText id="designation" value="#{locationsController.selected.designation}" title="#{oBI.EditLocationsTitle_designation}" />
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_group}" for="group" />
+                    <h:inputText id="group" value="#{locationsController.selected.group}" title="#{oBI.EditLocationsTitle_group}" />
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_address}" for="address" />
+                    <h:inputText id="address" value="#{locationsController.selected.address}" title="#{oBI.EditLocationsTitle_address}" />
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_address1}" for="address1" />
+                    <h:inputText id="address1" value="#{locationsController.selected.address1}" title="#{oBI.EditLocationsTitle_address1}" />
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_address3}" for="address3" />
+                    <h:inputText id="address3" value="#{locationsController.selected.address3}" title="#{oBI.EditLocationsTitle_address3}" />
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_bloc}" for="bloc" />
+                    <h:inputText id="bloc" value="#{locationsController.selected.bloc}" title="#{oBI.EditLocationsTitle_bloc}" />
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_floor}" for="floor" />
+                    <h:inputText id="floor" value="#{locationsController.selected.floor}" title="#{oBI.EditLocationsTitle_floor}" />
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_number}" for="number" />
+                    <h:inputText id="number" value="#{locationsController.selected.number}" title="#{oBI.EditLocationsTitle_number}" />
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_city}" for="city" />
+                    <h:selectOneMenu id="city" value="#{locationsController.selected.city}" title="#{oBI.EditLocationsTitle_city}" required="true" requiredMessage="#{oBI.EditLocationsRequiredMessage_city}">
+                        <f:selectItems value="#{locCitiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_country}" for="country" />
+                    <h:selectOneMenu id="country" value="#{locationsController.selected.country}" title="#{oBI.EditLocationsTitle_country}" required="true" requiredMessage="#{oBI.EditLocationsRequiredMessage_country}">
+                        <f:selectItems value="#{locCountriesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditLocationsLabel_state}" for="state" />
+                    <h:selectOneMenu id="state" value="#{locationsController.selected.state}" title="#{oBI.EditLocationsTitle_state}" required="true" requiredMessage="#{oBI.EditLocationsRequiredMessage_state}">
+                        <f:selectItems value="#{locStatesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{locationsController.update}" value="#{oBI.EditLocationsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{oBI.EditLocationsViewLink}"/>
+                <br />
+                <h:commandLink action="#{locationsController.prepareList}" value="#{oBI.EditLocationsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.EditLocationsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

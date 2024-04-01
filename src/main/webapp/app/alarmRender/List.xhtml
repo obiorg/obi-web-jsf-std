@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ListAlarmRenderTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{oBI.ListAlarmRenderEmpty}" rendered="#{alarmRenderController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{alarmRenderController.items.rowCount > 0}">
+                    <h:outputText value="#{alarmRenderController.pagination.pageFirstItem + 1}..#{alarmRenderController.pagination.pageLastItem + 1}/#{alarmRenderController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{alarmRenderController.previous}" value="#{oBI.Previous} #{alarmRenderController.pagination.pageSize}" rendered="#{alarmRenderController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{alarmRenderController.next}" value="#{oBI.Next} #{alarmRenderController.pagination.pageSize}" rendered="#{alarmRenderController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{alarmRenderController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAlarmRenderTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAlarmRenderTitle_deleted}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deleted}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAlarmRenderTitle_created}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.created}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAlarmRenderTitle_changed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.changed}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAlarmRenderTitle_render}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.render}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAlarmRenderTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAlarmRenderTitle_color}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.color}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAlarmRenderTitle_background}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.background}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAlarmRenderTitle_blink}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.blink}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAlarmRenderTitle_colorBlink}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.colorBlink}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAlarmRenderTitle_backgroundBlink}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.backgroundBlink}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAlarmRenderTitle_comment}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comment}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAlarmRenderTitle_company}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.company}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{alarmRenderController.prepareView}" value="#{oBI.ListAlarmRenderViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{alarmRenderController.prepareEdit}" value="#{oBI.ListAlarmRenderEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{alarmRenderController.destroy}" value="#{oBI.ListAlarmRenderDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{alarmRenderController.prepareCreate}" value="#{oBI.ListAlarmRenderCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ListAlarmRenderIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

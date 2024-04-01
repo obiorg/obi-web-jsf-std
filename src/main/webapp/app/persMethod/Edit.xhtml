@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.EditPersMethodTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.EditPersMethodLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{persMethodController.selected.id}" title="#{oBI.EditPersMethodTitle_id}" required="true" requiredMessage="#{oBI.EditPersMethodRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.EditPersMethodLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{persMethodController.selected.deleted}" title="#{oBI.EditPersMethodTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.EditPersMethodLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{persMethodController.selected.created}" title="#{oBI.EditPersMethodTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditPersMethodLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{persMethodController.selected.changed}" title="#{oBI.EditPersMethodTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditPersMethodLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{persMethodController.selected.name}" title="#{oBI.EditPersMethodTitle_name}" required="true" requiredMessage="#{oBI.EditPersMethodRequiredMessage_name}"/>
+                    <h:outputLabel value="#{oBI.EditPersMethodLabel_comment}" for="comment" />
+                    <h:inputText id="comment" value="#{persMethodController.selected.comment}" title="#{oBI.EditPersMethodTitle_comment}" />
+                </h:panelGrid>
+                <h:commandLink action="#{persMethodController.update}" value="#{oBI.EditPersMethodSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{oBI.EditPersMethodViewLink}"/>
+                <br />
+                <h:commandLink action="#{persMethodController.prepareList}" value="#{oBI.EditPersMethodShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.EditPersMethodIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewAlarmGroupsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewAlarmGroupsLabel_id}"/>
+                    <h:outputText value="#{alarmGroupsController.selected.id}" title="#{oBI.ViewAlarmGroupsTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewAlarmGroupsLabel_deleted}"/>
+                    <h:outputText value="#{alarmGroupsController.selected.deleted}" title="#{oBI.ViewAlarmGroupsTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewAlarmGroupsLabel_created}"/>
+                    <h:outputText value="#{alarmGroupsController.selected.created}" title="#{oBI.ViewAlarmGroupsTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewAlarmGroupsLabel_changed}"/>
+                    <h:outputText value="#{alarmGroupsController.selected.changed}" title="#{oBI.ViewAlarmGroupsTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewAlarmGroupsLabel_group}"/>
+                    <h:outputText value="#{alarmGroupsController.selected.group}" title="#{oBI.ViewAlarmGroupsTitle_group}"/>
+                    <h:outputText value="#{oBI.ViewAlarmGroupsLabel_comment}"/>
+                    <h:outputText value="#{alarmGroupsController.selected.comment}" title="#{oBI.ViewAlarmGroupsTitle_comment}"/>
+                    <h:outputText value="#{oBI.ViewAlarmGroupsLabel_company}"/>
+                    <h:outputText value="#{alarmGroupsController.selected.company}" title="#{oBI.ViewAlarmGroupsTitle_company}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{alarmGroupsController.destroyAndView}" value="#{oBI.ViewAlarmGroupsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewAlarmGroupsEditLink}"/>
+                <br />
+                <h:commandLink action="#{alarmGroupsController.prepareCreate}" value="#{oBI.ViewAlarmGroupsCreateLink}" />
+                <br />
+                <h:commandLink action="#{alarmGroupsController.prepareList}" value="#{oBI.ViewAlarmGroupsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewAlarmGroupsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.EditMeasComparatorsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.EditMeasComparatorsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{measComparatorsController.selected.id}" title="#{oBI.EditMeasComparatorsTitle_id}" required="true" requiredMessage="#{oBI.EditMeasComparatorsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.EditMeasComparatorsLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{measComparatorsController.selected.deleted}" title="#{oBI.EditMeasComparatorsTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.EditMeasComparatorsLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{measComparatorsController.selected.created}" title="#{oBI.EditMeasComparatorsTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditMeasComparatorsLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{measComparatorsController.selected.changed}" title="#{oBI.EditMeasComparatorsTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditMeasComparatorsLabel_symbol}" for="symbol" />
+                    <h:inputText id="symbol" value="#{measComparatorsController.selected.symbol}" title="#{oBI.EditMeasComparatorsTitle_symbol}" required="true" requiredMessage="#{oBI.EditMeasComparatorsRequiredMessage_symbol}"/>
+                    <h:outputLabel value="#{oBI.EditMeasComparatorsLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{measComparatorsController.selected.name}" title="#{oBI.EditMeasComparatorsTitle_name}" />
+                </h:panelGrid>
+                <h:commandLink action="#{measComparatorsController.update}" value="#{oBI.EditMeasComparatorsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{oBI.EditMeasComparatorsViewLink}"/>
+                <br />
+                <h:commandLink action="#{measComparatorsController.prepareList}" value="#{oBI.EditMeasComparatorsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.EditMeasComparatorsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

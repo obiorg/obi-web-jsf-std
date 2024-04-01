@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.EditPersStandardLimitsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{persStandardLimitsController.selected.id}" title="#{oBI.EditPersStandardLimitsTitle_id}" required="true" requiredMessage="#{oBI.EditPersStandardLimitsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{persStandardLimitsController.selected.deleted}" title="#{oBI.EditPersStandardLimitsTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{persStandardLimitsController.selected.created}" title="#{oBI.EditPersStandardLimitsTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{persStandardLimitsController.selected.changed}" title="#{oBI.EditPersStandardLimitsTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{persStandardLimitsController.selected.name}" title="#{oBI.EditPersStandardLimitsTitle_name}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_value}" for="value" />
+                    <h:inputText id="value" value="#{persStandardLimitsController.selected.value}" title="#{oBI.EditPersStandardLimitsTitle_value}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_delay}" for="delay" />
+                    <h:inputText id="delay" value="#{persStandardLimitsController.selected.delay}" title="#{oBI.EditPersStandardLimitsTitle_delay}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_hysteresis}" for="hysteresis" />
+                    <h:inputText id="hysteresis" value="#{persStandardLimitsController.selected.hysteresis}" title="#{oBI.EditPersStandardLimitsTitle_hysteresis}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_sort}" for="sort" />
+                    <h:inputText id="sort" value="#{persStandardLimitsController.selected.sort}" title="#{oBI.EditPersStandardLimitsTitle_sort}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_hit}" for="hit" />
+                    <h:inputText id="hit" value="#{persStandardLimitsController.selected.hit}" title="#{oBI.EditPersStandardLimitsTitle_hit}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_reached}" for="reached" />
+                    <h:inputText id="reached" value="#{persStandardLimitsController.selected.reached}" title="#{oBI.EditPersStandardLimitsTitle_reached}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{persStandardLimitsController.selected.company}" title="#{oBI.EditPersStandardLimitsTitle_company}" required="true" requiredMessage="#{oBI.EditPersStandardLimitsRequiredMessage_company}">
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_comparator}" for="comparator" />
+                    <h:selectOneMenu id="comparator" value="#{persStandardLimitsController.selected.comparator}" title="#{oBI.EditPersStandardLimitsTitle_comparator}" required="true" requiredMessage="#{oBI.EditPersStandardLimitsRequiredMessage_comparator}">
+                        <f:selectItems value="#{measComparatorsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_group1}" for="group1" />
+                    <h:selectOneMenu id="group1" value="#{persStandardLimitsController.selected.group1}" title="#{oBI.EditPersStandardLimitsTitle_group1}" >
+                        <f:selectItems value="#{measLimitsGroupsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_persStandard}" for="persStandard" />
+                    <h:selectOneMenu id="persStandard" value="#{persStandardLimitsController.selected.persStandard}" title="#{oBI.EditPersStandardLimitsTitle_persStandard}" required="true" requiredMessage="#{oBI.EditPersStandardLimitsRequiredMessage_persStandard}">
+                        <f:selectItems value="#{persStandardController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditPersStandardLimitsLabel_tag}" for="tag" />
+                    <h:selectOneMenu id="tag" value="#{persStandardLimitsController.selected.tag}" title="#{oBI.EditPersStandardLimitsTitle_tag}" required="true" requiredMessage="#{oBI.EditPersStandardLimitsRequiredMessage_tag}">
+                        <f:selectItems value="#{tagsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{persStandardLimitsController.update}" value="#{oBI.EditPersStandardLimitsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{oBI.EditPersStandardLimitsViewLink}"/>
+                <br />
+                <h:commandLink action="#{persStandardLimitsController.prepareList}" value="#{oBI.EditPersStandardLimitsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.EditPersStandardLimitsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

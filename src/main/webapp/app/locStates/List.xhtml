@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ListLocStatesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{oBI.ListLocStatesEmpty}" rendered="#{locStatesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{locStatesController.items.rowCount > 0}">
+                    <h:outputText value="#{locStatesController.pagination.pageFirstItem + 1}..#{locStatesController.pagination.pageLastItem + 1}/#{locStatesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{locStatesController.previous}" value="#{oBI.Previous} #{locStatesController.pagination.pageSize}" rendered="#{locStatesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{locStatesController.next}" value="#{oBI.Next} #{locStatesController.pagination.pageSize}" rendered="#{locStatesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{locStatesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocStatesTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocStatesTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocStatesTitle_countryCode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.countryCode}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocStatesTitle_fipsCode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fipsCode}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocStatesTitle_iso2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.iso2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocStatesTitle_type}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.type}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocStatesTitle_latitude}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.latitude}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocStatesTitle_longitude}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.longitude}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocStatesTitle_createdAt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createdAt}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocStatesTitle_updatedAt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.updatedAt}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocStatesTitle_flag}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flag}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocStatesTitle_wikiDataId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.wikiDataId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocStatesTitle_countryId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.countryId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{locStatesController.prepareView}" value="#{oBI.ListLocStatesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{locStatesController.prepareEdit}" value="#{oBI.ListLocStatesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{locStatesController.destroy}" value="#{oBI.ListLocStatesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{locStatesController.prepareCreate}" value="#{oBI.ListLocStatesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ListLocStatesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

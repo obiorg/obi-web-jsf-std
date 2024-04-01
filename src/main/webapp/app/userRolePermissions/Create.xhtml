@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateUserRolePermissionsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateUserRolePermissionsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{userRolePermissionsController.selected.id}" title="#{oBI.CreateUserRolePermissionsTitle_id}" required="true" requiredMessage="#{oBI.CreateUserRolePermissionsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateUserRolePermissionsLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{userRolePermissionsController.selected.deleted}" title="#{oBI.CreateUserRolePermissionsTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.CreateUserRolePermissionsLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{userRolePermissionsController.selected.created}" title="#{oBI.CreateUserRolePermissionsTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateUserRolePermissionsLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{userRolePermissionsController.selected.changed}" title="#{oBI.CreateUserRolePermissionsTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateUserRolePermissionsLabel_business}" for="business" />
+                    <h:selectOneMenu id="business" value="#{userRolePermissionsController.selected.business}" title="#{oBI.CreateUserRolePermissionsTitle_business}" >
+                        <f:selectItems value="#{businessesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.CreateUserRolePermissionsLabel_comapny}" for="comapny" />
+                    <h:selectOneMenu id="comapny" value="#{userRolePermissionsController.selected.comapny}" title="#{oBI.CreateUserRolePermissionsTitle_comapny}" >
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.CreateUserRolePermissionsLabel_entity}" for="entity" />
+                    <h:selectOneMenu id="entity" value="#{userRolePermissionsController.selected.entity}" title="#{oBI.CreateUserRolePermissionsTitle_entity}" >
+                        <f:selectItems value="#{entitiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.CreateUserRolePermissionsLabel_permission}" for="permission" />
+                    <h:selectOneMenu id="permission" value="#{userRolePermissionsController.selected.permission}" title="#{oBI.CreateUserRolePermissionsTitle_permission}" required="true" requiredMessage="#{oBI.CreateUserRolePermissionsRequiredMessage_permission}">
+                        <f:selectItems value="#{userPermissionsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.CreateUserRolePermissionsLabel_role}" for="role" />
+                    <h:selectOneMenu id="role" value="#{userRolePermissionsController.selected.role}" title="#{oBI.CreateUserRolePermissionsTitle_role}" required="true" requiredMessage="#{oBI.CreateUserRolePermissionsRequiredMessage_role}">
+                        <f:selectItems value="#{userRolesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{userRolePermissionsController.create}" value="#{oBI.CreateUserRolePermissionsSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{userRolePermissionsController.prepareList}" value="#{oBI.CreateUserRolePermissionsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateUserRolePermissionsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

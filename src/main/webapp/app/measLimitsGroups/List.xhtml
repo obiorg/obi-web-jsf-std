@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ListMeasLimitsGroupsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{oBI.ListMeasLimitsGroupsEmpty}" rendered="#{measLimitsGroupsController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{measLimitsGroupsController.items.rowCount > 0}">
+                    <h:outputText value="#{measLimitsGroupsController.pagination.pageFirstItem + 1}..#{measLimitsGroupsController.pagination.pageLastItem + 1}/#{measLimitsGroupsController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{measLimitsGroupsController.previous}" value="#{oBI.Previous} #{measLimitsGroupsController.pagination.pageSize}" rendered="#{measLimitsGroupsController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{measLimitsGroupsController.next}" value="#{oBI.Next} #{measLimitsGroupsController.pagination.pageSize}" rendered="#{measLimitsGroupsController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{measLimitsGroupsController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListMeasLimitsGroupsTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListMeasLimitsGroupsTitle_deleted}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deleted}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListMeasLimitsGroupsTitle_created}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.created}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListMeasLimitsGroupsTitle_changed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.changed}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListMeasLimitsGroupsTitle_group}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.group}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListMeasLimitsGroupsTitle_designation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.designation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListMeasLimitsGroupsTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListMeasLimitsGroupsTitle_business}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.business}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListMeasLimitsGroupsTitle_company}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.company}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{measLimitsGroupsController.prepareView}" value="#{oBI.ListMeasLimitsGroupsViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{measLimitsGroupsController.prepareEdit}" value="#{oBI.ListMeasLimitsGroupsEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{measLimitsGroupsController.destroy}" value="#{oBI.ListMeasLimitsGroupsDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{measLimitsGroupsController.prepareCreate}" value="#{oBI.ListMeasLimitsGroupsCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ListMeasLimitsGroupsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewUserRolesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewUserRolesLabel_id}"/>
+                    <h:outputText value="#{userRolesController.selected.id}" title="#{oBI.ViewUserRolesTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewUserRolesLabel_deleted}"/>
+                    <h:outputText value="#{userRolesController.selected.deleted}" title="#{oBI.ViewUserRolesTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewUserRolesLabel_created}"/>
+                    <h:outputText value="#{userRolesController.selected.created}" title="#{oBI.ViewUserRolesTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewUserRolesLabel_changed}"/>
+                    <h:outputText value="#{userRolesController.selected.changed}" title="#{oBI.ViewUserRolesTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewUserRolesLabel_name}"/>
+                    <h:outputText value="#{userRolesController.selected.name}" title="#{oBI.ViewUserRolesTitle_name}"/>
+                    <h:outputText value="#{oBI.ViewUserRolesLabel_description}"/>
+                    <h:outputText value="#{userRolesController.selected.description}" title="#{oBI.ViewUserRolesTitle_description}"/>
+                    <h:outputText value="#{oBI.ViewUserRolesLabel_business}"/>
+                    <h:outputText value="#{userRolesController.selected.business}" title="#{oBI.ViewUserRolesTitle_business}"/>
+                    <h:outputText value="#{oBI.ViewUserRolesLabel_comapny}"/>
+                    <h:outputText value="#{userRolesController.selected.comapny}" title="#{oBI.ViewUserRolesTitle_comapny}"/>
+                    <h:outputText value="#{oBI.ViewUserRolesLabel_entity}"/>
+                    <h:outputText value="#{userRolesController.selected.entity}" title="#{oBI.ViewUserRolesTitle_entity}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{userRolesController.destroyAndView}" value="#{oBI.ViewUserRolesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewUserRolesEditLink}"/>
+                <br />
+                <h:commandLink action="#{userRolesController.prepareCreate}" value="#{oBI.ViewUserRolesCreateLink}" />
+                <br />
+                <h:commandLink action="#{userRolesController.prepareList}" value="#{oBI.ViewUserRolesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewUserRolesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

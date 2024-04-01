@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.ViewMachinesTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{OBI.ViewMachinesLabel_id}"/>
+                    <h:outputText value="#{machinesController.selected.id}" title="#{OBI.ViewMachinesTitle_id}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_deleted}"/>
+                    <h:outputText value="#{machinesController.selected.deleted}" title="#{OBI.ViewMachinesTitle_deleted}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_created}"/>
+                    <h:outputText value="#{machinesController.selected.created}" title="#{OBI.ViewMachinesTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_changed}"/>
+                    <h:outputText value="#{machinesController.selected.changed}" title="#{OBI.ViewMachinesTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_address}"/>
+                    <h:outputText value="#{machinesController.selected.address}" title="#{OBI.ViewMachinesTitle_address}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_mask}"/>
+                    <h:outputText value="#{machinesController.selected.mask}" title="#{OBI.ViewMachinesTitle_mask}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_dns}"/>
+                    <h:outputText value="#{machinesController.selected.dns}" title="#{OBI.ViewMachinesTitle_dns}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_ipv6}"/>
+                    <h:outputText value="#{machinesController.selected.ipv6}" title="#{OBI.ViewMachinesTitle_ipv6}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_port}"/>
+                    <h:outputText value="#{machinesController.selected.port}" title="#{OBI.ViewMachinesTitle_port}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_name}"/>
+                    <h:outputText value="#{machinesController.selected.name}" title="#{OBI.ViewMachinesTitle_name}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_rack}"/>
+                    <h:outputText value="#{machinesController.selected.rack}" title="#{OBI.ViewMachinesTitle_rack}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_slot}"/>
+                    <h:outputText value="#{machinesController.selected.slot}" title="#{OBI.ViewMachinesTitle_slot}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_mqqt}"/>
+                    <h:outputText value="#{machinesController.selected.mqqt}" title="#{OBI.ViewMachinesTitle_mqqt}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_mqqtUser}"/>
+                    <h:outputText value="#{machinesController.selected.mqqtUser}" title="#{OBI.ViewMachinesTitle_mqqtUser}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_mqqtPassword}"/>
+                    <h:outputText value="#{machinesController.selected.mqqtPassword}" title="#{OBI.ViewMachinesTitle_mqqtPassword}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_webhook}"/>
+                    <h:outputText value="#{machinesController.selected.webhook}" title="#{OBI.ViewMachinesTitle_webhook}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_webhookSecret}"/>
+                    <h:outputText value="#{machinesController.selected.webhookSecret}" title="#{OBI.ViewMachinesTitle_webhookSecret}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_bus}"/>
+                    <h:outputText value="#{machinesController.selected.bus}" title="#{OBI.ViewMachinesTitle_bus}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_description}"/>
+                    <h:outputText value="#{machinesController.selected.description}" title="#{OBI.ViewMachinesTitle_description}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_company}"/>
+                    <h:outputText value="#{machinesController.selected.company}" title="#{OBI.ViewMachinesTitle_company}"/>
+                    <h:outputText value="#{OBI.ViewMachinesLabel_driver}"/>
+                    <h:outputText value="#{machinesController.selected.driver}" title="#{OBI.ViewMachinesTitle_driver}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{machinesController.destroyAndView}" value="#{OBI.ViewMachinesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{OBI.ViewMachinesEditLink}"/>
+                <br />
+                <h:commandLink action="#{machinesController.prepareCreate}" value="#{OBI.ViewMachinesCreateLink}" />
+                <br />
+                <h:commandLink action="#{machinesController.prepareList}" value="#{OBI.ViewMachinesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.ViewMachinesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateAlarmGroupsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateAlarmGroupsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{alarmGroupsController.selected.id}" title="#{oBI.CreateAlarmGroupsTitle_id}" required="true" requiredMessage="#{oBI.CreateAlarmGroupsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateAlarmGroupsLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{alarmGroupsController.selected.deleted}" title="#{oBI.CreateAlarmGroupsTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.CreateAlarmGroupsLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{alarmGroupsController.selected.created}" title="#{oBI.CreateAlarmGroupsTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateAlarmGroupsLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{alarmGroupsController.selected.changed}" title="#{oBI.CreateAlarmGroupsTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateAlarmGroupsLabel_group}" for="group" />
+                    <h:inputText id="group" value="#{alarmGroupsController.selected.group}" title="#{oBI.CreateAlarmGroupsTitle_group}" required="true" requiredMessage="#{oBI.CreateAlarmGroupsRequiredMessage_group}"/>
+                    <h:outputLabel value="#{oBI.CreateAlarmGroupsLabel_comment}" for="comment" />
+                    <h:inputText id="comment" value="#{alarmGroupsController.selected.comment}" title="#{oBI.CreateAlarmGroupsTitle_comment}" />
+                    <h:outputLabel value="#{oBI.CreateAlarmGroupsLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{alarmGroupsController.selected.company}" title="#{oBI.CreateAlarmGroupsTitle_company}" required="true" requiredMessage="#{oBI.CreateAlarmGroupsRequiredMessage_company}">
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{alarmGroupsController.create}" value="#{oBI.CreateAlarmGroupsSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{alarmGroupsController.prepareList}" value="#{oBI.CreateAlarmGroupsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateAlarmGroupsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

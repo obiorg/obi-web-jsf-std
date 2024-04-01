@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateAlarmClassesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateAlarmClassesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{alarmClassesController.selected.id}" title="#{oBI.CreateAlarmClassesTitle_id}" required="true" requiredMessage="#{oBI.CreateAlarmClassesRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateAlarmClassesLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{alarmClassesController.selected.deleted}" title="#{oBI.CreateAlarmClassesTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.CreateAlarmClassesLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{alarmClassesController.selected.created}" title="#{oBI.CreateAlarmClassesTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateAlarmClassesLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{alarmClassesController.selected.changed}" title="#{oBI.CreateAlarmClassesTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateAlarmClassesLabel_class1}" for="class1" />
+                    <h:inputText id="class1" value="#{alarmClassesController.selected.class1}" title="#{oBI.CreateAlarmClassesTitle_class1}" required="true" requiredMessage="#{oBI.CreateAlarmClassesRequiredMessage_class1}"/>
+                    <h:outputLabel value="#{oBI.CreateAlarmClassesLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{alarmClassesController.selected.name}" title="#{oBI.CreateAlarmClassesTitle_name}" />
+                    <h:outputLabel value="#{oBI.CreateAlarmClassesLabel_comment}" for="comment" />
+                    <h:inputText id="comment" value="#{alarmClassesController.selected.comment}" title="#{oBI.CreateAlarmClassesTitle_comment}" />
+                    <h:outputLabel value="#{oBI.CreateAlarmClassesLabel_render}" for="render" />
+                    <h:selectOneMenu id="render" value="#{alarmClassesController.selected.render}" title="#{oBI.CreateAlarmClassesTitle_render}" >
+                        <f:selectItems value="#{alarmRenderController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.CreateAlarmClassesLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{alarmClassesController.selected.company}" title="#{oBI.CreateAlarmClassesTitle_company}" required="true" requiredMessage="#{oBI.CreateAlarmClassesRequiredMessage_company}">
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{alarmClassesController.create}" value="#{oBI.CreateAlarmClassesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{alarmClassesController.prepareList}" value="#{oBI.CreateAlarmClassesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateAlarmClassesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

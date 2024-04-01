@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.EditUserAccountRoleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.EditUserAccountRoleLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{userAccountRoleController.selected.id}" title="#{oBI.EditUserAccountRoleTitle_id}" required="true" requiredMessage="#{oBI.EditUserAccountRoleRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.EditUserAccountRoleLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{userAccountRoleController.selected.deleted}" title="#{oBI.EditUserAccountRoleTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.EditUserAccountRoleLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{userAccountRoleController.selected.created}" title="#{oBI.EditUserAccountRoleTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditUserAccountRoleLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{userAccountRoleController.selected.changed}" title="#{oBI.EditUserAccountRoleTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditUserAccountRoleLabel_user}" for="user" />
+                    <h:selectOneMenu id="user" value="#{userAccountRoleController.selected.user}" title="#{oBI.EditUserAccountRoleTitle_user}" required="true" requiredMessage="#{oBI.EditUserAccountRoleRequiredMessage_user}">
+                        <f:selectItems value="#{userAccountController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditUserAccountRoleLabel_role}" for="role" />
+                    <h:selectOneMenu id="role" value="#{userAccountRoleController.selected.role}" title="#{oBI.EditUserAccountRoleTitle_role}" required="true" requiredMessage="#{oBI.EditUserAccountRoleRequiredMessage_role}">
+                        <f:selectItems value="#{userRolesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{userAccountRoleController.update}" value="#{oBI.EditUserAccountRoleSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{oBI.EditUserAccountRoleViewLink}"/>
+                <br />
+                <h:commandLink action="#{userAccountRoleController.prepareList}" value="#{oBI.EditUserAccountRoleShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.EditUserAccountRoleIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

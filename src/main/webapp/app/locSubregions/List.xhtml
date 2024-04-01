@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ListLocSubregionsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{oBI.ListLocSubregionsEmpty}" rendered="#{locSubregionsController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{locSubregionsController.items.rowCount > 0}">
+                    <h:outputText value="#{locSubregionsController.pagination.pageFirstItem + 1}..#{locSubregionsController.pagination.pageLastItem + 1}/#{locSubregionsController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{locSubregionsController.previous}" value="#{oBI.Previous} #{locSubregionsController.pagination.pageSize}" rendered="#{locSubregionsController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{locSubregionsController.next}" value="#{oBI.Next} #{locSubregionsController.pagination.pageSize}" rendered="#{locSubregionsController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{locSubregionsController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocSubregionsTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocSubregionsTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocSubregionsTitle_translations}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.translations}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocSubregionsTitle_createdAt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createdAt}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocSubregionsTitle_updatedAt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.updatedAt}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocSubregionsTitle_flag}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flag}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocSubregionsTitle_wikiDataId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.wikiDataId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocSubregionsTitle_regionId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.regionId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{locSubregionsController.prepareView}" value="#{oBI.ListLocSubregionsViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{locSubregionsController.prepareEdit}" value="#{oBI.ListLocSubregionsEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{locSubregionsController.destroy}" value="#{oBI.ListLocSubregionsDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{locSubregionsController.prepareCreate}" value="#{oBI.ListLocSubregionsCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ListLocSubregionsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

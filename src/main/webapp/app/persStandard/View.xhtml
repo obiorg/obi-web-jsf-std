@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewPersStandardTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_id}"/>
+                    <h:outputText value="#{persStandardController.selected.id}" title="#{oBI.ViewPersStandardTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_deleted}"/>
+                    <h:outputText value="#{persStandardController.selected.deleted}" title="#{oBI.ViewPersStandardTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_created}"/>
+                    <h:outputText value="#{persStandardController.selected.created}" title="#{oBI.ViewPersStandardTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_changed}"/>
+                    <h:outputText value="#{persStandardController.selected.changed}" title="#{oBI.ViewPersStandardTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_VFloat}"/>
+                    <h:outputText value="#{persStandardController.selected.VFloat}" title="#{oBI.ViewPersStandardTitle_VFloat}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_VInt}"/>
+                    <h:outputText value="#{persStandardController.selected.VInt}" title="#{oBI.ViewPersStandardTitle_VInt}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_VBool}"/>
+                    <h:outputText value="#{persStandardController.selected.VBool}" title="#{oBI.ViewPersStandardTitle_VBool}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_VStr}"/>
+                    <h:outputText value="#{persStandardController.selected.VStr}" title="#{oBI.ViewPersStandardTitle_VStr}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_VDateTime}"/>
+                    <h:outputText value="#{persStandardController.selected.VDateTime}" title="#{oBI.ViewPersStandardTitle_VDateTime}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_VStamp}"/>
+                    <h:outputText value="#{persStandardController.selected.VStamp}" title="#{oBI.ViewPersStandardTitle_VStamp}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_stampStart}"/>
+                    <h:outputText value="#{persStandardController.selected.stampStart}" title="#{oBI.ViewPersStandardTitle_stampStart}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_stampEnd}"/>
+                    <h:outputText value="#{persStandardController.selected.stampEnd}" title="#{oBI.ViewPersStandardTitle_stampEnd}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_tbf}"/>
+                    <h:outputText value="#{persStandardController.selected.tbf}" title="#{oBI.ViewPersStandardTitle_tbf}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_ttr}"/>
+                    <h:outputText value="#{persStandardController.selected.ttr}" title="#{oBI.ViewPersStandardTitle_ttr}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_error}"/>
+                    <h:outputText value="#{persStandardController.selected.error}" title="#{oBI.ViewPersStandardTitle_error}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_errorMsg}"/>
+                    <h:outputText value="#{persStandardController.selected.errorMsg}" title="#{oBI.ViewPersStandardTitle_errorMsg}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_company}"/>
+                    <h:outputText value="#{persStandardController.selected.company}" title="#{oBI.ViewPersStandardTitle_company}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLabel_tag}"/>
+                    <h:outputText value="#{persStandardController.selected.tag}" title="#{oBI.ViewPersStandardTitle_tag}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{persStandardController.destroyAndView}" value="#{oBI.ViewPersStandardDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewPersStandardEditLink}"/>
+                <br />
+                <h:commandLink action="#{persStandardController.prepareCreate}" value="#{oBI.ViewPersStandardCreateLink}" />
+                <br />
+                <h:commandLink action="#{persStandardController.prepareList}" value="#{oBI.ViewPersStandardShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewPersStandardIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateLocCountriesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{locCountriesController.selected.id}" title="#{oBI.CreateLocCountriesTitle_id}" required="true" requiredMessage="#{oBI.CreateLocCountriesRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{locCountriesController.selected.name}" title="#{oBI.CreateLocCountriesTitle_name}" required="true" requiredMessage="#{oBI.CreateLocCountriesRequiredMessage_name}"/>
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_iso3}" for="iso3" />
+                    <h:inputText id="iso3" value="#{locCountriesController.selected.iso3}" title="#{oBI.CreateLocCountriesTitle_iso3}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_numericCode}" for="numericCode" />
+                    <h:inputText id="numericCode" value="#{locCountriesController.selected.numericCode}" title="#{oBI.CreateLocCountriesTitle_numericCode}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_iso2}" for="iso2" />
+                    <h:inputText id="iso2" value="#{locCountriesController.selected.iso2}" title="#{oBI.CreateLocCountriesTitle_iso2}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_phonecode}" for="phonecode" />
+                    <h:inputText id="phonecode" value="#{locCountriesController.selected.phonecode}" title="#{oBI.CreateLocCountriesTitle_phonecode}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_capital}" for="capital" />
+                    <h:inputText id="capital" value="#{locCountriesController.selected.capital}" title="#{oBI.CreateLocCountriesTitle_capital}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_currency}" for="currency" />
+                    <h:inputText id="currency" value="#{locCountriesController.selected.currency}" title="#{oBI.CreateLocCountriesTitle_currency}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_currencyName}" for="currencyName" />
+                    <h:inputText id="currencyName" value="#{locCountriesController.selected.currencyName}" title="#{oBI.CreateLocCountriesTitle_currencyName}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_currencySymbol}" for="currencySymbol" />
+                    <h:inputText id="currencySymbol" value="#{locCountriesController.selected.currencySymbol}" title="#{oBI.CreateLocCountriesTitle_currencySymbol}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_tld}" for="tld" />
+                    <h:inputText id="tld" value="#{locCountriesController.selected.tld}" title="#{oBI.CreateLocCountriesTitle_tld}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_native1}" for="native1" />
+                    <h:inputText id="native1" value="#{locCountriesController.selected.native1}" title="#{oBI.CreateLocCountriesTitle_native1}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_region}" for="region" />
+                    <h:inputText id="region" value="#{locCountriesController.selected.region}" title="#{oBI.CreateLocCountriesTitle_region}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_subregion}" for="subregion" />
+                    <h:inputText id="subregion" value="#{locCountriesController.selected.subregion}" title="#{oBI.CreateLocCountriesTitle_subregion}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_nationality}" for="nationality" />
+                    <h:inputText id="nationality" value="#{locCountriesController.selected.nationality}" title="#{oBI.CreateLocCountriesTitle_nationality}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_timezones}" for="timezones" />
+                    <h:inputTextarea rows="4" cols="30" id="timezones" value="#{locCountriesController.selected.timezones}" title="#{oBI.CreateLocCountriesTitle_timezones}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_translations}" for="translations" />
+                    <h:inputTextarea rows="4" cols="30" id="translations" value="#{locCountriesController.selected.translations}" title="#{oBI.CreateLocCountriesTitle_translations}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_latitude}" for="latitude" />
+                    <h:inputText id="latitude" value="#{locCountriesController.selected.latitude}" title="#{oBI.CreateLocCountriesTitle_latitude}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_longitude}" for="longitude" />
+                    <h:inputText id="longitude" value="#{locCountriesController.selected.longitude}" title="#{oBI.CreateLocCountriesTitle_longitude}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_emoji}" for="emoji" />
+                    <h:inputText id="emoji" value="#{locCountriesController.selected.emoji}" title="#{oBI.CreateLocCountriesTitle_emoji}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_emojiU}" for="emojiU" />
+                    <h:inputText id="emojiU" value="#{locCountriesController.selected.emojiU}" title="#{oBI.CreateLocCountriesTitle_emojiU}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_createdAt}" for="createdAt" />
+                    <h:inputText id="createdAt" value="#{locCountriesController.selected.createdAt}" title="#{oBI.CreateLocCountriesTitle_createdAt}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_updatedAt}" for="updatedAt" />
+                    <h:inputText id="updatedAt" value="#{locCountriesController.selected.updatedAt}" title="#{oBI.CreateLocCountriesTitle_updatedAt}" required="true" requiredMessage="#{oBI.CreateLocCountriesRequiredMessage_updatedAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_flag}" for="flag" />
+                    <h:inputText id="flag" value="#{locCountriesController.selected.flag}" title="#{oBI.CreateLocCountriesTitle_flag}" required="true" requiredMessage="#{oBI.CreateLocCountriesRequiredMessage_flag}"/>
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_wikiDataId}" for="wikiDataId" />
+                    <h:inputText id="wikiDataId" value="#{locCountriesController.selected.wikiDataId}" title="#{oBI.CreateLocCountriesTitle_wikiDataId}" />
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_regionId}" for="regionId" />
+                    <h:selectOneMenu id="regionId" value="#{locCountriesController.selected.regionId}" title="#{oBI.CreateLocCountriesTitle_regionId}" >
+                        <f:selectItems value="#{locRegionsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.CreateLocCountriesLabel_subregionId}" for="subregionId" />
+                    <h:selectOneMenu id="subregionId" value="#{locCountriesController.selected.subregionId}" title="#{oBI.CreateLocCountriesTitle_subregionId}" >
+                        <f:selectItems value="#{locSubregionsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{locCountriesController.create}" value="#{oBI.CreateLocCountriesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{locCountriesController.prepareList}" value="#{oBI.CreateLocCountriesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateLocCountriesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

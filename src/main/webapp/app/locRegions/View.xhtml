@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewLocRegionsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewLocRegionsLabel_id}"/>
+                    <h:outputText value="#{locRegionsController.selected.id}" title="#{oBI.ViewLocRegionsTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewLocRegionsLabel_name}"/>
+                    <h:outputText value="#{locRegionsController.selected.name}" title="#{oBI.ViewLocRegionsTitle_name}"/>
+                    <h:outputText value="#{oBI.ViewLocRegionsLabel_translations}"/>
+                    <h:outputText value="#{locRegionsController.selected.translations}" title="#{oBI.ViewLocRegionsTitle_translations}"/>
+                    <h:outputText value="#{oBI.ViewLocRegionsLabel_createdAt}"/>
+                    <h:outputText value="#{locRegionsController.selected.createdAt}" title="#{oBI.ViewLocRegionsTitle_createdAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewLocRegionsLabel_updatedAt}"/>
+                    <h:outputText value="#{locRegionsController.selected.updatedAt}" title="#{oBI.ViewLocRegionsTitle_updatedAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewLocRegionsLabel_flag}"/>
+                    <h:outputText value="#{locRegionsController.selected.flag}" title="#{oBI.ViewLocRegionsTitle_flag}"/>
+                    <h:outputText value="#{oBI.ViewLocRegionsLabel_wikiDataId}"/>
+                    <h:outputText value="#{locRegionsController.selected.wikiDataId}" title="#{oBI.ViewLocRegionsTitle_wikiDataId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{locRegionsController.destroyAndView}" value="#{oBI.ViewLocRegionsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewLocRegionsEditLink}"/>
+                <br />
+                <h:commandLink action="#{locRegionsController.prepareCreate}" value="#{oBI.ViewLocRegionsCreateLink}" />
+                <br />
+                <h:commandLink action="#{locRegionsController.prepareList}" value="#{oBI.ViewLocRegionsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewLocRegionsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.ViewBusinessesTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+            
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            
+            
+            
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{OBI.ViewBusinessesLabel_id}"/>
+                    <h:outputText value="#{businessesController.selected.id}" title="#{OBI.ViewBusinessesTitle_id}"/>
+                    <h:outputText value="#{OBI.ViewBusinessesLabel_deleted}"/>
+                    <h:outputText value="#{businessesController.selected.deleted}" title="#{OBI.ViewBusinessesTitle_deleted}"/>
+                    <h:outputText value="#{OBI.ViewBusinessesLabel_created}"/>
+                    <h:outputText value="#{businessesController.selected.created}" title="#{OBI.ViewBusinessesTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewBusinessesLabel_changed}"/>
+                    <h:outputText value="#{businessesController.selected.changed}" title="#{OBI.ViewBusinessesTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewBusinessesLabel_business}"/>
+                    <h:outputText value="#{businessesController.selected.business}" title="#{OBI.ViewBusinessesTitle_business}"/>
+                    <h:outputText value="#{OBI.ViewBusinessesLabel_designation}"/>
+                    <h:outputText value="#{businessesController.selected.designation}" title="#{OBI.ViewBusinessesTitle_designation}"/>
+                    <h:outputText value="#{OBI.ViewBusinessesLabel_builded}"/>
+                    <h:outputText value="#{businessesController.selected.builded}" title="#{OBI.ViewBusinessesTitle_builded}"/>
+                    <h:outputText value="#{OBI.ViewBusinessesLabel_main}"/>
+                    <h:outputText value="#{businessesController.selected.main}" title="#{OBI.ViewBusinessesTitle_main}"/>
+                    <h:outputText value="#{OBI.ViewBusinessesLabel_activated}"/>
+                    <h:outputText value="#{businessesController.selected.activated}" title="#{OBI.ViewBusinessesTitle_activated}"/>
+                    <h:outputText value="#{OBI.ViewBusinessesLabel_logoPath}"/>
+                    <h:outputText value="#{businessesController.selected.logoPath}" title="#{OBI.ViewBusinessesTitle_logoPath}"/>
+                    <h:outputText value="#{OBI.ViewBusinessesLabel_entity}"/>
+                    <h:outputText value="#{businessesController.selected.entity}" title="#{OBI.ViewBusinessesTitle_entity}"/>
+                    <h:outputText value="#{OBI.ViewBusinessesLabel_location}"/>
+                    <h:outputText value="#{businessesController.selected.location}" title="#{OBI.ViewBusinessesTitle_location}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{businessesController.destroyAndView}" value="#{OBI.ViewBusinessesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{OBI.ViewBusinessesEditLink}"/>
+                <br />
+                <h:commandLink action="#{businessesController.prepareCreate}" value="#{OBI.ViewBusinessesCreateLink}" />
+                <br />
+                <h:commandLink action="#{businessesController.prepareList}" value="#{OBI.ViewBusinessesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.ViewBusinessesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

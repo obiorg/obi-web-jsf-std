@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{oBI.ListEquipementsExternalProvidersEmpty}" rendered="#{equipementsExternalProvidersController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{equipementsExternalProvidersController.items.rowCount > 0}">
+                    <h:outputText value="#{equipementsExternalProvidersController.pagination.pageFirstItem + 1}..#{equipementsExternalProvidersController.pagination.pageLastItem + 1}/#{equipementsExternalProvidersController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{equipementsExternalProvidersController.previous}" value="#{oBI.Previous} #{equipementsExternalProvidersController.pagination.pageSize}" rendered="#{equipementsExternalProvidersController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{equipementsExternalProvidersController.next}" value="#{oBI.Next} #{equipementsExternalProvidersController.pagination.pageSize}" rendered="#{equipementsExternalProvidersController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{equipementsExternalProvidersController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_deleted}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deleted}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_created}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.created}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_changed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.changed}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_provider}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.provider}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_type}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.type}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_sourceType}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sourceType}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_link}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.link}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_source}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.source}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_bddServer}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bddServer}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_bddUser}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bddUser}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_bddPassword}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bddPassword}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_bddPort}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bddPort}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_approuved}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.approuved}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_paramBool1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paramBool1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_paramBool2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paramBool2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_paramBool3}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paramBool3}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_paramBool4}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paramBool4}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_paramBool5}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paramBool5}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_paramInt1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paramInt1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_paramInt2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paramInt2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_paramInt3}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paramInt3}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_paramInt4}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paramInt4}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_paramInt5}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paramInt5}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_paramStr1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paramStr1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_paramStr2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paramStr2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_paramStr3}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paramStr3}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_paramStr4}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paramStr4}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_paramStr5}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paramStr5}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsExternalProvidersTitle_company}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.company}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{equipementsExternalProvidersController.prepareView}" value="#{oBI.ListEquipementsExternalProvidersViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{equipementsExternalProvidersController.prepareEdit}" value="#{oBI.ListEquipementsExternalProvidersEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{equipementsExternalProvidersController.destroy}" value="#{oBI.ListEquipementsExternalProvidersDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{equipementsExternalProvidersController.prepareCreate}" value="#{oBI.ListEquipementsExternalProvidersCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ListEquipementsExternalProvidersIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

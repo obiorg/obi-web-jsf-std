@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.EditAnalyseAllowedTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.EditAnalyseAllowedLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{analyseAllowedController.selected.id}" title="#{oBI.EditAnalyseAllowedTitle_id}" required="true" requiredMessage="#{oBI.EditAnalyseAllowedRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.EditAnalyseAllowedLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{analyseAllowedController.selected.deleted}" title="#{oBI.EditAnalyseAllowedTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.EditAnalyseAllowedLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{analyseAllowedController.selected.created}" title="#{oBI.EditAnalyseAllowedTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditAnalyseAllowedLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{analyseAllowedController.selected.changed}" title="#{oBI.EditAnalyseAllowedTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditAnalyseAllowedLabel_designation}" for="designation" />
+                    <h:inputText id="designation" value="#{analyseAllowedController.selected.designation}" title="#{oBI.EditAnalyseAllowedTitle_designation}" />
+                    <h:outputLabel value="#{oBI.EditAnalyseAllowedLabel_enable}" for="enable" />
+                    <h:inputText id="enable" value="#{analyseAllowedController.selected.enable}" title="#{oBI.EditAnalyseAllowedTitle_enable}" />
+                    <h:outputLabel value="#{oBI.EditAnalyseAllowedLabel_description}" for="description" />
+                    <h:inputTextarea rows="4" cols="30" id="description" value="#{analyseAllowedController.selected.description}" title="#{oBI.EditAnalyseAllowedTitle_description}" />
+                    <h:outputLabel value="#{oBI.EditAnalyseAllowedLabel_point}" for="point" />
+                    <h:selectOneMenu id="point" value="#{analyseAllowedController.selected.point}" title="#{oBI.EditAnalyseAllowedTitle_point}" required="true" requiredMessage="#{oBI.EditAnalyseAllowedRequiredMessage_point}">
+                        <f:selectItems value="#{analysePointsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditAnalyseAllowedLabel_type}" for="type" />
+                    <h:selectOneMenu id="type" value="#{analyseAllowedController.selected.type}" title="#{oBI.EditAnalyseAllowedTitle_type}" required="true" requiredMessage="#{oBI.EditAnalyseAllowedRequiredMessage_type}">
+                        <f:selectItems value="#{analyseTypesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditAnalyseAllowedLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{analyseAllowedController.selected.company}" title="#{oBI.EditAnalyseAllowedTitle_company}" required="true" requiredMessage="#{oBI.EditAnalyseAllowedRequiredMessage_company}">
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditAnalyseAllowedLabel_tag}" for="tag" />
+                    <h:selectOneMenu id="tag" value="#{analyseAllowedController.selected.tag}" title="#{oBI.EditAnalyseAllowedTitle_tag}" required="true" requiredMessage="#{oBI.EditAnalyseAllowedRequiredMessage_tag}">
+                        <f:selectItems value="#{tagsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{analyseAllowedController.update}" value="#{oBI.EditAnalyseAllowedSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{oBI.EditAnalyseAllowedViewLink}"/>
+                <br />
+                <h:commandLink action="#{analyseAllowedController.prepareList}" value="#{oBI.EditAnalyseAllowedShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.EditAnalyseAllowedIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

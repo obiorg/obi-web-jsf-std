@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.EditMachinesTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+
+            
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{machinesController.selected.id}" title="#{OBI.EditMachinesTitle_id}" required="true" requiredMessage="#{OBI.EditMachinesRequiredMessage_id}"/>
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{machinesController.selected.deleted}" title="#{OBI.EditMachinesTitle_deleted}" />
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{machinesController.selected.created}" title="#{OBI.EditMachinesTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{machinesController.selected.changed}" title="#{OBI.EditMachinesTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_address}" for="address" />
+                    <h:inputText id="address" value="#{machinesController.selected.address}" title="#{OBI.EditMachinesTitle_address}" required="true" requiredMessage="#{OBI.EditMachinesRequiredMessage_address}"/>
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_mask}" for="mask" />
+                    <h:inputText id="mask" value="#{machinesController.selected.mask}" title="#{OBI.EditMachinesTitle_mask}" />
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_dns}" for="dns" />
+                    <h:inputText id="dns" value="#{machinesController.selected.dns}" title="#{OBI.EditMachinesTitle_dns}" />
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_ipv6}" for="ipv6" />
+                    <h:inputText id="ipv6" value="#{machinesController.selected.ipv6}" title="#{OBI.EditMachinesTitle_ipv6}" />
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_port}" for="port" />
+                    <h:inputText id="port" value="#{machinesController.selected.port}" title="#{OBI.EditMachinesTitle_port}" />
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{machinesController.selected.name}" title="#{OBI.EditMachinesTitle_name}" />
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_rack}" for="rack" />
+                    <h:inputText id="rack" value="#{machinesController.selected.rack}" title="#{OBI.EditMachinesTitle_rack}" />
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_slot}" for="slot" />
+                    <h:inputText id="slot" value="#{machinesController.selected.slot}" title="#{OBI.EditMachinesTitle_slot}" />
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_mqqt}" for="mqqt" />
+                    <h:inputText id="mqqt" value="#{machinesController.selected.mqqt}" title="#{OBI.EditMachinesTitle_mqqt}" />
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_mqqtUser}" for="mqqtUser" />
+                    <h:inputText id="mqqtUser" value="#{machinesController.selected.mqqtUser}" title="#{OBI.EditMachinesTitle_mqqtUser}" />
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_mqqtPassword}" for="mqqtPassword" />
+                    <h:inputText id="mqqtPassword" value="#{machinesController.selected.mqqtPassword}" title="#{OBI.EditMachinesTitle_mqqtPassword}" />
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_webhook}" for="webhook" />
+                    <h:inputText id="webhook" value="#{machinesController.selected.webhook}" title="#{OBI.EditMachinesTitle_webhook}" />
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_webhookSecret}" for="webhookSecret" />
+                    <h:inputText id="webhookSecret" value="#{machinesController.selected.webhookSecret}" title="#{OBI.EditMachinesTitle_webhookSecret}" />
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_bus}" for="bus" />
+                    <h:inputText id="bus" value="#{machinesController.selected.bus}" title="#{OBI.EditMachinesTitle_bus}" />
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{machinesController.selected.description}" title="#{OBI.EditMachinesTitle_description}" />
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{machinesController.selected.company}" title="#{OBI.EditMachinesTitle_company}" required="true" requiredMessage="#{OBI.EditMachinesRequiredMessage_company}">
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{OBI.EditMachinesLabel_driver}" for="driver" />
+                    <h:selectOneMenu id="driver" value="#{machinesController.selected.driver}" title="#{OBI.EditMachinesTitle_driver}" required="true" requiredMessage="#{OBI.EditMachinesRequiredMessage_driver}">
+                        <f:selectItems value="#{machDriversController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{machinesController.update}" value="#{OBI.EditMachinesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{OBI.EditMachinesViewLink}"/>
+                <br />
+                <h:commandLink action="#{machinesController.prepareList}" value="#{OBI.EditMachinesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.EditMachinesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

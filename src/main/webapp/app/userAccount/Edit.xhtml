@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.EditUserAccountTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.EditUserAccountLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{userAccountController.selected.id}" title="#{oBI.EditUserAccountTitle_id}" required="true" requiredMessage="#{oBI.EditUserAccountRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.EditUserAccountLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{userAccountController.selected.deleted}" title="#{oBI.EditUserAccountTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.EditUserAccountLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{userAccountController.selected.created}" title="#{oBI.EditUserAccountTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditUserAccountLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{userAccountController.selected.changed}" title="#{oBI.EditUserAccountTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditUserAccountLabel_firstName}" for="firstName" />
+                    <h:inputText id="firstName" value="#{userAccountController.selected.firstName}" title="#{oBI.EditUserAccountTitle_firstName}" required="true" requiredMessage="#{oBI.EditUserAccountRequiredMessage_firstName}"/>
+                    <h:outputLabel value="#{oBI.EditUserAccountLabel_lastName}" for="lastName" />
+                    <h:inputText id="lastName" value="#{userAccountController.selected.lastName}" title="#{oBI.EditUserAccountTitle_lastName}" required="true" requiredMessage="#{oBI.EditUserAccountRequiredMessage_lastName}"/>
+                    <h:outputLabel value="#{oBI.EditUserAccountLabel_middleName}" for="middleName" />
+                    <h:inputText id="middleName" value="#{userAccountController.selected.middleName}" title="#{oBI.EditUserAccountTitle_middleName}" />
+                    <h:outputLabel value="#{oBI.EditUserAccountLabel_initialLetter}" for="initialLetter" />
+                    <h:inputText id="initialLetter" value="#{userAccountController.selected.initialLetter}" title="#{oBI.EditUserAccountTitle_initialLetter}" />
+                    <h:outputLabel value="#{oBI.EditUserAccountLabel_genre}" for="genre" />
+                    <h:inputText id="genre" value="#{userAccountController.selected.genre}" title="#{oBI.EditUserAccountTitle_genre}" required="true" requiredMessage="#{oBI.EditUserAccountRequiredMessage_genre}"/>
+                    <h:outputLabel value="#{oBI.EditUserAccountLabel_dateOfBirth}" for="dateOfBirth" />
+                    <h:inputText id="dateOfBirth" value="#{userAccountController.selected.dateOfBirth}" title="#{oBI.EditUserAccountTitle_dateOfBirth}" required="true" requiredMessage="#{oBI.EditUserAccountRequiredMessage_dateOfBirth}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                </h:panelGrid>
+                <h:commandLink action="#{userAccountController.update}" value="#{oBI.EditUserAccountSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{oBI.EditUserAccountViewLink}"/>
+                <br />
+                <h:commandLink action="#{userAccountController.prepareList}" value="#{oBI.EditUserAccountShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.EditUserAccountIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

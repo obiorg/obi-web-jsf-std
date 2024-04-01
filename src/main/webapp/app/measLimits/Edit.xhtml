@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.EditMeasLimitsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{measLimitsController.selected.id}" title="#{oBI.EditMeasLimitsTitle_id}" required="true" requiredMessage="#{oBI.EditMeasLimitsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{measLimitsController.selected.deleted}" title="#{oBI.EditMeasLimitsTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{measLimitsController.selected.created}" title="#{oBI.EditMeasLimitsTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{measLimitsController.selected.changed}" title="#{oBI.EditMeasLimitsTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{measLimitsController.selected.name}" title="#{oBI.EditMeasLimitsTitle_name}" />
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_value}" for="value" />
+                    <h:inputText id="value" value="#{measLimitsController.selected.value}" title="#{oBI.EditMeasLimitsTitle_value}" />
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_delay}" for="delay" />
+                    <h:inputText id="delay" value="#{measLimitsController.selected.delay}" title="#{oBI.EditMeasLimitsTitle_delay}" />
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_hysteresis}" for="hysteresis" />
+                    <h:inputText id="hysteresis" value="#{measLimitsController.selected.hysteresis}" title="#{oBI.EditMeasLimitsTitle_hysteresis}" />
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_target}" for="target" />
+                    <h:inputText id="target" value="#{measLimitsController.selected.target}" title="#{oBI.EditMeasLimitsTitle_target}" />
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_enable}" for="enable" />
+                    <h:inputText id="enable" value="#{measLimitsController.selected.enable}" title="#{oBI.EditMeasLimitsTitle_enable}" />
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_sort}" for="sort" />
+                    <h:inputText id="sort" value="#{measLimitsController.selected.sort}" title="#{oBI.EditMeasLimitsTitle_sort}" />
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_description}" for="description" />
+                    <h:inputTextarea rows="4" cols="30" id="description" value="#{measLimitsController.selected.description}" title="#{oBI.EditMeasLimitsTitle_description}" />
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_business}" for="business" />
+                    <h:selectOneMenu id="business" value="#{measLimitsController.selected.business}" title="#{oBI.EditMeasLimitsTitle_business}" >
+                        <f:selectItems value="#{businessesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{measLimitsController.selected.company}" title="#{oBI.EditMeasLimitsTitle_company}" >
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_comparator}" for="comparator" />
+                    <h:selectOneMenu id="comparator" value="#{measLimitsController.selected.comparator}" title="#{oBI.EditMeasLimitsTitle_comparator}" required="true" requiredMessage="#{oBI.EditMeasLimitsRequiredMessage_comparator}">
+                        <f:selectItems value="#{measComparatorsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_group1}" for="group1" />
+                    <h:selectOneMenu id="group1" value="#{measLimitsController.selected.group1}" title="#{oBI.EditMeasLimitsTitle_group1}" >
+                        <f:selectItems value="#{measLimitsGroupsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditMeasLimitsLabel_tag}" for="tag" />
+                    <h:selectOneMenu id="tag" value="#{measLimitsController.selected.tag}" title="#{oBI.EditMeasLimitsTitle_tag}" >
+                        <f:selectItems value="#{tagsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{measLimitsController.update}" value="#{oBI.EditMeasLimitsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{oBI.EditMeasLimitsViewLink}"/>
+                <br />
+                <h:commandLink action="#{measLimitsController.prepareList}" value="#{oBI.EditMeasLimitsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.EditMeasLimitsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

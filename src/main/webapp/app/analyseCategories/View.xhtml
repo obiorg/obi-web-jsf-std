@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewAnalyseCategoriesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewAnalyseCategoriesLabel_id}"/>
+                    <h:outputText value="#{analyseCategoriesController.selected.id}" title="#{oBI.ViewAnalyseCategoriesTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewAnalyseCategoriesLabel_deleted}"/>
+                    <h:outputText value="#{analyseCategoriesController.selected.deleted}" title="#{oBI.ViewAnalyseCategoriesTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewAnalyseCategoriesLabel_created}"/>
+                    <h:outputText value="#{analyseCategoriesController.selected.created}" title="#{oBI.ViewAnalyseCategoriesTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewAnalyseCategoriesLabel_changed}"/>
+                    <h:outputText value="#{analyseCategoriesController.selected.changed}" title="#{oBI.ViewAnalyseCategoriesTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewAnalyseCategoriesLabel_category}"/>
+                    <h:outputText value="#{analyseCategoriesController.selected.category}" title="#{oBI.ViewAnalyseCategoriesTitle_category}"/>
+                    <h:outputText value="#{oBI.ViewAnalyseCategoriesLabel_designation}"/>
+                    <h:outputText value="#{analyseCategoriesController.selected.designation}" title="#{oBI.ViewAnalyseCategoriesTitle_designation}"/>
+                    <h:outputText value="#{oBI.ViewAnalyseCategoriesLabel_description}"/>
+                    <h:outputText value="#{analyseCategoriesController.selected.description}" title="#{oBI.ViewAnalyseCategoriesTitle_description}"/>
+                    <h:outputText value="#{oBI.ViewAnalyseCategoriesLabel_business}"/>
+                    <h:outputText value="#{analyseCategoriesController.selected.business}" title="#{oBI.ViewAnalyseCategoriesTitle_business}"/>
+                    <h:outputText value="#{oBI.ViewAnalyseCategoriesLabel_company}"/>
+                    <h:outputText value="#{analyseCategoriesController.selected.company}" title="#{oBI.ViewAnalyseCategoriesTitle_company}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{analyseCategoriesController.destroyAndView}" value="#{oBI.ViewAnalyseCategoriesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewAnalyseCategoriesEditLink}"/>
+                <br />
+                <h:commandLink action="#{analyseCategoriesController.prepareCreate}" value="#{oBI.ViewAnalyseCategoriesCreateLink}" />
+                <br />
+                <h:commandLink action="#{analyseCategoriesController.prepareList}" value="#{oBI.ViewAnalyseCategoriesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewAnalyseCategoriesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

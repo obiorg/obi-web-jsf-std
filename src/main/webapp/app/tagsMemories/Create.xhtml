@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.CreateTagsMemoriesTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+
+            
+<!--            <h:outputLabel value="#{OBI.CreateTagsMemoriesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{tagsMemoriesController.selected.id}" title="#{OBI.CreateTagsMemoriesTitle_id}" required="true" requiredMessage="#{OBI.CreateTagsMemoriesRequiredMessage_id}"/>
+                    <h:outputLabel value="#{OBI.CreateTagsMemoriesLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{tagsMemoriesController.selected.deleted}" title="#{OBI.CreateTagsMemoriesTitle_deleted}" />
+                    <h:outputLabel value="#{OBI.CreateTagsMemoriesLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{tagsMemoriesController.selected.created}" title="#{OBI.CreateTagsMemoriesTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{OBI.CreateTagsMemoriesLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{tagsMemoriesController.selected.changed}" title="#{OBI.CreateTagsMemoriesTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    -->
+            
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{OBI.CreateTagsMemoriesLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{tagsMemoriesController.selected.name}" title="#{OBI.CreateTagsMemoriesTitle_name}" required="true" requiredMessage="#{OBI.CreateTagsMemoriesRequiredMessage_name}"/>
+                    <h:outputLabel value="#{OBI.CreateTagsMemoriesLabel_comment}" for="comment" />
+                    <h:inputText id="comment" value="#{tagsMemoriesController.selected.comment}" title="#{OBI.CreateTagsMemoriesTitle_comment}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tagsMemoriesController.create}" value="#{OBI.CreateTagsMemoriesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{tagsMemoriesController.prepareList}" value="#{OBI.CreateTagsMemoriesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.CreateTagsMemoriesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

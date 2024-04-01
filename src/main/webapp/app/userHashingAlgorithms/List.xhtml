@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ListUserHashingAlgorithmsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{oBI.ListUserHashingAlgorithmsEmpty}" rendered="#{userHashingAlgorithmsController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{userHashingAlgorithmsController.items.rowCount > 0}">
+                    <h:outputText value="#{userHashingAlgorithmsController.pagination.pageFirstItem + 1}..#{userHashingAlgorithmsController.pagination.pageLastItem + 1}/#{userHashingAlgorithmsController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{userHashingAlgorithmsController.previous}" value="#{oBI.Previous} #{userHashingAlgorithmsController.pagination.pageSize}" rendered="#{userHashingAlgorithmsController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{userHashingAlgorithmsController.next}" value="#{oBI.Next} #{userHashingAlgorithmsController.pagination.pageSize}" rendered="#{userHashingAlgorithmsController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{userHashingAlgorithmsController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserHashingAlgorithmsTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserHashingAlgorithmsTitle_deleted}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deleted}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserHashingAlgorithmsTitle_created}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.created}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserHashingAlgorithmsTitle_changed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.changed}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserHashingAlgorithmsTitle_algorithmName}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.algorithmName}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserHashingAlgorithmsTitle_designation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.designation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{userHashingAlgorithmsController.prepareView}" value="#{oBI.ListUserHashingAlgorithmsViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{userHashingAlgorithmsController.prepareEdit}" value="#{oBI.ListUserHashingAlgorithmsEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{userHashingAlgorithmsController.destroy}" value="#{oBI.ListUserHashingAlgorithmsDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{userHashingAlgorithmsController.prepareCreate}" value="#{oBI.ListUserHashingAlgorithmsCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ListUserHashingAlgorithmsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

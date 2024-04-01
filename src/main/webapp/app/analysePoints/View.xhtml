@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewAnalysePointsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewAnalysePointsLabel_id}"/>
+                    <h:outputText value="#{analysePointsController.selected.id}" title="#{oBI.ViewAnalysePointsTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewAnalysePointsLabel_deleted}"/>
+                    <h:outputText value="#{analysePointsController.selected.deleted}" title="#{oBI.ViewAnalysePointsTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewAnalysePointsLabel_created}"/>
+                    <h:outputText value="#{analysePointsController.selected.created}" title="#{oBI.ViewAnalysePointsTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewAnalysePointsLabel_changed}"/>
+                    <h:outputText value="#{analysePointsController.selected.changed}" title="#{oBI.ViewAnalysePointsTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewAnalysePointsLabel_point}"/>
+                    <h:outputText value="#{analysePointsController.selected.point}" title="#{oBI.ViewAnalysePointsTitle_point}"/>
+                    <h:outputText value="#{oBI.ViewAnalysePointsLabel_designation}"/>
+                    <h:outputText value="#{analysePointsController.selected.designation}" title="#{oBI.ViewAnalysePointsTitle_designation}"/>
+                    <h:outputText value="#{oBI.ViewAnalysePointsLabel_available}"/>
+                    <h:outputText value="#{analysePointsController.selected.available}" title="#{oBI.ViewAnalysePointsTitle_available}"/>
+                    <h:outputText value="#{oBI.ViewAnalysePointsLabel_picture}"/>
+                    <h:outputText value="#{analysePointsController.selected.picture}" title="#{oBI.ViewAnalysePointsTitle_picture}"/>
+                    <h:outputText value="#{oBI.ViewAnalysePointsLabel_description}"/>
+                    <h:outputText value="#{analysePointsController.selected.description}" title="#{oBI.ViewAnalysePointsTitle_description}"/>
+                    <h:outputText value="#{oBI.ViewAnalysePointsLabel_company}"/>
+                    <h:outputText value="#{analysePointsController.selected.company}" title="#{oBI.ViewAnalysePointsTitle_company}"/>
+                    <h:outputText value="#{oBI.ViewAnalysePointsLabel_equipement}"/>
+                    <h:outputText value="#{analysePointsController.selected.equipement}" title="#{oBI.ViewAnalysePointsTitle_equipement}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{analysePointsController.destroyAndView}" value="#{oBI.ViewAnalysePointsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewAnalysePointsEditLink}"/>
+                <br />
+                <h:commandLink action="#{analysePointsController.prepareCreate}" value="#{oBI.ViewAnalysePointsCreateLink}" />
+                <br />
+                <h:commandLink action="#{analysePointsController.prepareList}" value="#{oBI.ViewAnalysePointsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewAnalysePointsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

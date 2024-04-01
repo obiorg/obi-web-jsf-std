@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.CreateEntitiesTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <!--                    <h:outputLabel value="#{OBI.CreateEntitiesLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{entitiesController.selected.deleted}" title="#{OBI.CreateEntitiesTitle_deleted}" />
+                    <h:outputLabel value="#{OBI.CreateEntitiesLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{entitiesController.selected.created}" title="#{OBI.CreateEntitiesTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{OBI.CreateEntitiesLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{entitiesController.selected.changed}" title="#{OBI.CreateEntitiesTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>-->
+                <h:panelGrid columns="2">
+
+   
+                    <h:outputLabel value="#{OBI.CreateEntitiesLabel_entity}" for="entity" />
+                    <h:inputText id="entity" value="#{entitiesController.selected.entity}" title="#{OBI.CreateEntitiesTitle_entity}" required="true" requiredMessage="#{OBI.CreateEntitiesRequiredMessage_entity}"/>
+                    <h:outputLabel value="#{OBI.CreateEntitiesLabel_designation}" for="designation" />
+                    <h:inputText id="designation" value="#{entitiesController.selected.designation}" title="#{OBI.CreateEntitiesTitle_designation}" />
+                    <h:outputLabel value="#{OBI.CreateEntitiesLabel_builded}" for="builded" />
+                    <h:inputText id="builded" value="#{entitiesController.selected.builded}" title="#{OBI.CreateEntitiesTitle_builded}" />
+                    <h:outputLabel value="#{OBI.CreateEntitiesLabel_main}" for="main" />
+                    <h:inputText id="main" value="#{entitiesController.selected.main}" title="#{OBI.CreateEntitiesTitle_main}" />
+                    <h:outputLabel value="#{OBI.CreateEntitiesLabel_activated}" for="activated" />
+                    <h:inputText id="activated" value="#{entitiesController.selected.activated}" title="#{OBI.CreateEntitiesTitle_activated}" />
+                    <h:outputLabel value="#{OBI.CreateEntitiesLabel_logoPath}" for="logoPath" />
+                    <h:inputText id="logoPath" value="#{entitiesController.selected.logoPath}" title="#{OBI.CreateEntitiesTitle_logoPath}" />
+                    <h:outputLabel value="#{OBI.CreateEntitiesLabel_location}" for="location" />
+                    <h:selectOneMenu id="location" value="#{entitiesController.selected.location}" title="#{OBI.CreateEntitiesTitle_location}" >
+                        <f:selectItems value="#{locationsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{entitiesController.create}" value="#{OBI.CreateEntitiesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{entitiesController.prepareList}" value="#{OBI.CreateEntitiesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.CreateEntitiesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

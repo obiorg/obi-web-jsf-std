@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewAnalyseTypesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewAnalyseTypesLabel_id}"/>
+                    <h:outputText value="#{analyseTypesController.selected.id}" title="#{oBI.ViewAnalyseTypesTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewAnalyseTypesLabel_deleted}"/>
+                    <h:outputText value="#{analyseTypesController.selected.deleted}" title="#{oBI.ViewAnalyseTypesTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewAnalyseTypesLabel_created}"/>
+                    <h:outputText value="#{analyseTypesController.selected.created}" title="#{oBI.ViewAnalyseTypesTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewAnalyseTypesLabel_changed}"/>
+                    <h:outputText value="#{analyseTypesController.selected.changed}" title="#{oBI.ViewAnalyseTypesTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewAnalyseTypesLabel_type}"/>
+                    <h:outputText value="#{analyseTypesController.selected.type}" title="#{oBI.ViewAnalyseTypesTitle_type}"/>
+                    <h:outputText value="#{oBI.ViewAnalyseTypesLabel_designation}"/>
+                    <h:outputText value="#{analyseTypesController.selected.designation}" title="#{oBI.ViewAnalyseTypesTitle_designation}"/>
+                    <h:outputText value="#{oBI.ViewAnalyseTypesLabel_description}"/>
+                    <h:outputText value="#{analyseTypesController.selected.description}" title="#{oBI.ViewAnalyseTypesTitle_description}"/>
+                    <h:outputText value="#{oBI.ViewAnalyseTypesLabel_category}"/>
+                    <h:outputText value="#{analyseTypesController.selected.category}" title="#{oBI.ViewAnalyseTypesTitle_category}"/>
+                    <h:outputText value="#{oBI.ViewAnalyseTypesLabel_method}"/>
+                    <h:outputText value="#{analyseTypesController.selected.method}" title="#{oBI.ViewAnalyseTypesTitle_method}"/>
+                    <h:outputText value="#{oBI.ViewAnalyseTypesLabel_business}"/>
+                    <h:outputText value="#{analyseTypesController.selected.business}" title="#{oBI.ViewAnalyseTypesTitle_business}"/>
+                    <h:outputText value="#{oBI.ViewAnalyseTypesLabel_company}"/>
+                    <h:outputText value="#{analyseTypesController.selected.company}" title="#{oBI.ViewAnalyseTypesTitle_company}"/>
+                    <h:outputText value="#{oBI.ViewAnalyseTypesLabel_unit}"/>
+                    <h:outputText value="#{analyseTypesController.selected.unit}" title="#{oBI.ViewAnalyseTypesTitle_unit}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{analyseTypesController.destroyAndView}" value="#{oBI.ViewAnalyseTypesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewAnalyseTypesEditLink}"/>
+                <br />
+                <h:commandLink action="#{analyseTypesController.prepareCreate}" value="#{oBI.ViewAnalyseTypesCreateLink}" />
+                <br />
+                <h:commandLink action="#{analyseTypesController.prepareList}" value="#{oBI.ViewAnalyseTypesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewAnalyseTypesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

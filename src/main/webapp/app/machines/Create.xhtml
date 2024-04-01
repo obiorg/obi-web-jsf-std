@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.CreateMachinesTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+
+<!--            <h:outputLabel value="#{OBI.CreateMachinesLabel_id}" for="id" />
+                 <h:inputText id="id" value="#{machinesController.selected.id}" title="#{OBI.CreateMachinesTitle_id}" required="true" requiredMessage="#{OBI.CreateMachinesRequiredMessage_id}"/>
+                 <h:outputLabel value="#{OBI.CreateMachinesLabel_deleted}" for="deleted" />
+                 <h:inputText id="deleted" value="#{machinesController.selected.deleted}" title="#{OBI.CreateMachinesTitle_deleted}" />
+                 <h:outputLabel value="#{OBI.CreateMachinesLabel_created}" for="created" />
+                 <h:inputText id="created" value="#{machinesController.selected.created}" title="#{OBI.CreateMachinesTitle_created}" >
+                     <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                 </h:inputText>
+                 <h:outputLabel value="#{OBI.CreateMachinesLabel_changed}" for="changed" />
+                 <h:inputText id="changed" value="#{machinesController.selected.changed}" title="#{OBI.CreateMachinesTitle_changed}" >
+                     <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                 </h:inputText>
+            -->
+
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{machinesController.selected.name}" title="#{OBI.CreateMachinesTitle_name}" />
+                    
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{machinesController.selected.company}" title="#{OBI.CreateMachinesTitle_company}" required="true" requiredMessage="#{OBI.CreateMachinesRequiredMessage_company}">
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_driver}" for="driver" />
+                    <h:selectOneMenu id="driver" value="#{machinesController.selected.driver}" title="#{OBI.CreateMachinesTitle_driver}" required="true" requiredMessage="#{OBI.CreateMachinesRequiredMessage_driver}">
+                        <f:selectItems value="#{machDriversController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel value="Réseau"  styleClass="text-end fw-bold" /> <hr />
+                    
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_address}" for="address" />
+                    <h:inputText id="address" value="#{machinesController.selected.address}" title="#{OBI.CreateMachinesTitle_address}" required="true" requiredMessage="#{OBI.CreateMachinesRequiredMessage_address}"/>
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_mask}" for="mask" />
+                    <h:inputText id="mask" value="#{machinesController.selected.mask}" title="#{OBI.CreateMachinesTitle_mask}" />
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_dns}" for="dns" />
+                    <h:inputText id="dns" value="#{machinesController.selected.dns}" title="#{OBI.CreateMachinesTitle_dns}" />
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_ipv6}" for="ipv6" />
+                    <h:inputText id="ipv6" value="#{machinesController.selected.ipv6}" title="#{OBI.CreateMachinesTitle_ipv6}" />
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_port}" for="port" />
+                    <h:inputText id="port" value="#{machinesController.selected.port}" title="#{OBI.CreateMachinesTitle_port}" />
+                    
+                    <h:outputLabel value="CPU RACK"  styleClass="text-end fw-bold" /> <hr />
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_rack}" for="rack" />
+                    <h:inputText id="rack" value="#{machinesController.selected.rack}" title="#{OBI.CreateMachinesTitle_rack}" />
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_slot}" for="slot" />
+                    <h:inputText id="slot" value="#{machinesController.selected.slot}" title="#{OBI.CreateMachinesTitle_slot}" />
+                    
+                    <h:outputLabel value="MQTT"  styleClass="text-end fw-bold" /> <hr />
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_mqqt}" for="mqqt" />
+                    <h:inputText id="mqqt" value="#{machinesController.selected.mqqt}" title="#{OBI.CreateMachinesTitle_mqqt}" />
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_mqqtUser}" for="mqqtUser" />
+                    <h:inputText id="mqqtUser" value="#{machinesController.selected.mqqtUser}" title="#{OBI.CreateMachinesTitle_mqqtUser}" />
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_mqqtPassword}" for="mqqtPassword" />
+                    <h:inputText id="mqqtPassword" value="#{machinesController.selected.mqqtPassword}" title="#{OBI.CreateMachinesTitle_mqqtPassword}" />
+                    
+                    <h:outputLabel value="WEBHOOK"  styleClass="text-end fw-bold" /> <hr />
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_webhook}" for="webhook" />
+                    <h:inputText id="webhook" value="#{machinesController.selected.webhook}" title="#{OBI.CreateMachinesTitle_webhook}" />
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_webhookSecret}" for="webhookSecret" />
+                    <h:inputText id="webhookSecret" value="#{machinesController.selected.webhookSecret}" title="#{OBI.CreateMachinesTitle_webhookSecret}" />
+                    
+                    
+                    <h:outputLabel value="MODBUS"  styleClass="text-end fw-bold" /> <hr />
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_bus}" for="bus" />
+                    <h:inputText id="bus" value="#{machinesController.selected.bus}" title="#{OBI.CreateMachinesTitle_bus}" />
+                    
+                    <h:outputLabel value="Informations"  styleClass="text-end fw-bold" /> <hr />
+                    <h:outputLabel value="#{OBI.CreateMachinesLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{machinesController.selected.description}" title="#{OBI.CreateMachinesTitle_description}" />
+
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{machinesController.create}" value="#{OBI.CreateMachinesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{machinesController.prepareList}" value="#{OBI.CreateMachinesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.CreateMachinesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

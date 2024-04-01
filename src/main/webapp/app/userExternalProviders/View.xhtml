@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewUserExternalProvidersTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewUserExternalProvidersLabel_id}"/>
+                    <h:outputText value="#{userExternalProvidersController.selected.id}" title="#{oBI.ViewUserExternalProvidersTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewUserExternalProvidersLabel_deleted}"/>
+                    <h:outputText value="#{userExternalProvidersController.selected.deleted}" title="#{oBI.ViewUserExternalProvidersTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewUserExternalProvidersLabel_created}"/>
+                    <h:outputText value="#{userExternalProvidersController.selected.created}" title="#{oBI.ViewUserExternalProvidersTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewUserExternalProvidersLabel_changed}"/>
+                    <h:outputText value="#{userExternalProvidersController.selected.changed}" title="#{oBI.ViewUserExternalProvidersTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewUserExternalProvidersLabel_name}"/>
+                    <h:outputText value="#{userExternalProvidersController.selected.name}" title="#{oBI.ViewUserExternalProvidersTitle_name}"/>
+                    <h:outputText value="#{oBI.ViewUserExternalProvidersLabel_wsEndPoint}"/>
+                    <h:outputText value="#{userExternalProvidersController.selected.wsEndPoint}" title="#{oBI.ViewUserExternalProvidersTitle_wsEndPoint}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{userExternalProvidersController.destroyAndView}" value="#{oBI.ViewUserExternalProvidersDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewUserExternalProvidersEditLink}"/>
+                <br />
+                <h:commandLink action="#{userExternalProvidersController.prepareCreate}" value="#{oBI.ViewUserExternalProvidersCreateLink}" />
+                <br />
+                <h:commandLink action="#{userExternalProvidersController.prepareList}" value="#{oBI.ViewUserExternalProvidersShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewUserExternalProvidersIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

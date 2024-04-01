@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ListAnalysePointsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{oBI.ListAnalysePointsEmpty}" rendered="#{analysePointsController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{analysePointsController.items.rowCount > 0}">
+                    <h:outputText value="#{analysePointsController.pagination.pageFirstItem + 1}..#{analysePointsController.pagination.pageLastItem + 1}/#{analysePointsController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{analysePointsController.previous}" value="#{oBI.Previous} #{analysePointsController.pagination.pageSize}" rendered="#{analysePointsController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{analysePointsController.next}" value="#{oBI.Next} #{analysePointsController.pagination.pageSize}" rendered="#{analysePointsController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{analysePointsController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalysePointsTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalysePointsTitle_deleted}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deleted}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalysePointsTitle_created}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.created}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalysePointsTitle_changed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.changed}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalysePointsTitle_point}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.point}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalysePointsTitle_designation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.designation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalysePointsTitle_available}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.available}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalysePointsTitle_picture}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.picture}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalysePointsTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalysePointsTitle_company}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.company}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalysePointsTitle_equipement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.equipement}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{analysePointsController.prepareView}" value="#{oBI.ListAnalysePointsViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{analysePointsController.prepareEdit}" value="#{oBI.ListAnalysePointsEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{analysePointsController.destroy}" value="#{oBI.ListAnalysePointsDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{analysePointsController.prepareCreate}" value="#{oBI.ListAnalysePointsCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ListAnalysePointsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

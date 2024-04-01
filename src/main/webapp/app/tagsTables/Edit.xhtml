@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.EditTagsTablesTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+
+<!--            <h:outputLabel value="#{OBI.EditTagsTablesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{tagsTablesController.selected.id}" title="#{OBI.EditTagsTablesTitle_id}" required="true" requiredMessage="#{OBI.EditTagsTablesRequiredMessage_id}"/>
+                    
+                    <h:outputLabel value="#{OBI.EditTagsTablesLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{tagsTablesController.selected.created}" title="#{OBI.EditTagsTablesTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{OBI.EditTagsTablesLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{tagsTablesController.selected.changed}" title="#{OBI.EditTagsTablesTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    -->
+
+            
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{OBI.EditTagsTablesLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{tagsTablesController.selected.company}" 
+                                     title="#{OBI.EditTagsTablesTitle_company}"
+                                     disabled="true"
+                                     required="true" requiredMessage="#{OBI.EditTagsTablesRequiredMessage_company}">
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel value="#{OBI.EditTagsTablesLabel_table}" for="table" />
+                    <h:inputText disabled="true" id="table" value="#{tagsTablesController.selected.table}" title="#{OBI.EditTagsTablesTitle_table}"/>
+                    
+                    <h:outputLabel value="#{OBI.EditTagsTablesLabel_designation}" for="designation" />
+                    <h:inputText id="designation" value="#{tagsTablesController.selected.designation}" title="#{OBI.EditTagsTablesTitle_designation}" />
+                    
+                    
+                    <h:outputLabel value="#{OBI.EditTagsTablesLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{tagsTablesController.selected.deleted}" title="#{OBI.EditTagsTablesTitle_deleted}" />
+                    
+                    
+                    <h:outputLabel value="#{OBI.EditTagsTablesLabel_comment}" for="comment" />
+                    <h:inputText id="comment" value="#{tagsTablesController.selected.comment}" title="#{OBI.EditTagsTablesTitle_comment}" />
+                    
+                </h:panelGrid>
+                <h:commandLink action="#{tagsTablesController.update}" value="#{OBI.EditTagsTablesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{OBI.EditTagsTablesViewLink}"/>
+                <br />
+                <h:commandLink action="#{tagsTablesController.prepareList}" value="#{OBI.EditTagsTablesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.EditTagsTablesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

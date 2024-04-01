@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateUserExternalProvidersTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateUserExternalProvidersLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{userExternalProvidersController.selected.id}" title="#{oBI.CreateUserExternalProvidersTitle_id}" required="true" requiredMessage="#{oBI.CreateUserExternalProvidersRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateUserExternalProvidersLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{userExternalProvidersController.selected.deleted}" title="#{oBI.CreateUserExternalProvidersTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.CreateUserExternalProvidersLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{userExternalProvidersController.selected.created}" title="#{oBI.CreateUserExternalProvidersTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateUserExternalProvidersLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{userExternalProvidersController.selected.changed}" title="#{oBI.CreateUserExternalProvidersTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateUserExternalProvidersLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{userExternalProvidersController.selected.name}" title="#{oBI.CreateUserExternalProvidersTitle_name}" required="true" requiredMessage="#{oBI.CreateUserExternalProvidersRequiredMessage_name}"/>
+                    <h:outputLabel value="#{oBI.CreateUserExternalProvidersLabel_wsEndPoint}" for="wsEndPoint" />
+                    <h:inputText id="wsEndPoint" value="#{userExternalProvidersController.selected.wsEndPoint}" title="#{oBI.CreateUserExternalProvidersTitle_wsEndPoint}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{userExternalProvidersController.create}" value="#{oBI.CreateUserExternalProvidersSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{userExternalProvidersController.prepareList}" value="#{oBI.CreateUserExternalProvidersShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateUserExternalProvidersIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

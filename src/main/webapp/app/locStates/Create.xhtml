@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateLocStatesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateLocStatesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{locStatesController.selected.id}" title="#{oBI.CreateLocStatesTitle_id}" required="true" requiredMessage="#{oBI.CreateLocStatesRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateLocStatesLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{locStatesController.selected.name}" title="#{oBI.CreateLocStatesTitle_name}" required="true" requiredMessage="#{oBI.CreateLocStatesRequiredMessage_name}"/>
+                    <h:outputLabel value="#{oBI.CreateLocStatesLabel_countryCode}" for="countryCode" />
+                    <h:inputText id="countryCode" value="#{locStatesController.selected.countryCode}" title="#{oBI.CreateLocStatesTitle_countryCode}" required="true" requiredMessage="#{oBI.CreateLocStatesRequiredMessage_countryCode}"/>
+                    <h:outputLabel value="#{oBI.CreateLocStatesLabel_fipsCode}" for="fipsCode" />
+                    <h:inputText id="fipsCode" value="#{locStatesController.selected.fipsCode}" title="#{oBI.CreateLocStatesTitle_fipsCode}" />
+                    <h:outputLabel value="#{oBI.CreateLocStatesLabel_iso2}" for="iso2" />
+                    <h:inputText id="iso2" value="#{locStatesController.selected.iso2}" title="#{oBI.CreateLocStatesTitle_iso2}" />
+                    <h:outputLabel value="#{oBI.CreateLocStatesLabel_type}" for="type" />
+                    <h:inputText id="type" value="#{locStatesController.selected.type}" title="#{oBI.CreateLocStatesTitle_type}" />
+                    <h:outputLabel value="#{oBI.CreateLocStatesLabel_latitude}" for="latitude" />
+                    <h:inputText id="latitude" value="#{locStatesController.selected.latitude}" title="#{oBI.CreateLocStatesTitle_latitude}" />
+                    <h:outputLabel value="#{oBI.CreateLocStatesLabel_longitude}" for="longitude" />
+                    <h:inputText id="longitude" value="#{locStatesController.selected.longitude}" title="#{oBI.CreateLocStatesTitle_longitude}" />
+                    <h:outputLabel value="#{oBI.CreateLocStatesLabel_createdAt}" for="createdAt" />
+                    <h:inputText id="createdAt" value="#{locStatesController.selected.createdAt}" title="#{oBI.CreateLocStatesTitle_createdAt}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateLocStatesLabel_updatedAt}" for="updatedAt" />
+                    <h:inputText id="updatedAt" value="#{locStatesController.selected.updatedAt}" title="#{oBI.CreateLocStatesTitle_updatedAt}" required="true" requiredMessage="#{oBI.CreateLocStatesRequiredMessage_updatedAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateLocStatesLabel_flag}" for="flag" />
+                    <h:inputText id="flag" value="#{locStatesController.selected.flag}" title="#{oBI.CreateLocStatesTitle_flag}" required="true" requiredMessage="#{oBI.CreateLocStatesRequiredMessage_flag}"/>
+                    <h:outputLabel value="#{oBI.CreateLocStatesLabel_wikiDataId}" for="wikiDataId" />
+                    <h:inputText id="wikiDataId" value="#{locStatesController.selected.wikiDataId}" title="#{oBI.CreateLocStatesTitle_wikiDataId}" />
+                    <h:outputLabel value="#{oBI.CreateLocStatesLabel_countryId}" for="countryId" />
+                    <h:selectOneMenu id="countryId" value="#{locStatesController.selected.countryId}" title="#{oBI.CreateLocStatesTitle_countryId}" required="true" requiredMessage="#{oBI.CreateLocStatesRequiredMessage_countryId}">
+                        <f:selectItems value="#{locCountriesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{locStatesController.create}" value="#{oBI.CreateLocStatesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{locStatesController.prepareList}" value="#{oBI.CreateLocStatesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateLocStatesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewLocCountriesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_id}"/>
+                    <h:outputText value="#{locCountriesController.selected.id}" title="#{oBI.ViewLocCountriesTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_name}"/>
+                    <h:outputText value="#{locCountriesController.selected.name}" title="#{oBI.ViewLocCountriesTitle_name}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_iso3}"/>
+                    <h:outputText value="#{locCountriesController.selected.iso3}" title="#{oBI.ViewLocCountriesTitle_iso3}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_numericCode}"/>
+                    <h:outputText value="#{locCountriesController.selected.numericCode}" title="#{oBI.ViewLocCountriesTitle_numericCode}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_iso2}"/>
+                    <h:outputText value="#{locCountriesController.selected.iso2}" title="#{oBI.ViewLocCountriesTitle_iso2}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_phonecode}"/>
+                    <h:outputText value="#{locCountriesController.selected.phonecode}" title="#{oBI.ViewLocCountriesTitle_phonecode}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_capital}"/>
+                    <h:outputText value="#{locCountriesController.selected.capital}" title="#{oBI.ViewLocCountriesTitle_capital}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_currency}"/>
+                    <h:outputText value="#{locCountriesController.selected.currency}" title="#{oBI.ViewLocCountriesTitle_currency}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_currencyName}"/>
+                    <h:outputText value="#{locCountriesController.selected.currencyName}" title="#{oBI.ViewLocCountriesTitle_currencyName}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_currencySymbol}"/>
+                    <h:outputText value="#{locCountriesController.selected.currencySymbol}" title="#{oBI.ViewLocCountriesTitle_currencySymbol}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_tld}"/>
+                    <h:outputText value="#{locCountriesController.selected.tld}" title="#{oBI.ViewLocCountriesTitle_tld}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_native1}"/>
+                    <h:outputText value="#{locCountriesController.selected.native1}" title="#{oBI.ViewLocCountriesTitle_native1}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_region}"/>
+                    <h:outputText value="#{locCountriesController.selected.region}" title="#{oBI.ViewLocCountriesTitle_region}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_subregion}"/>
+                    <h:outputText value="#{locCountriesController.selected.subregion}" title="#{oBI.ViewLocCountriesTitle_subregion}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_nationality}"/>
+                    <h:outputText value="#{locCountriesController.selected.nationality}" title="#{oBI.ViewLocCountriesTitle_nationality}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_timezones}"/>
+                    <h:outputText value="#{locCountriesController.selected.timezones}" title="#{oBI.ViewLocCountriesTitle_timezones}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_translations}"/>
+                    <h:outputText value="#{locCountriesController.selected.translations}" title="#{oBI.ViewLocCountriesTitle_translations}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_latitude}"/>
+                    <h:outputText value="#{locCountriesController.selected.latitude}" title="#{oBI.ViewLocCountriesTitle_latitude}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_longitude}"/>
+                    <h:outputText value="#{locCountriesController.selected.longitude}" title="#{oBI.ViewLocCountriesTitle_longitude}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_emoji}"/>
+                    <h:outputText value="#{locCountriesController.selected.emoji}" title="#{oBI.ViewLocCountriesTitle_emoji}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_emojiU}"/>
+                    <h:outputText value="#{locCountriesController.selected.emojiU}" title="#{oBI.ViewLocCountriesTitle_emojiU}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_createdAt}"/>
+                    <h:outputText value="#{locCountriesController.selected.createdAt}" title="#{oBI.ViewLocCountriesTitle_createdAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_updatedAt}"/>
+                    <h:outputText value="#{locCountriesController.selected.updatedAt}" title="#{oBI.ViewLocCountriesTitle_updatedAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_flag}"/>
+                    <h:outputText value="#{locCountriesController.selected.flag}" title="#{oBI.ViewLocCountriesTitle_flag}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_wikiDataId}"/>
+                    <h:outputText value="#{locCountriesController.selected.wikiDataId}" title="#{oBI.ViewLocCountriesTitle_wikiDataId}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_regionId}"/>
+                    <h:outputText value="#{locCountriesController.selected.regionId}" title="#{oBI.ViewLocCountriesTitle_regionId}"/>
+                    <h:outputText value="#{oBI.ViewLocCountriesLabel_subregionId}"/>
+                    <h:outputText value="#{locCountriesController.selected.subregionId}" title="#{oBI.ViewLocCountriesTitle_subregionId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{locCountriesController.destroyAndView}" value="#{oBI.ViewLocCountriesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewLocCountriesEditLink}"/>
+                <br />
+                <h:commandLink action="#{locCountriesController.prepareCreate}" value="#{oBI.ViewLocCountriesCreateLink}" />
+                <br />
+                <h:commandLink action="#{locCountriesController.prepareList}" value="#{oBI.ViewLocCountriesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewLocCountriesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateUserAccountTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateUserAccountLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{userAccountController.selected.id}" title="#{oBI.CreateUserAccountTitle_id}" required="true" requiredMessage="#{oBI.CreateUserAccountRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateUserAccountLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{userAccountController.selected.deleted}" title="#{oBI.CreateUserAccountTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.CreateUserAccountLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{userAccountController.selected.created}" title="#{oBI.CreateUserAccountTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateUserAccountLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{userAccountController.selected.changed}" title="#{oBI.CreateUserAccountTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateUserAccountLabel_firstName}" for="firstName" />
+                    <h:inputText id="firstName" value="#{userAccountController.selected.firstName}" title="#{oBI.CreateUserAccountTitle_firstName}" required="true" requiredMessage="#{oBI.CreateUserAccountRequiredMessage_firstName}"/>
+                    <h:outputLabel value="#{oBI.CreateUserAccountLabel_lastName}" for="lastName" />
+                    <h:inputText id="lastName" value="#{userAccountController.selected.lastName}" title="#{oBI.CreateUserAccountTitle_lastName}" required="true" requiredMessage="#{oBI.CreateUserAccountRequiredMessage_lastName}"/>
+                    <h:outputLabel value="#{oBI.CreateUserAccountLabel_middleName}" for="middleName" />
+                    <h:inputText id="middleName" value="#{userAccountController.selected.middleName}" title="#{oBI.CreateUserAccountTitle_middleName}" />
+                    <h:outputLabel value="#{oBI.CreateUserAccountLabel_initialLetter}" for="initialLetter" />
+                    <h:inputText id="initialLetter" value="#{userAccountController.selected.initialLetter}" title="#{oBI.CreateUserAccountTitle_initialLetter}" />
+                    <h:outputLabel value="#{oBI.CreateUserAccountLabel_genre}" for="genre" />
+                    <h:inputText id="genre" value="#{userAccountController.selected.genre}" title="#{oBI.CreateUserAccountTitle_genre}" required="true" requiredMessage="#{oBI.CreateUserAccountRequiredMessage_genre}"/>
+                    <h:outputLabel value="#{oBI.CreateUserAccountLabel_dateOfBirth}" for="dateOfBirth" />
+                    <h:inputText id="dateOfBirth" value="#{userAccountController.selected.dateOfBirth}" title="#{oBI.CreateUserAccountTitle_dateOfBirth}" required="true" requiredMessage="#{oBI.CreateUserAccountRequiredMessage_dateOfBirth}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{userAccountController.create}" value="#{oBI.CreateUserAccountSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{userAccountController.prepareList}" value="#{oBI.CreateUserAccountShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateUserAccountIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

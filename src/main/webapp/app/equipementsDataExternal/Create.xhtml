@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateEquipementsDataExternalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateEquipementsDataExternalLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{equipementsDataExternalController.selected.id}" title="#{oBI.CreateEquipementsDataExternalTitle_id}" required="true" requiredMessage="#{oBI.CreateEquipementsDataExternalRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateEquipementsDataExternalLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{equipementsDataExternalController.selected.deleted}" title="#{oBI.CreateEquipementsDataExternalTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsDataExternalLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{equipementsDataExternalController.selected.created}" title="#{oBI.CreateEquipementsDataExternalTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateEquipementsDataExternalLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{equipementsDataExternalController.selected.changed}" title="#{oBI.CreateEquipementsDataExternalTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateEquipementsDataExternalLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{equipementsDataExternalController.selected.company}" title="#{oBI.CreateEquipementsDataExternalTitle_company}" required="true" requiredMessage="#{oBI.CreateEquipementsDataExternalRequiredMessage_company}">
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.CreateEquipementsDataExternalLabel_equipement}" for="equipement" />
+                    <h:selectOneMenu id="equipement" value="#{equipementsDataExternalController.selected.equipement}" title="#{oBI.CreateEquipementsDataExternalTitle_equipement}" required="true" requiredMessage="#{oBI.CreateEquipementsDataExternalRequiredMessage_equipement}">
+                        <f:selectItems value="#{equipementsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.CreateEquipementsDataExternalLabel_provider}" for="provider" />
+                    <h:selectOneMenu id="provider" value="#{equipementsDataExternalController.selected.provider}" title="#{oBI.CreateEquipementsDataExternalTitle_provider}" required="true" requiredMessage="#{oBI.CreateEquipementsDataExternalRequiredMessage_provider}">
+                        <f:selectItems value="#{equipementsExternalProvidersController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{equipementsDataExternalController.create}" value="#{oBI.CreateEquipementsDataExternalSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{equipementsDataExternalController.prepareList}" value="#{oBI.CreateEquipementsDataExternalShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateEquipementsDataExternalIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

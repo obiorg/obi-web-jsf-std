@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateLocCitiesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateLocCitiesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{locCitiesController.selected.id}" title="#{oBI.CreateLocCitiesTitle_id}" required="true" requiredMessage="#{oBI.CreateLocCitiesRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateLocCitiesLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{locCitiesController.selected.name}" title="#{oBI.CreateLocCitiesTitle_name}" required="true" requiredMessage="#{oBI.CreateLocCitiesRequiredMessage_name}"/>
+                    <h:outputLabel value="#{oBI.CreateLocCitiesLabel_stateCode}" for="stateCode" />
+                    <h:inputText id="stateCode" value="#{locCitiesController.selected.stateCode}" title="#{oBI.CreateLocCitiesTitle_stateCode}" required="true" requiredMessage="#{oBI.CreateLocCitiesRequiredMessage_stateCode}"/>
+                    <h:outputLabel value="#{oBI.CreateLocCitiesLabel_countryCode}" for="countryCode" />
+                    <h:inputText id="countryCode" value="#{locCitiesController.selected.countryCode}" title="#{oBI.CreateLocCitiesTitle_countryCode}" required="true" requiredMessage="#{oBI.CreateLocCitiesRequiredMessage_countryCode}"/>
+                    <h:outputLabel value="#{oBI.CreateLocCitiesLabel_latitude}" for="latitude" />
+                    <h:inputText id="latitude" value="#{locCitiesController.selected.latitude}" title="#{oBI.CreateLocCitiesTitle_latitude}" required="true" requiredMessage="#{oBI.CreateLocCitiesRequiredMessage_latitude}"/>
+                    <h:outputLabel value="#{oBI.CreateLocCitiesLabel_longitude}" for="longitude" />
+                    <h:inputText id="longitude" value="#{locCitiesController.selected.longitude}" title="#{oBI.CreateLocCitiesTitle_longitude}" required="true" requiredMessage="#{oBI.CreateLocCitiesRequiredMessage_longitude}"/>
+                    <h:outputLabel value="#{oBI.CreateLocCitiesLabel_createdAt}" for="createdAt" />
+                    <h:inputText id="createdAt" value="#{locCitiesController.selected.createdAt}" title="#{oBI.CreateLocCitiesTitle_createdAt}" required="true" requiredMessage="#{oBI.CreateLocCitiesRequiredMessage_createdAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateLocCitiesLabel_updatedAt}" for="updatedAt" />
+                    <h:inputText id="updatedAt" value="#{locCitiesController.selected.updatedAt}" title="#{oBI.CreateLocCitiesTitle_updatedAt}" required="true" requiredMessage="#{oBI.CreateLocCitiesRequiredMessage_updatedAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateLocCitiesLabel_flag}" for="flag" />
+                    <h:inputText id="flag" value="#{locCitiesController.selected.flag}" title="#{oBI.CreateLocCitiesTitle_flag}" required="true" requiredMessage="#{oBI.CreateLocCitiesRequiredMessage_flag}"/>
+                    <h:outputLabel value="#{oBI.CreateLocCitiesLabel_wikiDataId}" for="wikiDataId" />
+                    <h:inputText id="wikiDataId" value="#{locCitiesController.selected.wikiDataId}" title="#{oBI.CreateLocCitiesTitle_wikiDataId}" />
+                    <h:outputLabel value="#{oBI.CreateLocCitiesLabel_countryId}" for="countryId" />
+                    <h:selectOneMenu id="countryId" value="#{locCitiesController.selected.countryId}" title="#{oBI.CreateLocCitiesTitle_countryId}" required="true" requiredMessage="#{oBI.CreateLocCitiesRequiredMessage_countryId}">
+                        <f:selectItems value="#{locCountriesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.CreateLocCitiesLabel_stateId}" for="stateId" />
+                    <h:selectOneMenu id="stateId" value="#{locCitiesController.selected.stateId}" title="#{oBI.CreateLocCitiesTitle_stateId}" required="true" requiredMessage="#{oBI.CreateLocCitiesRequiredMessage_stateId}">
+                        <f:selectItems value="#{locStatesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{locCitiesController.create}" value="#{oBI.CreateLocCitiesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{locCitiesController.prepareList}" value="#{oBI.CreateLocCitiesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateLocCitiesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

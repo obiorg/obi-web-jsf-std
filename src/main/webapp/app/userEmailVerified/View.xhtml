@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewUserEmailVerifiedTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewUserEmailVerifiedLabel_id}"/>
+                    <h:outputText value="#{userEmailVerifiedController.selected.id}" title="#{oBI.ViewUserEmailVerifiedTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewUserEmailVerifiedLabel_deleted}"/>
+                    <h:outputText value="#{userEmailVerifiedController.selected.deleted}" title="#{oBI.ViewUserEmailVerifiedTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewUserEmailVerifiedLabel_created}"/>
+                    <h:outputText value="#{userEmailVerifiedController.selected.created}" title="#{oBI.ViewUserEmailVerifiedTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewUserEmailVerifiedLabel_changed}"/>
+                    <h:outputText value="#{userEmailVerifiedController.selected.changed}" title="#{oBI.ViewUserEmailVerifiedTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewUserEmailVerifiedLabel_statusDescription}"/>
+                    <h:outputText value="#{userEmailVerifiedController.selected.statusDescription}" title="#{oBI.ViewUserEmailVerifiedTitle_statusDescription}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{userEmailVerifiedController.destroyAndView}" value="#{oBI.ViewUserEmailVerifiedDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewUserEmailVerifiedEditLink}"/>
+                <br />
+                <h:commandLink action="#{userEmailVerifiedController.prepareCreate}" value="#{oBI.ViewUserEmailVerifiedCreateLink}" />
+                <br />
+                <h:commandLink action="#{userEmailVerifiedController.prepareList}" value="#{oBI.ViewUserEmailVerifiedShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewUserEmailVerifiedIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

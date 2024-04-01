@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewLocCitiesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewLocCitiesLabel_id}"/>
+                    <h:outputText value="#{locCitiesController.selected.id}" title="#{oBI.ViewLocCitiesTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewLocCitiesLabel_name}"/>
+                    <h:outputText value="#{locCitiesController.selected.name}" title="#{oBI.ViewLocCitiesTitle_name}"/>
+                    <h:outputText value="#{oBI.ViewLocCitiesLabel_stateCode}"/>
+                    <h:outputText value="#{locCitiesController.selected.stateCode}" title="#{oBI.ViewLocCitiesTitle_stateCode}"/>
+                    <h:outputText value="#{oBI.ViewLocCitiesLabel_countryCode}"/>
+                    <h:outputText value="#{locCitiesController.selected.countryCode}" title="#{oBI.ViewLocCitiesTitle_countryCode}"/>
+                    <h:outputText value="#{oBI.ViewLocCitiesLabel_latitude}"/>
+                    <h:outputText value="#{locCitiesController.selected.latitude}" title="#{oBI.ViewLocCitiesTitle_latitude}"/>
+                    <h:outputText value="#{oBI.ViewLocCitiesLabel_longitude}"/>
+                    <h:outputText value="#{locCitiesController.selected.longitude}" title="#{oBI.ViewLocCitiesTitle_longitude}"/>
+                    <h:outputText value="#{oBI.ViewLocCitiesLabel_createdAt}"/>
+                    <h:outputText value="#{locCitiesController.selected.createdAt}" title="#{oBI.ViewLocCitiesTitle_createdAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewLocCitiesLabel_updatedAt}"/>
+                    <h:outputText value="#{locCitiesController.selected.updatedAt}" title="#{oBI.ViewLocCitiesTitle_updatedAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewLocCitiesLabel_flag}"/>
+                    <h:outputText value="#{locCitiesController.selected.flag}" title="#{oBI.ViewLocCitiesTitle_flag}"/>
+                    <h:outputText value="#{oBI.ViewLocCitiesLabel_wikiDataId}"/>
+                    <h:outputText value="#{locCitiesController.selected.wikiDataId}" title="#{oBI.ViewLocCitiesTitle_wikiDataId}"/>
+                    <h:outputText value="#{oBI.ViewLocCitiesLabel_countryId}"/>
+                    <h:outputText value="#{locCitiesController.selected.countryId}" title="#{oBI.ViewLocCitiesTitle_countryId}"/>
+                    <h:outputText value="#{oBI.ViewLocCitiesLabel_stateId}"/>
+                    <h:outputText value="#{locCitiesController.selected.stateId}" title="#{oBI.ViewLocCitiesTitle_stateId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{locCitiesController.destroyAndView}" value="#{oBI.ViewLocCitiesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewLocCitiesEditLink}"/>
+                <br />
+                <h:commandLink action="#{locCitiesController.prepareCreate}" value="#{oBI.ViewLocCitiesCreateLink}" />
+                <br />
+                <h:commandLink action="#{locCitiesController.prepareList}" value="#{oBI.ViewLocCitiesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewLocCitiesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewEquipementsExternalProvidersTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_id}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.id}" title="#{oBI.ViewEquipementsExternalProvidersTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_deleted}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.deleted}" title="#{oBI.ViewEquipementsExternalProvidersTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_created}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.created}" title="#{oBI.ViewEquipementsExternalProvidersTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_changed}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.changed}" title="#{oBI.ViewEquipementsExternalProvidersTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_provider}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.provider}" title="#{oBI.ViewEquipementsExternalProvidersTitle_provider}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_name}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.name}" title="#{oBI.ViewEquipementsExternalProvidersTitle_name}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_type}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.type}" title="#{oBI.ViewEquipementsExternalProvidersTitle_type}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_sourceType}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.sourceType}" title="#{oBI.ViewEquipementsExternalProvidersTitle_sourceType}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_link}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.link}" title="#{oBI.ViewEquipementsExternalProvidersTitle_link}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_source}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.source}" title="#{oBI.ViewEquipementsExternalProvidersTitle_source}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_bddServer}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.bddServer}" title="#{oBI.ViewEquipementsExternalProvidersTitle_bddServer}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_bddUser}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.bddUser}" title="#{oBI.ViewEquipementsExternalProvidersTitle_bddUser}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_bddPassword}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.bddPassword}" title="#{oBI.ViewEquipementsExternalProvidersTitle_bddPassword}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_bddPort}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.bddPort}" title="#{oBI.ViewEquipementsExternalProvidersTitle_bddPort}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_approuved}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.approuved}" title="#{oBI.ViewEquipementsExternalProvidersTitle_approuved}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_paramBool1}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.paramBool1}" title="#{oBI.ViewEquipementsExternalProvidersTitle_paramBool1}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_paramBool2}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.paramBool2}" title="#{oBI.ViewEquipementsExternalProvidersTitle_paramBool2}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_paramBool3}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.paramBool3}" title="#{oBI.ViewEquipementsExternalProvidersTitle_paramBool3}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_paramBool4}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.paramBool4}" title="#{oBI.ViewEquipementsExternalProvidersTitle_paramBool4}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_paramBool5}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.paramBool5}" title="#{oBI.ViewEquipementsExternalProvidersTitle_paramBool5}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_paramInt1}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.paramInt1}" title="#{oBI.ViewEquipementsExternalProvidersTitle_paramInt1}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_paramInt2}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.paramInt2}" title="#{oBI.ViewEquipementsExternalProvidersTitle_paramInt2}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_paramInt3}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.paramInt3}" title="#{oBI.ViewEquipementsExternalProvidersTitle_paramInt3}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_paramInt4}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.paramInt4}" title="#{oBI.ViewEquipementsExternalProvidersTitle_paramInt4}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_paramInt5}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.paramInt5}" title="#{oBI.ViewEquipementsExternalProvidersTitle_paramInt5}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_paramStr1}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.paramStr1}" title="#{oBI.ViewEquipementsExternalProvidersTitle_paramStr1}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_paramStr2}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.paramStr2}" title="#{oBI.ViewEquipementsExternalProvidersTitle_paramStr2}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_paramStr3}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.paramStr3}" title="#{oBI.ViewEquipementsExternalProvidersTitle_paramStr3}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_paramStr4}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.paramStr4}" title="#{oBI.ViewEquipementsExternalProvidersTitle_paramStr4}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_paramStr5}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.paramStr5}" title="#{oBI.ViewEquipementsExternalProvidersTitle_paramStr5}"/>
+                    <h:outputText value="#{oBI.ViewEquipementsExternalProvidersLabel_company}"/>
+                    <h:outputText value="#{equipementsExternalProvidersController.selected.company}" title="#{oBI.ViewEquipementsExternalProvidersTitle_company}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{equipementsExternalProvidersController.destroyAndView}" value="#{oBI.ViewEquipementsExternalProvidersDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewEquipementsExternalProvidersEditLink}"/>
+                <br />
+                <h:commandLink action="#{equipementsExternalProvidersController.prepareCreate}" value="#{oBI.ViewEquipementsExternalProvidersCreateLink}" />
+                <br />
+                <h:commandLink action="#{equipementsExternalProvidersController.prepareList}" value="#{oBI.ViewEquipementsExternalProvidersShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewEquipementsExternalProvidersIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

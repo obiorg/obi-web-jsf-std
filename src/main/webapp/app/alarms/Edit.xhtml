@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.EditAlarmsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.EditAlarmsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{alarmsController.selected.id}" title="#{oBI.EditAlarmsTitle_id}" required="true" requiredMessage="#{oBI.EditAlarmsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.EditAlarmsLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{alarmsController.selected.deleted}" title="#{oBI.EditAlarmsTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.EditAlarmsLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{alarmsController.selected.created}" title="#{oBI.EditAlarmsTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditAlarmsLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{alarmsController.selected.changed}" title="#{oBI.EditAlarmsTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditAlarmsLabel_alarm}" for="alarm" />
+                    <h:inputText id="alarm" value="#{alarmsController.selected.alarm}" title="#{oBI.EditAlarmsTitle_alarm}" required="true" requiredMessage="#{oBI.EditAlarmsRequiredMessage_alarm}"/>
+                    <h:outputLabel value="#{oBI.EditAlarmsLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{alarmsController.selected.name}" title="#{oBI.EditAlarmsTitle_name}" />
+                    <h:outputLabel value="#{oBI.EditAlarmsLabel_descirption}" for="descirption" />
+                    <h:inputText id="descirption" value="#{alarmsController.selected.descirption}" title="#{oBI.EditAlarmsTitle_descirption}" />
+                    <h:outputLabel value="#{oBI.EditAlarmsLabel_language}" for="language" />
+                    <h:inputText id="language" value="#{alarmsController.selected.language}" title="#{oBI.EditAlarmsTitle_language}" />
+                    <h:outputLabel value="#{oBI.EditAlarmsLabel_comment}" for="comment" />
+                    <h:inputText id="comment" value="#{alarmsController.selected.comment}" title="#{oBI.EditAlarmsTitle_comment}" />
+                    <h:outputLabel value="#{oBI.EditAlarmsLabel_class1}" for="class1" />
+                    <h:selectOneMenu id="class1" value="#{alarmsController.selected.class1}" title="#{oBI.EditAlarmsTitle_class1}" >
+                        <f:selectItems value="#{alarmClassesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditAlarmsLabel_group1}" for="group1" />
+                    <h:selectOneMenu id="group1" value="#{alarmsController.selected.group1}" title="#{oBI.EditAlarmsTitle_group1}" >
+                        <f:selectItems value="#{alarmGroupsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditAlarmsLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{alarmsController.selected.company}" title="#{oBI.EditAlarmsTitle_company}" required="true" requiredMessage="#{oBI.EditAlarmsRequiredMessage_company}">
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{alarmsController.update}" value="#{oBI.EditAlarmsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{oBI.EditAlarmsViewLink}"/>
+                <br />
+                <h:commandLink action="#{alarmsController.prepareList}" value="#{oBI.EditAlarmsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.EditAlarmsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

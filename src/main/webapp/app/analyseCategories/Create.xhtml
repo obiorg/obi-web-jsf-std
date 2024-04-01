@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateAnalyseCategoriesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateAnalyseCategoriesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{analyseCategoriesController.selected.id}" title="#{oBI.CreateAnalyseCategoriesTitle_id}" required="true" requiredMessage="#{oBI.CreateAnalyseCategoriesRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateAnalyseCategoriesLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{analyseCategoriesController.selected.deleted}" title="#{oBI.CreateAnalyseCategoriesTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.CreateAnalyseCategoriesLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{analyseCategoriesController.selected.created}" title="#{oBI.CreateAnalyseCategoriesTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateAnalyseCategoriesLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{analyseCategoriesController.selected.changed}" title="#{oBI.CreateAnalyseCategoriesTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateAnalyseCategoriesLabel_category}" for="category" />
+                    <h:inputText id="category" value="#{analyseCategoriesController.selected.category}" title="#{oBI.CreateAnalyseCategoriesTitle_category}" required="true" requiredMessage="#{oBI.CreateAnalyseCategoriesRequiredMessage_category}"/>
+                    <h:outputLabel value="#{oBI.CreateAnalyseCategoriesLabel_designation}" for="designation" />
+                    <h:inputText id="designation" value="#{analyseCategoriesController.selected.designation}" title="#{oBI.CreateAnalyseCategoriesTitle_designation}" />
+                    <h:outputLabel value="#{oBI.CreateAnalyseCategoriesLabel_description}" for="description" />
+                    <h:inputTextarea rows="4" cols="30" id="description" value="#{analyseCategoriesController.selected.description}" title="#{oBI.CreateAnalyseCategoriesTitle_description}" />
+                    <h:outputLabel value="#{oBI.CreateAnalyseCategoriesLabel_business}" for="business" />
+                    <h:selectOneMenu id="business" value="#{analyseCategoriesController.selected.business}" title="#{oBI.CreateAnalyseCategoriesTitle_business}" >
+                        <f:selectItems value="#{businessesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.CreateAnalyseCategoriesLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{analyseCategoriesController.selected.company}" title="#{oBI.CreateAnalyseCategoriesTitle_company}" >
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{analyseCategoriesController.create}" value="#{oBI.CreateAnalyseCategoriesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{analyseCategoriesController.prepareList}" value="#{oBI.CreateAnalyseCategoriesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateAnalyseCategoriesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

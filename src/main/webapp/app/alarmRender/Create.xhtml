@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateAlarmRenderTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateAlarmRenderLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{alarmRenderController.selected.id}" title="#{oBI.CreateAlarmRenderTitle_id}" required="true" requiredMessage="#{oBI.CreateAlarmRenderRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateAlarmRenderLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{alarmRenderController.selected.deleted}" title="#{oBI.CreateAlarmRenderTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.CreateAlarmRenderLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{alarmRenderController.selected.created}" title="#{oBI.CreateAlarmRenderTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateAlarmRenderLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{alarmRenderController.selected.changed}" title="#{oBI.CreateAlarmRenderTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateAlarmRenderLabel_render}" for="render" />
+                    <h:inputText id="render" value="#{alarmRenderController.selected.render}" title="#{oBI.CreateAlarmRenderTitle_render}" required="true" requiredMessage="#{oBI.CreateAlarmRenderRequiredMessage_render}"/>
+                    <h:outputLabel value="#{oBI.CreateAlarmRenderLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{alarmRenderController.selected.name}" title="#{oBI.CreateAlarmRenderTitle_name}" />
+                    <h:outputLabel value="#{oBI.CreateAlarmRenderLabel_color}" for="color" />
+                    <h:inputText id="color" value="#{alarmRenderController.selected.color}" title="#{oBI.CreateAlarmRenderTitle_color}" />
+                    <h:outputLabel value="#{oBI.CreateAlarmRenderLabel_background}" for="background" />
+                    <h:inputText id="background" value="#{alarmRenderController.selected.background}" title="#{oBI.CreateAlarmRenderTitle_background}" />
+                    <h:outputLabel value="#{oBI.CreateAlarmRenderLabel_blink}" for="blink" />
+                    <h:inputText id="blink" value="#{alarmRenderController.selected.blink}" title="#{oBI.CreateAlarmRenderTitle_blink}" />
+                    <h:outputLabel value="#{oBI.CreateAlarmRenderLabel_colorBlink}" for="colorBlink" />
+                    <h:inputText id="colorBlink" value="#{alarmRenderController.selected.colorBlink}" title="#{oBI.CreateAlarmRenderTitle_colorBlink}" />
+                    <h:outputLabel value="#{oBI.CreateAlarmRenderLabel_backgroundBlink}" for="backgroundBlink" />
+                    <h:inputText id="backgroundBlink" value="#{alarmRenderController.selected.backgroundBlink}" title="#{oBI.CreateAlarmRenderTitle_backgroundBlink}" />
+                    <h:outputLabel value="#{oBI.CreateAlarmRenderLabel_comment}" for="comment" />
+                    <h:inputText id="comment" value="#{alarmRenderController.selected.comment}" title="#{oBI.CreateAlarmRenderTitle_comment}" />
+                    <h:outputLabel value="#{oBI.CreateAlarmRenderLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{alarmRenderController.selected.company}" title="#{oBI.CreateAlarmRenderTitle_company}" required="true" requiredMessage="#{oBI.CreateAlarmRenderRequiredMessage_company}">
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{alarmRenderController.create}" value="#{oBI.CreateAlarmRenderSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{alarmRenderController.prepareList}" value="#{oBI.CreateAlarmRenderShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateAlarmRenderIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ListLocCountriesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{oBI.ListLocCountriesEmpty}" rendered="#{locCountriesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{locCountriesController.items.rowCount > 0}">
+                    <h:outputText value="#{locCountriesController.pagination.pageFirstItem + 1}..#{locCountriesController.pagination.pageLastItem + 1}/#{locCountriesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{locCountriesController.previous}" value="#{oBI.Previous} #{locCountriesController.pagination.pageSize}" rendered="#{locCountriesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{locCountriesController.next}" value="#{oBI.Next} #{locCountriesController.pagination.pageSize}" rendered="#{locCountriesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{locCountriesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_iso3}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.iso3}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_numericCode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numericCode}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_iso2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.iso2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_phonecode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.phonecode}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_capital}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.capital}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_currency}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.currency}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_currencyName}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.currencyName}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_currencySymbol}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.currencySymbol}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_tld}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tld}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_native1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.native1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_region}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.region}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_subregion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.subregion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_nationality}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nationality}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_timezones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.timezones}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_translations}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.translations}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_latitude}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.latitude}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_longitude}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.longitude}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_emoji}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emoji}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_emojiU}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emojiU}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_createdAt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createdAt}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_updatedAt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.updatedAt}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_flag}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flag}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_wikiDataId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.wikiDataId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_regionId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.regionId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListLocCountriesTitle_subregionId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.subregionId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{locCountriesController.prepareView}" value="#{oBI.ListLocCountriesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{locCountriesController.prepareEdit}" value="#{oBI.ListLocCountriesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{locCountriesController.destroy}" value="#{oBI.ListLocCountriesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{locCountriesController.prepareCreate}" value="#{oBI.ListLocCountriesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ListLocCountriesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

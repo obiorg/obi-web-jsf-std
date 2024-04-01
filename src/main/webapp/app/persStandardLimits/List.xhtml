@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ListPersStandardLimitsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{oBI.ListPersStandardLimitsEmpty}" rendered="#{persStandardLimitsController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{persStandardLimitsController.items.rowCount > 0}">
+                    <h:outputText value="#{persStandardLimitsController.pagination.pageFirstItem + 1}..#{persStandardLimitsController.pagination.pageLastItem + 1}/#{persStandardLimitsController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{persStandardLimitsController.previous}" value="#{oBI.Previous} #{persStandardLimitsController.pagination.pageSize}" rendered="#{persStandardLimitsController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{persStandardLimitsController.next}" value="#{oBI.Next} #{persStandardLimitsController.pagination.pageSize}" rendered="#{persStandardLimitsController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{persStandardLimitsController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_deleted}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deleted}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_created}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.created}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_changed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.changed}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_value}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.value}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_delay}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.delay}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_hysteresis}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.hysteresis}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_sort}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sort}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_hit}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.hit}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_reached}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.reached}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_company}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.company}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_comparator}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comparator}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_group1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.group1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_persStandard}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.persStandard}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListPersStandardLimitsTitle_tag}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tag}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{persStandardLimitsController.prepareView}" value="#{oBI.ListPersStandardLimitsViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{persStandardLimitsController.prepareEdit}" value="#{oBI.ListPersStandardLimitsEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{persStandardLimitsController.destroy}" value="#{oBI.ListPersStandardLimitsDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{persStandardLimitsController.prepareCreate}" value="#{oBI.ListPersStandardLimitsCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ListPersStandardLimitsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

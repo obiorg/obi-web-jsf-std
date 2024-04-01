@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateMeasUnitsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateMeasUnitsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{measUnitsController.selected.id}" title="#{oBI.CreateMeasUnitsTitle_id}" required="true" requiredMessage="#{oBI.CreateMeasUnitsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateMeasUnitsLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{measUnitsController.selected.deleted}" title="#{oBI.CreateMeasUnitsTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.CreateMeasUnitsLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{measUnitsController.selected.created}" title="#{oBI.CreateMeasUnitsTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateMeasUnitsLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{measUnitsController.selected.changed}" title="#{oBI.CreateMeasUnitsTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateMeasUnitsLabel_sizeName}" for="sizeName" />
+                    <h:inputText id="sizeName" value="#{measUnitsController.selected.sizeName}" title="#{oBI.CreateMeasUnitsTitle_sizeName}" required="true" requiredMessage="#{oBI.CreateMeasUnitsRequiredMessage_sizeName}"/>
+                    <h:outputLabel value="#{oBI.CreateMeasUnitsLabel_sizeSymbol}" for="sizeSymbol" />
+                    <h:inputText id="sizeSymbol" value="#{measUnitsController.selected.sizeSymbol}" title="#{oBI.CreateMeasUnitsTitle_sizeSymbol}" required="true" requiredMessage="#{oBI.CreateMeasUnitsRequiredMessage_sizeSymbol}"/>
+                    <h:outputLabel value="#{oBI.CreateMeasUnitsLabel_unitName}" for="unitName" />
+                    <h:inputText id="unitName" value="#{measUnitsController.selected.unitName}" title="#{oBI.CreateMeasUnitsTitle_unitName}" required="true" requiredMessage="#{oBI.CreateMeasUnitsRequiredMessage_unitName}"/>
+                    <h:outputLabel value="#{oBI.CreateMeasUnitsLabel_unitSymbol}" for="unitSymbol" />
+                    <h:inputText id="unitSymbol" value="#{measUnitsController.selected.unitSymbol}" title="#{oBI.CreateMeasUnitsTitle_unitSymbol}" required="true" requiredMessage="#{oBI.CreateMeasUnitsRequiredMessage_unitSymbol}"/>
+                    <h:outputLabel value="#{oBI.CreateMeasUnitsLabel_dimension}" for="dimension" />
+                    <h:inputText id="dimension" value="#{measUnitsController.selected.dimension}" title="#{oBI.CreateMeasUnitsTitle_dimension}" />
+                    <h:outputLabel value="#{oBI.CreateMeasUnitsLabel_group}" for="group" />
+                    <h:inputText id="group" value="#{measUnitsController.selected.group}" title="#{oBI.CreateMeasUnitsTitle_group}" />
+                    <h:outputLabel value="#{oBI.CreateMeasUnitsLabel_tagging}" for="tagging" />
+                    <h:inputText id="tagging" value="#{measUnitsController.selected.tagging}" title="#{oBI.CreateMeasUnitsTitle_tagging}" />
+                    <h:outputLabel value="#{oBI.CreateMeasUnitsLabel_comment}" for="comment" />
+                    <h:inputText id="comment" value="#{measUnitsController.selected.comment}" title="#{oBI.CreateMeasUnitsTitle_comment}" />
+                    <h:outputLabel value="#{oBI.CreateMeasUnitsLabel_entity}" for="entity" />
+                    <h:selectOneMenu id="entity" value="#{measUnitsController.selected.entity}" title="#{oBI.CreateMeasUnitsTitle_entity}" required="true" requiredMessage="#{oBI.CreateMeasUnitsRequiredMessage_entity}">
+                        <f:selectItems value="#{entitiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{measUnitsController.create}" value="#{oBI.CreateMeasUnitsSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{measUnitsController.prepareList}" value="#{oBI.CreateMeasUnitsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateMeasUnitsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

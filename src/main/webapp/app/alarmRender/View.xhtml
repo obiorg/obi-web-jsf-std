@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewAlarmRenderTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewAlarmRenderLabel_id}"/>
+                    <h:outputText value="#{alarmRenderController.selected.id}" title="#{oBI.ViewAlarmRenderTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewAlarmRenderLabel_deleted}"/>
+                    <h:outputText value="#{alarmRenderController.selected.deleted}" title="#{oBI.ViewAlarmRenderTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewAlarmRenderLabel_created}"/>
+                    <h:outputText value="#{alarmRenderController.selected.created}" title="#{oBI.ViewAlarmRenderTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewAlarmRenderLabel_changed}"/>
+                    <h:outputText value="#{alarmRenderController.selected.changed}" title="#{oBI.ViewAlarmRenderTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewAlarmRenderLabel_render}"/>
+                    <h:outputText value="#{alarmRenderController.selected.render}" title="#{oBI.ViewAlarmRenderTitle_render}"/>
+                    <h:outputText value="#{oBI.ViewAlarmRenderLabel_name}"/>
+                    <h:outputText value="#{alarmRenderController.selected.name}" title="#{oBI.ViewAlarmRenderTitle_name}"/>
+                    <h:outputText value="#{oBI.ViewAlarmRenderLabel_color}"/>
+                    <h:outputText value="#{alarmRenderController.selected.color}" title="#{oBI.ViewAlarmRenderTitle_color}"/>
+                    <h:outputText value="#{oBI.ViewAlarmRenderLabel_background}"/>
+                    <h:outputText value="#{alarmRenderController.selected.background}" title="#{oBI.ViewAlarmRenderTitle_background}"/>
+                    <h:outputText value="#{oBI.ViewAlarmRenderLabel_blink}"/>
+                    <h:outputText value="#{alarmRenderController.selected.blink}" title="#{oBI.ViewAlarmRenderTitle_blink}"/>
+                    <h:outputText value="#{oBI.ViewAlarmRenderLabel_colorBlink}"/>
+                    <h:outputText value="#{alarmRenderController.selected.colorBlink}" title="#{oBI.ViewAlarmRenderTitle_colorBlink}"/>
+                    <h:outputText value="#{oBI.ViewAlarmRenderLabel_backgroundBlink}"/>
+                    <h:outputText value="#{alarmRenderController.selected.backgroundBlink}" title="#{oBI.ViewAlarmRenderTitle_backgroundBlink}"/>
+                    <h:outputText value="#{oBI.ViewAlarmRenderLabel_comment}"/>
+                    <h:outputText value="#{alarmRenderController.selected.comment}" title="#{oBI.ViewAlarmRenderTitle_comment}"/>
+                    <h:outputText value="#{oBI.ViewAlarmRenderLabel_company}"/>
+                    <h:outputText value="#{alarmRenderController.selected.company}" title="#{oBI.ViewAlarmRenderTitle_company}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{alarmRenderController.destroyAndView}" value="#{oBI.ViewAlarmRenderDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewAlarmRenderEditLink}"/>
+                <br />
+                <h:commandLink action="#{alarmRenderController.prepareCreate}" value="#{oBI.ViewAlarmRenderCreateLink}" />
+                <br />
+                <h:commandLink action="#{alarmRenderController.prepareList}" value="#{oBI.ViewAlarmRenderShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewAlarmRenderIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

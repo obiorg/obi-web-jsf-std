@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.EditPersStandardTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{persStandardController.selected.id}" title="#{oBI.EditPersStandardTitle_id}" required="true" requiredMessage="#{oBI.EditPersStandardRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{persStandardController.selected.deleted}" title="#{oBI.EditPersStandardTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{persStandardController.selected.created}" title="#{oBI.EditPersStandardTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{persStandardController.selected.changed}" title="#{oBI.EditPersStandardTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_VFloat}" for="VFloat" />
+                    <h:inputText id="VFloat" value="#{persStandardController.selected.VFloat}" title="#{oBI.EditPersStandardTitle_VFloat}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_VInt}" for="VInt" />
+                    <h:inputText id="VInt" value="#{persStandardController.selected.VInt}" title="#{oBI.EditPersStandardTitle_VInt}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_VBool}" for="VBool" />
+                    <h:inputText id="VBool" value="#{persStandardController.selected.VBool}" title="#{oBI.EditPersStandardTitle_VBool}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_VStr}" for="VStr" />
+                    <h:inputText id="VStr" value="#{persStandardController.selected.VStr}" title="#{oBI.EditPersStandardTitle_VStr}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_VDateTime}" for="VDateTime" />
+                    <h:inputText id="VDateTime" value="#{persStandardController.selected.VDateTime}" title="#{oBI.EditPersStandardTitle_VDateTime}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_VStamp}" for="VStamp" />
+                    <h:inputText id="VStamp" value="#{persStandardController.selected.VStamp}" title="#{oBI.EditPersStandardTitle_VStamp}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_stampStart}" for="stampStart" />
+                    <h:inputText id="stampStart" value="#{persStandardController.selected.stampStart}" title="#{oBI.EditPersStandardTitle_stampStart}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_stampEnd}" for="stampEnd" />
+                    <h:inputText id="stampEnd" value="#{persStandardController.selected.stampEnd}" title="#{oBI.EditPersStandardTitle_stampEnd}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_tbf}" for="tbf" />
+                    <h:inputText id="tbf" value="#{persStandardController.selected.tbf}" title="#{oBI.EditPersStandardTitle_tbf}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_ttr}" for="ttr" />
+                    <h:inputText id="ttr" value="#{persStandardController.selected.ttr}" title="#{oBI.EditPersStandardTitle_ttr}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_error}" for="error" />
+                    <h:inputText id="error" value="#{persStandardController.selected.error}" title="#{oBI.EditPersStandardTitle_error}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_errorMsg}" for="errorMsg" />
+                    <h:inputText id="errorMsg" value="#{persStandardController.selected.errorMsg}" title="#{oBI.EditPersStandardTitle_errorMsg}" />
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{persStandardController.selected.company}" title="#{oBI.EditPersStandardTitle_company}" required="true" requiredMessage="#{oBI.EditPersStandardRequiredMessage_company}">
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditPersStandardLabel_tag}" for="tag" />
+                    <h:selectOneMenu id="tag" value="#{persStandardController.selected.tag}" title="#{oBI.EditPersStandardTitle_tag}" required="true" requiredMessage="#{oBI.EditPersStandardRequiredMessage_tag}">
+                        <f:selectItems value="#{tagsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{persStandardController.update}" value="#{oBI.EditPersStandardSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{oBI.EditPersStandardViewLink}"/>
+                <br />
+                <h:commandLink action="#{persStandardController.prepareList}" value="#{oBI.EditPersStandardShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.EditPersStandardIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

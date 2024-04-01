@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.ListCompaniesTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+
+                <h:outputText escape="false" value="#{OBI.ListCompaniesEmpty}" rendered="#{companiesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{companiesController.items.rowCount > 0}">
+                    <h:outputText value="#{companiesController.pagination.pageFirstItem + 1}..#{companiesController.pagination.pageLastItem + 1}/#{companiesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{companiesController.previous}" value="#{OBI.Previous} #{companiesController.pagination.pageSize}" rendered="#{companiesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{companiesController.next}" value="#{OBI.Next} #{companiesController.pagination.pageSize}" rendered="#{companiesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{companiesController.items}" var="item" border="0" 
+                                 cellpadding="0" cellspacing="0" 
+                                 styleClass="table table-responsive table-striped table-sm table-bordered"
+                                 rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" 
+                                 headerClass="table-dark"
+                                 style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{OBI.ListCompaniesTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{OBI.ListCompaniesTitle_deleted}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deleted}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{OBI.ListCompaniesTitle_created}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.created}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{OBI.ListCompaniesTitle_changed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.changed}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{OBI.ListCompaniesTitle_company}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.company}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{OBI.ListCompaniesTitle_designation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.designation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{OBI.ListCompaniesTitle_builded}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.builded}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{OBI.ListCompaniesTitle_main}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.main}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{OBI.ListCompaniesTitle_activated}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.activated}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{OBI.ListCompaniesTitle_logoPath}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.logoPath}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{OBI.ListCompaniesTitle_business}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.business}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{OBI.ListCompaniesTitle_location}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.location}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{companiesController.prepareView}" value="#{OBI.ListCompaniesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{companiesController.prepareEdit}" value="#{OBI.ListCompaniesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{companiesController.destroy}" value="#{OBI.ListCompaniesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{companiesController.prepareCreate}" value="#{OBI.ListCompaniesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.ListCompaniesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

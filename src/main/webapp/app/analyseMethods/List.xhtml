@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ListAnalyseMethodsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{oBI.ListAnalyseMethodsEmpty}" rendered="#{analyseMethodsController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{analyseMethodsController.items.rowCount > 0}">
+                    <h:outputText value="#{analyseMethodsController.pagination.pageFirstItem + 1}..#{analyseMethodsController.pagination.pageLastItem + 1}/#{analyseMethodsController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{analyseMethodsController.previous}" value="#{oBI.Previous} #{analyseMethodsController.pagination.pageSize}" rendered="#{analyseMethodsController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{analyseMethodsController.next}" value="#{oBI.Next} #{analyseMethodsController.pagination.pageSize}" rendered="#{analyseMethodsController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{analyseMethodsController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseMethodsTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseMethodsTitle_deleted}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deleted}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseMethodsTitle_created}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.created}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseMethodsTitle_changed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.changed}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseMethodsTitle_method}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.method}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseMethodsTitle_designation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.designation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseMethodsTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseMethodsTitle_filepath}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.filepath}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseMethodsTitle_business}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.business}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListAnalyseMethodsTitle_company}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.company}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{analyseMethodsController.prepareView}" value="#{oBI.ListAnalyseMethodsViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{analyseMethodsController.prepareEdit}" value="#{oBI.ListAnalyseMethodsEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{analyseMethodsController.destroy}" value="#{oBI.ListAnalyseMethodsDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{analyseMethodsController.prepareCreate}" value="#{oBI.ListAnalyseMethodsCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ListAnalyseMethodsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

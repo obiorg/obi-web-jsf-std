@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewMeasLimitsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_id}"/>
+                    <h:outputText value="#{measLimitsController.selected.id}" title="#{oBI.ViewMeasLimitsTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_deleted}"/>
+                    <h:outputText value="#{measLimitsController.selected.deleted}" title="#{oBI.ViewMeasLimitsTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_created}"/>
+                    <h:outputText value="#{measLimitsController.selected.created}" title="#{oBI.ViewMeasLimitsTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_changed}"/>
+                    <h:outputText value="#{measLimitsController.selected.changed}" title="#{oBI.ViewMeasLimitsTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_name}"/>
+                    <h:outputText value="#{measLimitsController.selected.name}" title="#{oBI.ViewMeasLimitsTitle_name}"/>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_value}"/>
+                    <h:outputText value="#{measLimitsController.selected.value}" title="#{oBI.ViewMeasLimitsTitle_value}"/>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_delay}"/>
+                    <h:outputText value="#{measLimitsController.selected.delay}" title="#{oBI.ViewMeasLimitsTitle_delay}"/>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_hysteresis}"/>
+                    <h:outputText value="#{measLimitsController.selected.hysteresis}" title="#{oBI.ViewMeasLimitsTitle_hysteresis}"/>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_target}"/>
+                    <h:outputText value="#{measLimitsController.selected.target}" title="#{oBI.ViewMeasLimitsTitle_target}"/>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_enable}"/>
+                    <h:outputText value="#{measLimitsController.selected.enable}" title="#{oBI.ViewMeasLimitsTitle_enable}"/>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_sort}"/>
+                    <h:outputText value="#{measLimitsController.selected.sort}" title="#{oBI.ViewMeasLimitsTitle_sort}"/>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_description}"/>
+                    <h:outputText value="#{measLimitsController.selected.description}" title="#{oBI.ViewMeasLimitsTitle_description}"/>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_business}"/>
+                    <h:outputText value="#{measLimitsController.selected.business}" title="#{oBI.ViewMeasLimitsTitle_business}"/>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_company}"/>
+                    <h:outputText value="#{measLimitsController.selected.company}" title="#{oBI.ViewMeasLimitsTitle_company}"/>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_comparator}"/>
+                    <h:outputText value="#{measLimitsController.selected.comparator}" title="#{oBI.ViewMeasLimitsTitle_comparator}"/>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_group1}"/>
+                    <h:outputText value="#{measLimitsController.selected.group1}" title="#{oBI.ViewMeasLimitsTitle_group1}"/>
+                    <h:outputText value="#{oBI.ViewMeasLimitsLabel_tag}"/>
+                    <h:outputText value="#{measLimitsController.selected.tag}" title="#{oBI.ViewMeasLimitsTitle_tag}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{measLimitsController.destroyAndView}" value="#{oBI.ViewMeasLimitsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewMeasLimitsEditLink}"/>
+                <br />
+                <h:commandLink action="#{measLimitsController.prepareCreate}" value="#{oBI.ViewMeasLimitsCreateLink}" />
+                <br />
+                <h:commandLink action="#{measLimitsController.prepareList}" value="#{oBI.ViewMeasLimitsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewMeasLimitsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

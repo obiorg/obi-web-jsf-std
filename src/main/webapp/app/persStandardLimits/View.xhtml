@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewPersStandardLimitsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_id}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.id}" title="#{oBI.ViewPersStandardLimitsTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_deleted}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.deleted}" title="#{oBI.ViewPersStandardLimitsTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_created}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.created}" title="#{oBI.ViewPersStandardLimitsTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_changed}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.changed}" title="#{oBI.ViewPersStandardLimitsTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_name}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.name}" title="#{oBI.ViewPersStandardLimitsTitle_name}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_value}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.value}" title="#{oBI.ViewPersStandardLimitsTitle_value}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_delay}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.delay}" title="#{oBI.ViewPersStandardLimitsTitle_delay}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_hysteresis}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.hysteresis}" title="#{oBI.ViewPersStandardLimitsTitle_hysteresis}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_sort}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.sort}" title="#{oBI.ViewPersStandardLimitsTitle_sort}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_hit}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.hit}" title="#{oBI.ViewPersStandardLimitsTitle_hit}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_reached}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.reached}" title="#{oBI.ViewPersStandardLimitsTitle_reached}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_company}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.company}" title="#{oBI.ViewPersStandardLimitsTitle_company}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_comparator}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.comparator}" title="#{oBI.ViewPersStandardLimitsTitle_comparator}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_group1}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.group1}" title="#{oBI.ViewPersStandardLimitsTitle_group1}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_persStandard}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.persStandard}" title="#{oBI.ViewPersStandardLimitsTitle_persStandard}"/>
+                    <h:outputText value="#{oBI.ViewPersStandardLimitsLabel_tag}"/>
+                    <h:outputText value="#{persStandardLimitsController.selected.tag}" title="#{oBI.ViewPersStandardLimitsTitle_tag}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{persStandardLimitsController.destroyAndView}" value="#{oBI.ViewPersStandardLimitsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewPersStandardLimitsEditLink}"/>
+                <br />
+                <h:commandLink action="#{persStandardLimitsController.prepareCreate}" value="#{oBI.ViewPersStandardLimitsCreateLink}" />
+                <br />
+                <h:commandLink action="#{persStandardLimitsController.prepareList}" value="#{oBI.ViewPersStandardLimitsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewPersStandardLimitsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.EditUserHashingAlgorithmsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.EditUserHashingAlgorithmsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{userHashingAlgorithmsController.selected.id}" title="#{oBI.EditUserHashingAlgorithmsTitle_id}" required="true" requiredMessage="#{oBI.EditUserHashingAlgorithmsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.EditUserHashingAlgorithmsLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{userHashingAlgorithmsController.selected.deleted}" title="#{oBI.EditUserHashingAlgorithmsTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.EditUserHashingAlgorithmsLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{userHashingAlgorithmsController.selected.created}" title="#{oBI.EditUserHashingAlgorithmsTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditUserHashingAlgorithmsLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{userHashingAlgorithmsController.selected.changed}" title="#{oBI.EditUserHashingAlgorithmsTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditUserHashingAlgorithmsLabel_algorithmName}" for="algorithmName" />
+                    <h:inputText id="algorithmName" value="#{userHashingAlgorithmsController.selected.algorithmName}" title="#{oBI.EditUserHashingAlgorithmsTitle_algorithmName}" required="true" requiredMessage="#{oBI.EditUserHashingAlgorithmsRequiredMessage_algorithmName}"/>
+                    <h:outputLabel value="#{oBI.EditUserHashingAlgorithmsLabel_designation}" for="designation" />
+                    <h:inputText id="designation" value="#{userHashingAlgorithmsController.selected.designation}" title="#{oBI.EditUserHashingAlgorithmsTitle_designation}" />
+                </h:panelGrid>
+                <h:commandLink action="#{userHashingAlgorithmsController.update}" value="#{oBI.EditUserHashingAlgorithmsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{oBI.EditUserHashingAlgorithmsViewLink}"/>
+                <br />
+                <h:commandLink action="#{userHashingAlgorithmsController.prepareList}" value="#{oBI.EditUserHashingAlgorithmsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.EditUserHashingAlgorithmsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

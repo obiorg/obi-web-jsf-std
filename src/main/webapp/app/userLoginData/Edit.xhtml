@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.EditUserLoginDataTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.EditUserLoginDataLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{userLoginDataController.selected.id}" title="#{oBI.EditUserLoginDataTitle_id}" required="true" requiredMessage="#{oBI.EditUserLoginDataRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.EditUserLoginDataLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{userLoginDataController.selected.deleted}" title="#{oBI.EditUserLoginDataTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.EditUserLoginDataLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{userLoginDataController.selected.created}" title="#{oBI.EditUserLoginDataTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditUserLoginDataLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{userLoginDataController.selected.changed}" title="#{oBI.EditUserLoginDataTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditUserLoginDataLabel_loginName}" for="loginName" />
+                    <h:inputText id="loginName" value="#{userLoginDataController.selected.loginName}" title="#{oBI.EditUserLoginDataTitle_loginName}" required="true" requiredMessage="#{oBI.EditUserLoginDataRequiredMessage_loginName}"/>
+                    <h:outputLabel value="#{oBI.EditUserLoginDataLabel_passwordHash}" for="passwordHash" />
+                    <h:inputText id="passwordHash" value="#{userLoginDataController.selected.passwordHash}" title="#{oBI.EditUserLoginDataTitle_passwordHash}" required="true" requiredMessage="#{oBI.EditUserLoginDataRequiredMessage_passwordHash}"/>
+                    <h:outputLabel value="#{oBI.EditUserLoginDataLabel_passwordSalt}" for="passwordSalt" />
+                    <h:inputText id="passwordSalt" value="#{userLoginDataController.selected.passwordSalt}" title="#{oBI.EditUserLoginDataTitle_passwordSalt}" required="true" requiredMessage="#{oBI.EditUserLoginDataRequiredMessage_passwordSalt}"/>
+                    <h:outputLabel value="#{oBI.EditUserLoginDataLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{userLoginDataController.selected.email}" title="#{oBI.EditUserLoginDataTitle_email}" required="true" requiredMessage="#{oBI.EditUserLoginDataRequiredMessage_email}"/>
+                    <h:outputLabel value="#{oBI.EditUserLoginDataLabel_tokenConfirmation}" for="tokenConfirmation" />
+                    <h:inputText id="tokenConfirmation" value="#{userLoginDataController.selected.tokenConfirmation}" title="#{oBI.EditUserLoginDataTitle_tokenConfirmation}" />
+                    <h:outputLabel value="#{oBI.EditUserLoginDataLabel_tokenGenerationTime}" for="tokenGenerationTime" />
+                    <h:inputText id="tokenGenerationTime" value="#{userLoginDataController.selected.tokenGenerationTime}" title="#{oBI.EditUserLoginDataTitle_tokenGenerationTime}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditUserLoginDataLabel_tokenPasswordRecovery}" for="tokenPasswordRecovery" />
+                    <h:inputText id="tokenPasswordRecovery" value="#{userLoginDataController.selected.tokenPasswordRecovery}" title="#{oBI.EditUserLoginDataTitle_tokenPasswordRecovery}" />
+                    <h:outputLabel value="#{oBI.EditUserLoginDataLabel_tokenTimeRecovery}" for="tokenTimeRecovery" />
+                    <h:inputText id="tokenTimeRecovery" value="#{userLoginDataController.selected.tokenTimeRecovery}" title="#{oBI.EditUserLoginDataTitle_tokenTimeRecovery}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditUserLoginDataLabel_image}" for="image" />
+                    <h:inputText id="image" value="#{userLoginDataController.selected.image}" title="#{oBI.EditUserLoginDataTitle_image}" />
+                    <h:outputLabel value="#{oBI.EditUserLoginDataLabel_emailVerified}" for="emailVerified" />
+                    <h:selectOneMenu id="emailVerified" value="#{userLoginDataController.selected.emailVerified}" title="#{oBI.EditUserLoginDataTitle_emailVerified}" >
+                        <f:selectItems value="#{userEmailVerifiedController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.EditUserLoginDataLabel_hashAlgorithm}" for="hashAlgorithm" />
+                    <h:selectOneMenu id="hashAlgorithm" value="#{userLoginDataController.selected.hashAlgorithm}" title="#{oBI.EditUserLoginDataTitle_hashAlgorithm}" required="true" requiredMessage="#{oBI.EditUserLoginDataRequiredMessage_hashAlgorithm}">
+                        <f:selectItems value="#{userHashingAlgorithmsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{userLoginDataController.update}" value="#{oBI.EditUserLoginDataSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{oBI.EditUserLoginDataViewLink}"/>
+                <br />
+                <h:commandLink action="#{userLoginDataController.prepareList}" value="#{oBI.EditUserLoginDataShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.EditUserLoginDataIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

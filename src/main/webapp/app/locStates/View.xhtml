@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewLocStatesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewLocStatesLabel_id}"/>
+                    <h:outputText value="#{locStatesController.selected.id}" title="#{oBI.ViewLocStatesTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewLocStatesLabel_name}"/>
+                    <h:outputText value="#{locStatesController.selected.name}" title="#{oBI.ViewLocStatesTitle_name}"/>
+                    <h:outputText value="#{oBI.ViewLocStatesLabel_countryCode}"/>
+                    <h:outputText value="#{locStatesController.selected.countryCode}" title="#{oBI.ViewLocStatesTitle_countryCode}"/>
+                    <h:outputText value="#{oBI.ViewLocStatesLabel_fipsCode}"/>
+                    <h:outputText value="#{locStatesController.selected.fipsCode}" title="#{oBI.ViewLocStatesTitle_fipsCode}"/>
+                    <h:outputText value="#{oBI.ViewLocStatesLabel_iso2}"/>
+                    <h:outputText value="#{locStatesController.selected.iso2}" title="#{oBI.ViewLocStatesTitle_iso2}"/>
+                    <h:outputText value="#{oBI.ViewLocStatesLabel_type}"/>
+                    <h:outputText value="#{locStatesController.selected.type}" title="#{oBI.ViewLocStatesTitle_type}"/>
+                    <h:outputText value="#{oBI.ViewLocStatesLabel_latitude}"/>
+                    <h:outputText value="#{locStatesController.selected.latitude}" title="#{oBI.ViewLocStatesTitle_latitude}"/>
+                    <h:outputText value="#{oBI.ViewLocStatesLabel_longitude}"/>
+                    <h:outputText value="#{locStatesController.selected.longitude}" title="#{oBI.ViewLocStatesTitle_longitude}"/>
+                    <h:outputText value="#{oBI.ViewLocStatesLabel_createdAt}"/>
+                    <h:outputText value="#{locStatesController.selected.createdAt}" title="#{oBI.ViewLocStatesTitle_createdAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewLocStatesLabel_updatedAt}"/>
+                    <h:outputText value="#{locStatesController.selected.updatedAt}" title="#{oBI.ViewLocStatesTitle_updatedAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewLocStatesLabel_flag}"/>
+                    <h:outputText value="#{locStatesController.selected.flag}" title="#{oBI.ViewLocStatesTitle_flag}"/>
+                    <h:outputText value="#{oBI.ViewLocStatesLabel_wikiDataId}"/>
+                    <h:outputText value="#{locStatesController.selected.wikiDataId}" title="#{oBI.ViewLocStatesTitle_wikiDataId}"/>
+                    <h:outputText value="#{oBI.ViewLocStatesLabel_countryId}"/>
+                    <h:outputText value="#{locStatesController.selected.countryId}" title="#{oBI.ViewLocStatesTitle_countryId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{locStatesController.destroyAndView}" value="#{oBI.ViewLocStatesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewLocStatesEditLink}"/>
+                <br />
+                <h:commandLink action="#{locStatesController.prepareCreate}" value="#{oBI.ViewLocStatesCreateLink}" />
+                <br />
+                <h:commandLink action="#{locStatesController.prepareList}" value="#{oBI.ViewLocStatesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewLocStatesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

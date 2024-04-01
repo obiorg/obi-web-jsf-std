@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ListUserLoginDataTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{oBI.ListUserLoginDataEmpty}" rendered="#{userLoginDataController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{userLoginDataController.items.rowCount > 0}">
+                    <h:outputText value="#{userLoginDataController.pagination.pageFirstItem + 1}..#{userLoginDataController.pagination.pageLastItem + 1}/#{userLoginDataController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{userLoginDataController.previous}" value="#{oBI.Previous} #{userLoginDataController.pagination.pageSize}" rendered="#{userLoginDataController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{userLoginDataController.next}" value="#{oBI.Next} #{userLoginDataController.pagination.pageSize}" rendered="#{userLoginDataController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{userLoginDataController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserLoginDataTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserLoginDataTitle_deleted}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deleted}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserLoginDataTitle_created}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.created}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserLoginDataTitle_changed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.changed}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserLoginDataTitle_loginName}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.loginName}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserLoginDataTitle_passwordHash}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.passwordHash}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserLoginDataTitle_passwordSalt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.passwordSalt}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserLoginDataTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserLoginDataTitle_tokenConfirmation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tokenConfirmation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserLoginDataTitle_tokenGenerationTime}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tokenGenerationTime}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserLoginDataTitle_tokenPasswordRecovery}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tokenPasswordRecovery}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserLoginDataTitle_tokenTimeRecovery}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tokenTimeRecovery}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserLoginDataTitle_image}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.image}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserLoginDataTitle_emailVerified}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emailVerified}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListUserLoginDataTitle_hashAlgorithm}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.hashAlgorithm}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{userLoginDataController.prepareView}" value="#{oBI.ListUserLoginDataViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{userLoginDataController.prepareEdit}" value="#{oBI.ListUserLoginDataEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{userLoginDataController.destroy}" value="#{oBI.ListUserLoginDataDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{userLoginDataController.prepareCreate}" value="#{oBI.ListUserLoginDataCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ListUserLoginDataIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

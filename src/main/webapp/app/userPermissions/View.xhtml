@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewUserPermissionsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewUserPermissionsLabel_id}"/>
+                    <h:outputText value="#{userPermissionsController.selected.id}" title="#{oBI.ViewUserPermissionsTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewUserPermissionsLabel_deleted}"/>
+                    <h:outputText value="#{userPermissionsController.selected.deleted}" title="#{oBI.ViewUserPermissionsTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewUserPermissionsLabel_created}"/>
+                    <h:outputText value="#{userPermissionsController.selected.created}" title="#{oBI.ViewUserPermissionsTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewUserPermissionsLabel_changed}"/>
+                    <h:outputText value="#{userPermissionsController.selected.changed}" title="#{oBI.ViewUserPermissionsTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewUserPermissionsLabel_name}"/>
+                    <h:outputText value="#{userPermissionsController.selected.name}" title="#{oBI.ViewUserPermissionsTitle_name}"/>
+                    <h:outputText value="#{oBI.ViewUserPermissionsLabel_designation}"/>
+                    <h:outputText value="#{userPermissionsController.selected.designation}" title="#{oBI.ViewUserPermissionsTitle_designation}"/>
+                    <h:outputText value="#{oBI.ViewUserPermissionsLabel_parent}"/>
+                    <h:outputText value="#{userPermissionsController.selected.parent}" title="#{oBI.ViewUserPermissionsTitle_parent}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{userPermissionsController.destroyAndView}" value="#{oBI.ViewUserPermissionsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewUserPermissionsEditLink}"/>
+                <br />
+                <h:commandLink action="#{userPermissionsController.prepareCreate}" value="#{oBI.ViewUserPermissionsCreateLink}" />
+                <br />
+                <h:commandLink action="#{userPermissionsController.prepareList}" value="#{oBI.ViewUserPermissionsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewUserPermissionsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

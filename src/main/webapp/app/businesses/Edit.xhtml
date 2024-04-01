@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.EditBusinessesTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            
+            
+<!--            <h:outputLabel value="#{OBI.EditBusinessesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{businessesController.selected.id}" title="#{OBI.EditBusinessesTitle_id}" required="true" requiredMessage="#{OBI.EditBusinessesRequiredMessage_id}"/>
+                    <h:outputLabel value="#{OBI.EditBusinessesLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{businessesController.selected.created}" title="#{OBI.EditBusinessesTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{OBI.EditBusinessesLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{businessesController.selected.changed}" title="#{OBI.EditBusinessesTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    -->
+            
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{OBI.EditBusinessesLabel_business}" for="business" />
+                    <h:outputLabel id="business" value="#{businessesController.selected.business}" title="#{OBI.EditBusinessesTitle_business}" />
+                    <h:outputLabel value="#{OBI.EditBusinessesLabel_designation}" for="designation" />
+                    <h:inputText id="designation" value="#{businessesController.selected.designation}" title="#{OBI.EditBusinessesTitle_designation}" />
+                    
+                    <h:outputLabel value="#{OBI.EditBusinessesLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{businessesController.selected.deleted}" title="#{OBI.EditBusinessesTitle_deleted}" />
+                    <h:outputLabel value="#{OBI.EditBusinessesLabel_builded}" for="builded" />
+                    <h:inputText id="builded" value="#{businessesController.selected.builded}" title="#{OBI.EditBusinessesTitle_builded}" />
+                    <h:outputLabel value="#{OBI.EditBusinessesLabel_main}" for="main" />
+                    <h:inputText id="main" value="#{businessesController.selected.main}" title="#{OBI.EditBusinessesTitle_main}" />
+                    <h:outputLabel value="#{OBI.EditBusinessesLabel_activated}" for="activated" />
+                    <h:inputText id="activated" value="#{businessesController.selected.activated}" title="#{OBI.EditBusinessesTitle_activated}" />
+                    <h:outputLabel value="#{OBI.EditBusinessesLabel_logoPath}" for="logoPath" />
+                    <h:inputText id="logoPath" value="#{businessesController.selected.logoPath}" title="#{OBI.EditBusinessesTitle_logoPath}" />
+                    <h:outputLabel value="#{OBI.EditBusinessesLabel_entity}" for="entity" />
+                    <h:selectOneMenu id="entity" value="#{businessesController.selected.entity}" title="#{OBI.EditBusinessesTitle_entity}" required="true" requiredMessage="#{OBI.EditBusinessesRequiredMessage_entity}">
+                        <f:selectItems value="#{entitiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{OBI.EditBusinessesLabel_location}" for="location" />
+                    <h:selectOneMenu id="location" value="#{businessesController.selected.location}" title="#{OBI.EditBusinessesTitle_location}" >
+                        <f:selectItems value="#{locationsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{businessesController.update}" value="#{OBI.EditBusinessesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{OBI.EditBusinessesViewLink}"/>
+                <br />
+                <h:commandLink action="#{businessesController.prepareList}" value="#{OBI.EditBusinessesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.EditBusinessesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

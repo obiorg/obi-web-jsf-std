@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewLocationsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewLocationsLabel_id}"/>
+                    <h:outputText value="#{locationsController.selected.id}" title="#{oBI.ViewLocationsTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewLocationsLabel_deleted}"/>
+                    <h:outputText value="#{locationsController.selected.deleted}" title="#{oBI.ViewLocationsTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewLocationsLabel_created}"/>
+                    <h:outputText value="#{locationsController.selected.created}" title="#{oBI.ViewLocationsTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewLocationsLabel_changed}"/>
+                    <h:outputText value="#{locationsController.selected.changed}" title="#{oBI.ViewLocationsTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewLocationsLabel_location}"/>
+                    <h:outputText value="#{locationsController.selected.location}" title="#{oBI.ViewLocationsTitle_location}"/>
+                    <h:outputText value="#{oBI.ViewLocationsLabel_designation}"/>
+                    <h:outputText value="#{locationsController.selected.designation}" title="#{oBI.ViewLocationsTitle_designation}"/>
+                    <h:outputText value="#{oBI.ViewLocationsLabel_group}"/>
+                    <h:outputText value="#{locationsController.selected.group}" title="#{oBI.ViewLocationsTitle_group}"/>
+                    <h:outputText value="#{oBI.ViewLocationsLabel_address}"/>
+                    <h:outputText value="#{locationsController.selected.address}" title="#{oBI.ViewLocationsTitle_address}"/>
+                    <h:outputText value="#{oBI.ViewLocationsLabel_address1}"/>
+                    <h:outputText value="#{locationsController.selected.address1}" title="#{oBI.ViewLocationsTitle_address1}"/>
+                    <h:outputText value="#{oBI.ViewLocationsLabel_address3}"/>
+                    <h:outputText value="#{locationsController.selected.address3}" title="#{oBI.ViewLocationsTitle_address3}"/>
+                    <h:outputText value="#{oBI.ViewLocationsLabel_bloc}"/>
+                    <h:outputText value="#{locationsController.selected.bloc}" title="#{oBI.ViewLocationsTitle_bloc}"/>
+                    <h:outputText value="#{oBI.ViewLocationsLabel_floor}"/>
+                    <h:outputText value="#{locationsController.selected.floor}" title="#{oBI.ViewLocationsTitle_floor}"/>
+                    <h:outputText value="#{oBI.ViewLocationsLabel_number}"/>
+                    <h:outputText value="#{locationsController.selected.number}" title="#{oBI.ViewLocationsTitle_number}"/>
+                    <h:outputText value="#{oBI.ViewLocationsLabel_city}"/>
+                    <h:outputText value="#{locationsController.selected.city}" title="#{oBI.ViewLocationsTitle_city}"/>
+                    <h:outputText value="#{oBI.ViewLocationsLabel_country}"/>
+                    <h:outputText value="#{locationsController.selected.country}" title="#{oBI.ViewLocationsTitle_country}"/>
+                    <h:outputText value="#{oBI.ViewLocationsLabel_state}"/>
+                    <h:outputText value="#{locationsController.selected.state}" title="#{oBI.ViewLocationsTitle_state}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{locationsController.destroyAndView}" value="#{oBI.ViewLocationsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewLocationsEditLink}"/>
+                <br />
+                <h:commandLink action="#{locationsController.prepareCreate}" value="#{oBI.ViewLocationsCreateLink}" />
+                <br />
+                <h:commandLink action="#{locationsController.prepareList}" value="#{oBI.ViewLocationsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewLocationsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

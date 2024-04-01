@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.EditUserPermissionsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.EditUserPermissionsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{userPermissionsController.selected.id}" title="#{oBI.EditUserPermissionsTitle_id}" required="true" requiredMessage="#{oBI.EditUserPermissionsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.EditUserPermissionsLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{userPermissionsController.selected.deleted}" title="#{oBI.EditUserPermissionsTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.EditUserPermissionsLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{userPermissionsController.selected.created}" title="#{oBI.EditUserPermissionsTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditUserPermissionsLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{userPermissionsController.selected.changed}" title="#{oBI.EditUserPermissionsTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditUserPermissionsLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{userPermissionsController.selected.name}" title="#{oBI.EditUserPermissionsTitle_name}" required="true" requiredMessage="#{oBI.EditUserPermissionsRequiredMessage_name}"/>
+                    <h:outputLabel value="#{oBI.EditUserPermissionsLabel_designation}" for="designation" />
+                    <h:inputText id="designation" value="#{userPermissionsController.selected.designation}" title="#{oBI.EditUserPermissionsTitle_designation}" />
+                    <h:outputLabel value="#{oBI.EditUserPermissionsLabel_parent}" for="parent" />
+                    <h:selectOneMenu id="parent" value="#{userPermissionsController.selected.parent}" title="#{oBI.EditUserPermissionsTitle_parent}" >
+                        <f:selectItems value="#{userPermissionsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{userPermissionsController.update}" value="#{oBI.EditUserPermissionsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{oBI.EditUserPermissionsViewLink}"/>
+                <br />
+                <h:commandLink action="#{userPermissionsController.prepareList}" value="#{oBI.EditUserPermissionsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.EditUserPermissionsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.EditUserEmailVerifiedTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.EditUserEmailVerifiedLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{userEmailVerifiedController.selected.id}" title="#{oBI.EditUserEmailVerifiedTitle_id}" required="true" requiredMessage="#{oBI.EditUserEmailVerifiedRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.EditUserEmailVerifiedLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{userEmailVerifiedController.selected.deleted}" title="#{oBI.EditUserEmailVerifiedTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.EditUserEmailVerifiedLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{userEmailVerifiedController.selected.created}" title="#{oBI.EditUserEmailVerifiedTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditUserEmailVerifiedLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{userEmailVerifiedController.selected.changed}" title="#{oBI.EditUserEmailVerifiedTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.EditUserEmailVerifiedLabel_statusDescription}" for="statusDescription" />
+                    <h:inputText id="statusDescription" value="#{userEmailVerifiedController.selected.statusDescription}" title="#{oBI.EditUserEmailVerifiedTitle_statusDescription}" />
+                </h:panelGrid>
+                <h:commandLink action="#{userEmailVerifiedController.update}" value="#{oBI.EditUserEmailVerifiedSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{oBI.EditUserEmailVerifiedViewLink}"/>
+                <br />
+                <h:commandLink action="#{userEmailVerifiedController.prepareList}" value="#{oBI.EditUserEmailVerifiedShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.EditUserEmailVerifiedIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

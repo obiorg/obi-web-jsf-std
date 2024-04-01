@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateAnalyseMethodsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateAnalyseMethodsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{analyseMethodsController.selected.id}" title="#{oBI.CreateAnalyseMethodsTitle_id}" required="true" requiredMessage="#{oBI.CreateAnalyseMethodsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateAnalyseMethodsLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{analyseMethodsController.selected.deleted}" title="#{oBI.CreateAnalyseMethodsTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.CreateAnalyseMethodsLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{analyseMethodsController.selected.created}" title="#{oBI.CreateAnalyseMethodsTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateAnalyseMethodsLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{analyseMethodsController.selected.changed}" title="#{oBI.CreateAnalyseMethodsTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateAnalyseMethodsLabel_method}" for="method" />
+                    <h:inputText id="method" value="#{analyseMethodsController.selected.method}" title="#{oBI.CreateAnalyseMethodsTitle_method}" required="true" requiredMessage="#{oBI.CreateAnalyseMethodsRequiredMessage_method}"/>
+                    <h:outputLabel value="#{oBI.CreateAnalyseMethodsLabel_designation}" for="designation" />
+                    <h:inputText id="designation" value="#{analyseMethodsController.selected.designation}" title="#{oBI.CreateAnalyseMethodsTitle_designation}" />
+                    <h:outputLabel value="#{oBI.CreateAnalyseMethodsLabel_description}" for="description" />
+                    <h:inputTextarea rows="4" cols="30" id="description" value="#{analyseMethodsController.selected.description}" title="#{oBI.CreateAnalyseMethodsTitle_description}" />
+                    <h:outputLabel value="#{oBI.CreateAnalyseMethodsLabel_filepath}" for="filepath" />
+                    <h:inputText id="filepath" value="#{analyseMethodsController.selected.filepath}" title="#{oBI.CreateAnalyseMethodsTitle_filepath}" />
+                    <h:outputLabel value="#{oBI.CreateAnalyseMethodsLabel_business}" for="business" />
+                    <h:selectOneMenu id="business" value="#{analyseMethodsController.selected.business}" title="#{oBI.CreateAnalyseMethodsTitle_business}" >
+                        <f:selectItems value="#{businessesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{oBI.CreateAnalyseMethodsLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{analyseMethodsController.selected.company}" title="#{oBI.CreateAnalyseMethodsTitle_company}" >
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{analyseMethodsController.create}" value="#{oBI.CreateAnalyseMethodsSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{analyseMethodsController.prepareList}" value="#{oBI.CreateAnalyseMethodsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateAnalyseMethodsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

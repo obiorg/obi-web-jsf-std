@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ListEquipementsDataExternalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{oBI.ListEquipementsDataExternalEmpty}" rendered="#{equipementsDataExternalController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{equipementsDataExternalController.items.rowCount > 0}">
+                    <h:outputText value="#{equipementsDataExternalController.pagination.pageFirstItem + 1}..#{equipementsDataExternalController.pagination.pageLastItem + 1}/#{equipementsDataExternalController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{equipementsDataExternalController.previous}" value="#{oBI.Previous} #{equipementsDataExternalController.pagination.pageSize}" rendered="#{equipementsDataExternalController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{equipementsDataExternalController.next}" value="#{oBI.Next} #{equipementsDataExternalController.pagination.pageSize}" rendered="#{equipementsDataExternalController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{equipementsDataExternalController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsDataExternalTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsDataExternalTitle_deleted}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deleted}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsDataExternalTitle_created}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.created}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsDataExternalTitle_changed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.changed}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsDataExternalTitle_company}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.company}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsDataExternalTitle_equipement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.equipement}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{oBI.ListEquipementsDataExternalTitle_provider}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.provider}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{equipementsDataExternalController.prepareView}" value="#{oBI.ListEquipementsDataExternalViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{equipementsDataExternalController.prepareEdit}" value="#{oBI.ListEquipementsDataExternalEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{equipementsDataExternalController.destroy}" value="#{oBI.ListEquipementsDataExternalDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{equipementsDataExternalController.prepareCreate}" value="#{oBI.ListEquipementsDataExternalCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ListEquipementsDataExternalIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

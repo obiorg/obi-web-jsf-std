@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.EditTagsMemoriesTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+
+<!--            <h:outputLabel value="#{OBI.EditTagsMemoriesLabel_id}" for="id" />
+            <h:inputText id="id" value="#{tagsMemoriesController.selected.id}" title="#{OBI.EditTagsMemoriesTitle_id}" required="true" requiredMessage="#{OBI.EditTagsMemoriesRequiredMessage_id}"/>
+
+            <h:outputLabel value="#{OBI.EditTagsMemoriesLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{tagsMemoriesController.selected.created}" title="#{OBI.EditTagsMemoriesTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{OBI.EditTagsMemoriesLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{tagsMemoriesController.selected.changed}" title="#{OBI.EditTagsMemoriesTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    -->
+
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{OBI.EditTagsMemoriesLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{tagsMemoriesController.selected.name}" title="#{OBI.EditTagsMemoriesTitle_name}" required="true" requiredMessage="#{OBI.EditTagsMemoriesRequiredMessage_name}"/>
+                    <h:outputLabel value="#{OBI.EditTagsMemoriesLabel_comment}" for="comment" />
+                    <h:inputText id="comment" value="#{tagsMemoriesController.selected.comment}" title="#{OBI.EditTagsMemoriesTitle_comment}" />
+                    <h:outputLabel value="#{OBI.EditTagsMemoriesLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{tagsMemoriesController.selected.deleted}" title="#{OBI.EditTagsMemoriesTitle_deleted}" />
+
+
+                </h:panelGrid>
+                <h:commandLink action="#{tagsMemoriesController.update}" value="#{OBI.EditTagsMemoriesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{OBI.EditTagsMemoriesViewLink}"/>
+                <br />
+                <h:commandLink action="#{tagsMemoriesController.prepareList}" value="#{OBI.EditTagsMemoriesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.EditTagsMemoriesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

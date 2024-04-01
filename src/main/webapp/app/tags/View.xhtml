@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.ViewTagsTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+
+            
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{OBI.ViewTagsLabel_id}"/>
+                    <h:outputText value="#{tagsController.selected.id}" title="#{OBI.ViewTagsTitle_id}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_deleted}"/>
+                    <h:outputText value="#{tagsController.selected.deleted}" title="#{OBI.ViewTagsTitle_deleted}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_created}"/>
+                    <h:outputText value="#{tagsController.selected.created}" title="#{OBI.ViewTagsTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewTagsLabel_changed}"/>
+                    <h:outputText value="#{tagsController.selected.changed}" title="#{OBI.ViewTagsTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewTagsLabel_name}"/>
+                    <h:outputText value="#{tagsController.selected.name}" title="#{OBI.ViewTagsTitle_name}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_db}"/>
+                    <h:outputText value="#{tagsController.selected.db}" title="#{OBI.ViewTagsTitle_db}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_byte1}"/>
+                    <h:outputText value="#{tagsController.selected.byte1}" title="#{OBI.ViewTagsTitle_byte1}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_bit}"/>
+                    <h:outputText value="#{tagsController.selected.bit}" title="#{OBI.ViewTagsTitle_bit}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_active}"/>
+                    <h:outputText value="#{tagsController.selected.active}" title="#{OBI.ViewTagsTitle_active}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_cycle}"/>
+                    <h:outputText value="#{tagsController.selected.cycle}" title="#{OBI.ViewTagsTitle_cycle}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_delta}"/>
+                    <h:outputText value="#{tagsController.selected.delta}" title="#{OBI.ViewTagsTitle_delta}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_deltaFloat}"/>
+                    <h:outputText value="#{tagsController.selected.deltaFloat}" title="#{OBI.ViewTagsTitle_deltaFloat}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_deltaInt}"/>
+                    <h:outputText value="#{tagsController.selected.deltaInt}" title="#{OBI.ViewTagsTitle_deltaInt}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_deltaBool}"/>
+                    <h:outputText value="#{tagsController.selected.deltaBool}" title="#{OBI.ViewTagsTitle_deltaBool}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_deltaDateTime}"/>
+                    <h:outputText value="#{tagsController.selected.deltaDateTime}" title="#{OBI.ViewTagsTitle_deltaDateTime}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_VFloat}"/>
+                    <h:outputText value="#{tagsController.selected.VFloat}" title="#{OBI.ViewTagsTitle_VFloat}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_VInt}"/>
+                    <h:outputText value="#{tagsController.selected.VInt}" title="#{OBI.ViewTagsTitle_VInt}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_VBool}"/>
+                    <h:outputText value="#{tagsController.selected.VBool}" title="#{OBI.ViewTagsTitle_VBool}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_VStr}"/>
+                    <h:outputText value="#{tagsController.selected.VStr}" title="#{OBI.ViewTagsTitle_VStr}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_VDateTime}"/>
+                    <h:outputText value="#{tagsController.selected.VDateTime}" title="#{OBI.ViewTagsTitle_VDateTime}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewTagsLabel_VStamp}"/>
+                    <h:outputText value="#{tagsController.selected.VStamp}" title="#{OBI.ViewTagsTitle_VStamp}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewTagsLabel_VDefault}"/>
+                    <h:outputText value="#{tagsController.selected.VDefault}" title="#{OBI.ViewTagsTitle_VDefault}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_VFloatDefault}"/>
+                    <h:outputText value="#{tagsController.selected.VFloatDefault}" title="#{OBI.ViewTagsTitle_VFloatDefault}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_VIntDefault}"/>
+                    <h:outputText value="#{tagsController.selected.VIntDefault}" title="#{OBI.ViewTagsTitle_VIntDefault}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_VBoolDefault}"/>
+                    <h:outputText value="#{tagsController.selected.VBoolDefault}" title="#{OBI.ViewTagsTitle_VBoolDefault}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_VStrDefault}"/>
+                    <h:outputText value="#{tagsController.selected.VStrDefault}" title="#{OBI.ViewTagsTitle_VStrDefault}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_VDateTimeDefault}"/>
+                    <h:outputText value="#{tagsController.selected.VDateTimeDefault}" title="#{OBI.ViewTagsTitle_VDateTimeDefault}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewTagsLabel_VStampDefault}"/>
+                    <h:outputText value="#{tagsController.selected.VStampDefault}" title="#{OBI.ViewTagsTitle_VStampDefault}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewTagsLabel_counter}"/>
+                    <h:outputText value="#{tagsController.selected.counter}" title="#{OBI.ViewTagsTitle_counter}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_counterType}"/>
+                    <h:outputText value="#{tagsController.selected.counterType}" title="#{OBI.ViewTagsTitle_counterType}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_mesure}"/>
+                    <h:outputText value="#{tagsController.selected.mesure}" title="#{OBI.ViewTagsTitle_mesure}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_mesureMin}"/>
+                    <h:outputText value="#{tagsController.selected.mesureMin}" title="#{OBI.ViewTagsTitle_mesureMin}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_mesureMax}"/>
+                    <h:outputText value="#{tagsController.selected.mesureMax}" title="#{OBI.ViewTagsTitle_mesureMax}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_mqqtTopic}"/>
+                    <h:outputText value="#{tagsController.selected.mqqtTopic}" title="#{OBI.ViewTagsTitle_mqqtTopic}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_webhook}"/>
+                    <h:outputText value="#{tagsController.selected.webhook}" title="#{OBI.ViewTagsTitle_webhook}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_laboratory}"/>
+                    <h:outputText value="#{tagsController.selected.laboratory}" title="#{OBI.ViewTagsTitle_laboratory}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_formula}"/>
+                    <h:outputText value="#{tagsController.selected.formula}" title="#{OBI.ViewTagsTitle_formula}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_formCalculus}"/>
+                    <h:outputText value="#{tagsController.selected.formCalculus}" title="#{OBI.ViewTagsTitle_formCalculus}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_formProcessing}"/>
+                    <h:outputText value="#{tagsController.selected.formProcessing}" title="#{OBI.ViewTagsTitle_formProcessing}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_error}"/>
+                    <h:outputText value="#{tagsController.selected.error}" title="#{OBI.ViewTagsTitle_error}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_errorMsg}"/>
+                    <h:outputText value="#{tagsController.selected.errorMsg}" title="#{OBI.ViewTagsTitle_errorMsg}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_errorStamp}"/>
+                    <h:outputText value="#{tagsController.selected.errorStamp}" title="#{OBI.ViewTagsTitle_errorStamp}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewTagsLabel_alarmEnable}"/>
+                    <h:outputText value="#{tagsController.selected.alarmEnable}" title="#{OBI.ViewTagsTitle_alarmEnable}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_persistenceEnable}"/>
+                    <h:outputText value="#{tagsController.selected.persistenceEnable}" title="#{OBI.ViewTagsTitle_persistenceEnable}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_persOffsetEnable}"/>
+                    <h:outputText value="#{tagsController.selected.persOffsetEnable}" title="#{OBI.ViewTagsTitle_persOffsetEnable}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_persOffsetFloat}"/>
+                    <h:outputText value="#{tagsController.selected.persOffsetFloat}" title="#{OBI.ViewTagsTitle_persOffsetFloat}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_persOffsetInt}"/>
+                    <h:outputText value="#{tagsController.selected.persOffsetInt}" title="#{OBI.ViewTagsTitle_persOffsetInt}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_persOffsetBool}"/>
+                    <h:outputText value="#{tagsController.selected.persOffsetBool}" title="#{OBI.ViewTagsTitle_persOffsetBool}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_persOffsetDateTime}"/>
+                    <h:outputText value="#{tagsController.selected.persOffsetDateTime}" title="#{OBI.ViewTagsTitle_persOffsetDateTime}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewTagsLabel_comment}"/>
+                    <h:outputText value="#{tagsController.selected.comment}" title="#{OBI.ViewTagsTitle_comment}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_alarm}"/>
+                    <h:outputText value="#{tagsController.selected.alarm}" title="#{OBI.ViewTagsTitle_alarm}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_company}"/>
+                    <h:outputText value="#{tagsController.selected.company}" title="#{OBI.ViewTagsTitle_company}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_machine}"/>
+                    <h:outputText value="#{tagsController.selected.machine}" title="#{OBI.ViewTagsTitle_machine}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_measureUnit}"/>
+                    <h:outputText value="#{tagsController.selected.measureUnit}" title="#{OBI.ViewTagsTitle_measureUnit}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_memory}"/>
+                    <h:outputText value="#{tagsController.selected.memory}" title="#{OBI.ViewTagsTitle_memory}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_table}"/>
+                    <h:outputText value="#{tagsController.selected.table}" title="#{OBI.ViewTagsTitle_table}"/>
+                    <h:outputText value="#{OBI.ViewTagsLabel_type}"/>
+                    <h:outputText value="#{tagsController.selected.type}" title="#{OBI.ViewTagsTitle_type}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tagsController.destroyAndView}" value="#{OBI.ViewTagsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{OBI.ViewTagsEditLink}"/>
+                <br />
+                <h:commandLink action="#{tagsController.prepareCreate}" value="#{OBI.ViewTagsCreateLink}" />
+                <br />
+                <h:commandLink action="#{tagsController.prepareList}" value="#{OBI.ViewTagsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.ViewTagsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateEquipementsExternalProvidersTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{equipementsExternalProvidersController.selected.id}" title="#{oBI.CreateEquipementsExternalProvidersTitle_id}" required="true" requiredMessage="#{oBI.CreateEquipementsExternalProvidersRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{equipementsExternalProvidersController.selected.deleted}" title="#{oBI.CreateEquipementsExternalProvidersTitle_deleted}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{equipementsExternalProvidersController.selected.created}" title="#{oBI.CreateEquipementsExternalProvidersTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{equipementsExternalProvidersController.selected.changed}" title="#{oBI.CreateEquipementsExternalProvidersTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_provider}" for="provider" />
+                    <h:inputText id="provider" value="#{equipementsExternalProvidersController.selected.provider}" title="#{oBI.CreateEquipementsExternalProvidersTitle_provider}" required="true" requiredMessage="#{oBI.CreateEquipementsExternalProvidersRequiredMessage_provider}"/>
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{equipementsExternalProvidersController.selected.name}" title="#{oBI.CreateEquipementsExternalProvidersTitle_name}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_type}" for="type" />
+                    <h:inputText id="type" value="#{equipementsExternalProvidersController.selected.type}" title="#{oBI.CreateEquipementsExternalProvidersTitle_type}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_sourceType}" for="sourceType" />
+                    <h:inputText id="sourceType" value="#{equipementsExternalProvidersController.selected.sourceType}" title="#{oBI.CreateEquipementsExternalProvidersTitle_sourceType}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_link}" for="link" />
+                    <h:inputText id="link" value="#{equipementsExternalProvidersController.selected.link}" title="#{oBI.CreateEquipementsExternalProvidersTitle_link}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_source}" for="source" />
+                    <h:inputText id="source" value="#{equipementsExternalProvidersController.selected.source}" title="#{oBI.CreateEquipementsExternalProvidersTitle_source}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_bddServer}" for="bddServer" />
+                    <h:inputText id="bddServer" value="#{equipementsExternalProvidersController.selected.bddServer}" title="#{oBI.CreateEquipementsExternalProvidersTitle_bddServer}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_bddUser}" for="bddUser" />
+                    <h:inputText id="bddUser" value="#{equipementsExternalProvidersController.selected.bddUser}" title="#{oBI.CreateEquipementsExternalProvidersTitle_bddUser}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_bddPassword}" for="bddPassword" />
+                    <h:inputText id="bddPassword" value="#{equipementsExternalProvidersController.selected.bddPassword}" title="#{oBI.CreateEquipementsExternalProvidersTitle_bddPassword}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_bddPort}" for="bddPort" />
+                    <h:inputText id="bddPort" value="#{equipementsExternalProvidersController.selected.bddPort}" title="#{oBI.CreateEquipementsExternalProvidersTitle_bddPort}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_approuved}" for="approuved" />
+                    <h:inputText id="approuved" value="#{equipementsExternalProvidersController.selected.approuved}" title="#{oBI.CreateEquipementsExternalProvidersTitle_approuved}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_paramBool1}" for="paramBool1" />
+                    <h:inputText id="paramBool1" value="#{equipementsExternalProvidersController.selected.paramBool1}" title="#{oBI.CreateEquipementsExternalProvidersTitle_paramBool1}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_paramBool2}" for="paramBool2" />
+                    <h:inputText id="paramBool2" value="#{equipementsExternalProvidersController.selected.paramBool2}" title="#{oBI.CreateEquipementsExternalProvidersTitle_paramBool2}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_paramBool3}" for="paramBool3" />
+                    <h:inputText id="paramBool3" value="#{equipementsExternalProvidersController.selected.paramBool3}" title="#{oBI.CreateEquipementsExternalProvidersTitle_paramBool3}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_paramBool4}" for="paramBool4" />
+                    <h:inputText id="paramBool4" value="#{equipementsExternalProvidersController.selected.paramBool4}" title="#{oBI.CreateEquipementsExternalProvidersTitle_paramBool4}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_paramBool5}" for="paramBool5" />
+                    <h:inputText id="paramBool5" value="#{equipementsExternalProvidersController.selected.paramBool5}" title="#{oBI.CreateEquipementsExternalProvidersTitle_paramBool5}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_paramInt1}" for="paramInt1" />
+                    <h:inputText id="paramInt1" value="#{equipementsExternalProvidersController.selected.paramInt1}" title="#{oBI.CreateEquipementsExternalProvidersTitle_paramInt1}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_paramInt2}" for="paramInt2" />
+                    <h:inputText id="paramInt2" value="#{equipementsExternalProvidersController.selected.paramInt2}" title="#{oBI.CreateEquipementsExternalProvidersTitle_paramInt2}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_paramInt3}" for="paramInt3" />
+                    <h:inputText id="paramInt3" value="#{equipementsExternalProvidersController.selected.paramInt3}" title="#{oBI.CreateEquipementsExternalProvidersTitle_paramInt3}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_paramInt4}" for="paramInt4" />
+                    <h:inputText id="paramInt4" value="#{equipementsExternalProvidersController.selected.paramInt4}" title="#{oBI.CreateEquipementsExternalProvidersTitle_paramInt4}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_paramInt5}" for="paramInt5" />
+                    <h:inputText id="paramInt5" value="#{equipementsExternalProvidersController.selected.paramInt5}" title="#{oBI.CreateEquipementsExternalProvidersTitle_paramInt5}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_paramStr1}" for="paramStr1" />
+                    <h:inputText id="paramStr1" value="#{equipementsExternalProvidersController.selected.paramStr1}" title="#{oBI.CreateEquipementsExternalProvidersTitle_paramStr1}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_paramStr2}" for="paramStr2" />
+                    <h:inputText id="paramStr2" value="#{equipementsExternalProvidersController.selected.paramStr2}" title="#{oBI.CreateEquipementsExternalProvidersTitle_paramStr2}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_paramStr3}" for="paramStr3" />
+                    <h:inputText id="paramStr3" value="#{equipementsExternalProvidersController.selected.paramStr3}" title="#{oBI.CreateEquipementsExternalProvidersTitle_paramStr3}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_paramStr4}" for="paramStr4" />
+                    <h:inputText id="paramStr4" value="#{equipementsExternalProvidersController.selected.paramStr4}" title="#{oBI.CreateEquipementsExternalProvidersTitle_paramStr4}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_paramStr5}" for="paramStr5" />
+                    <h:inputText id="paramStr5" value="#{equipementsExternalProvidersController.selected.paramStr5}" title="#{oBI.CreateEquipementsExternalProvidersTitle_paramStr5}" />
+                    <h:outputLabel value="#{oBI.CreateEquipementsExternalProvidersLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{equipementsExternalProvidersController.selected.company}" title="#{oBI.CreateEquipementsExternalProvidersTitle_company}" required="true" requiredMessage="#{oBI.CreateEquipementsExternalProvidersRequiredMessage_company}">
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{equipementsExternalProvidersController.create}" value="#{oBI.CreateEquipementsExternalProvidersSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{equipementsExternalProvidersController.prepareList}" value="#{oBI.CreateEquipementsExternalProvidersShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateEquipementsExternalProvidersIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

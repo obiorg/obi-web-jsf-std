@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.ViewAlarmsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{oBI.ViewAlarmsLabel_id}"/>
+                    <h:outputText value="#{alarmsController.selected.id}" title="#{oBI.ViewAlarmsTitle_id}"/>
+                    <h:outputText value="#{oBI.ViewAlarmsLabel_deleted}"/>
+                    <h:outputText value="#{alarmsController.selected.deleted}" title="#{oBI.ViewAlarmsTitle_deleted}"/>
+                    <h:outputText value="#{oBI.ViewAlarmsLabel_created}"/>
+                    <h:outputText value="#{alarmsController.selected.created}" title="#{oBI.ViewAlarmsTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewAlarmsLabel_changed}"/>
+                    <h:outputText value="#{alarmsController.selected.changed}" title="#{oBI.ViewAlarmsTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{oBI.ViewAlarmsLabel_alarm}"/>
+                    <h:outputText value="#{alarmsController.selected.alarm}" title="#{oBI.ViewAlarmsTitle_alarm}"/>
+                    <h:outputText value="#{oBI.ViewAlarmsLabel_name}"/>
+                    <h:outputText value="#{alarmsController.selected.name}" title="#{oBI.ViewAlarmsTitle_name}"/>
+                    <h:outputText value="#{oBI.ViewAlarmsLabel_descirption}"/>
+                    <h:outputText value="#{alarmsController.selected.descirption}" title="#{oBI.ViewAlarmsTitle_descirption}"/>
+                    <h:outputText value="#{oBI.ViewAlarmsLabel_language}"/>
+                    <h:outputText value="#{alarmsController.selected.language}" title="#{oBI.ViewAlarmsTitle_language}"/>
+                    <h:outputText value="#{oBI.ViewAlarmsLabel_comment}"/>
+                    <h:outputText value="#{alarmsController.selected.comment}" title="#{oBI.ViewAlarmsTitle_comment}"/>
+                    <h:outputText value="#{oBI.ViewAlarmsLabel_class1}"/>
+                    <h:outputText value="#{alarmsController.selected.class1}" title="#{oBI.ViewAlarmsTitle_class1}"/>
+                    <h:outputText value="#{oBI.ViewAlarmsLabel_group1}"/>
+                    <h:outputText value="#{alarmsController.selected.group1}" title="#{oBI.ViewAlarmsTitle_group1}"/>
+                    <h:outputText value="#{oBI.ViewAlarmsLabel_company}"/>
+                    <h:outputText value="#{alarmsController.selected.company}" title="#{oBI.ViewAlarmsTitle_company}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{alarmsController.destroyAndView}" value="#{oBI.ViewAlarmsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{oBI.ViewAlarmsEditLink}"/>
+                <br />
+                <h:commandLink action="#{alarmsController.prepareCreate}" value="#{oBI.ViewAlarmsCreateLink}" />
+                <br />
+                <h:commandLink action="#{alarmsController.prepareList}" value="#{oBI.ViewAlarmsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.ViewAlarmsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

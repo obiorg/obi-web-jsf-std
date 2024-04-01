@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.CreateCompaniesTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+       
+<!--            
+            <h:outputLabel value="#{OBI.CreateCompaniesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{companiesController.selected.id}" title="#{OBI.CreateCompaniesTitle_id}" required="true" requiredMessage="#{OBI.CreateCompaniesRequiredMessage_id}"/>
+                    <h:outputLabel value="#{OBI.CreateCompaniesLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{companiesController.selected.deleted}" title="#{OBI.CreateCompaniesTitle_deleted}" />
+                    <h:outputLabel value="#{OBI.CreateCompaniesLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{companiesController.selected.created}" title="#{OBI.CreateCompaniesTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{OBI.CreateCompaniesLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{companiesController.selected.changed}" title="#{OBI.CreateCompaniesTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    -->
+            
+            
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{OBI.CreateCompaniesLabel_company}" for="company" />
+                    <h:inputText id="company" value="#{companiesController.selected.company}" title="#{OBI.CreateCompaniesTitle_company}" required="true" requiredMessage="#{OBI.CreateCompaniesRequiredMessage_company}"/>
+                    <h:outputLabel value="#{OBI.CreateCompaniesLabel_designation}" for="designation" />
+                    <h:inputText id="designation" value="#{companiesController.selected.designation}" title="#{OBI.CreateCompaniesTitle_designation}" />
+                    <h:outputLabel value="#{OBI.CreateCompaniesLabel_builded}" for="builded" />
+                    <h:inputText id="builded" value="#{companiesController.selected.builded}" title="#{OBI.CreateCompaniesTitle_builded}" />
+                    <h:outputLabel value="#{OBI.CreateCompaniesLabel_main}" for="main" />
+                    <h:inputText id="main" value="#{companiesController.selected.main}" title="#{OBI.CreateCompaniesTitle_main}" />
+                    <h:outputLabel value="#{OBI.CreateCompaniesLabel_activated}" for="activated" />
+                    <h:inputText id="activated" value="#{companiesController.selected.activated}" title="#{OBI.CreateCompaniesTitle_activated}" />
+                    <h:outputLabel value="#{OBI.CreateCompaniesLabel_logoPath}" for="logoPath" />
+                    <h:inputText id="logoPath" value="#{companiesController.selected.logoPath}" title="#{OBI.CreateCompaniesTitle_logoPath}" />
+                    <h:outputLabel value="#{OBI.CreateCompaniesLabel_business}" for="business" />
+                    <h:selectOneMenu id="business" value="#{companiesController.selected.business}" title="#{OBI.CreateCompaniesTitle_business}" required="true" requiredMessage="#{OBI.CreateCompaniesRequiredMessage_business}">
+                        <f:selectItems value="#{businessesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{OBI.CreateCompaniesLabel_location}" for="location" />
+                    <h:selectOneMenu id="location" value="#{companiesController.selected.location}" title="#{OBI.CreateCompaniesTitle_location}" >
+                        <f:selectItems value="#{locationsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{companiesController.create}" value="#{OBI.CreateCompaniesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{companiesController.prepareList}" value="#{OBI.CreateCompaniesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.CreateCompaniesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
