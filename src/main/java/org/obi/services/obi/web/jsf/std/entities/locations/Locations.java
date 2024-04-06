@@ -81,20 +81,20 @@ public class Locations implements Serializable {
     private Integer floor;
     @Size(max = 45)
     private String number;
-    @OneToMany(mappedBy = "location", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "location", fetch = FetchType.EAGER)
     private Collection<Companies> companiesCollection;
-    @OneToMany(mappedBy = "location", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "location", fetch = FetchType.EAGER)
     private Collection<Businesses> businessesCollection;
-    @OneToMany(mappedBy = "location", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "location", fetch = FetchType.EAGER)
     private Collection<Entities> entitiesCollection;
     @JoinColumn(name = "city", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private LocCities city;
     @JoinColumn(name = "country", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private LocCountries country;
     @JoinColumn(name = "state", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private LocStates state;
 
     public Locations() {

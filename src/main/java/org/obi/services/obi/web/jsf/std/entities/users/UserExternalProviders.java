@@ -58,7 +58,7 @@ public class UserExternalProviders implements Serializable {
     private String name;
     @Size(max = 255)
     private String wsEndPoint;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "externalProvider", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "externalProvider", fetch = FetchType.EAGER)
     private Collection<UserLoginDataExternal> userLoginDataExternalCollection;
 
     public UserExternalProviders() {

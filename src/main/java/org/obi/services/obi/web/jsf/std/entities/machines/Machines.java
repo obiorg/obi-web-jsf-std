@@ -51,9 +51,9 @@ import org.obi.services.obi.web.jsf.std.entities.tags.Tags;
     @NamedQuery(name = "Machines.findByName", query = "SELECT m FROM Machines m WHERE m.name = :name"),
     @NamedQuery(name = "Machines.findByRack", query = "SELECT m FROM Machines m WHERE m.rack = :rack"),
     @NamedQuery(name = "Machines.findBySlot", query = "SELECT m FROM Machines m WHERE m.slot = :slot"),
-    @NamedQuery(name = "Machines.findByMqqt", query = "SELECT m FROM Machines m WHERE m.mqqt = :mqqt"),
-    @NamedQuery(name = "Machines.findByMqqtUser", query = "SELECT m FROM Machines m WHERE m.mqqtUser = :mqqtUser"),
-    @NamedQuery(name = "Machines.findByMqqtPassword", query = "SELECT m FROM Machines m WHERE m.mqqtPassword = :mqqtPassword"),
+    @NamedQuery(name = "Machines.findByMqqt", query = "SELECT m FROM Machines m WHERE m.mqtt = :mqtt"),
+    @NamedQuery(name = "Machines.findByMqqtUser", query = "SELECT m FROM Machines m WHERE m.mqttUser = :mqttUser"),
+    @NamedQuery(name = "Machines.findByMqqtPassword", query = "SELECT m FROM Machines m WHERE m.mqttPassword = :mqttPassword"),
     @NamedQuery(name = "Machines.findByWebhook", query = "SELECT m FROM Machines m WHERE m.webhook = :webhook"),
     @NamedQuery(name = "Machines.findByWebhookSecret", query = "SELECT m FROM Machines m WHERE m.webhookSecret = :webhookSecret"),
     @NamedQuery(name = "Machines.findByBus", query = "SELECT m FROM Machines m WHERE m.bus = :bus"),
@@ -85,13 +85,13 @@ public class Machines implements Serializable {
     private String name;
     private Integer rack;
     private Integer slot;
-    private Boolean mqqt;
+    private Boolean mqtt;
     @Size(max = 45)
-    @Column(name = "mqqt_user")
-    private String mqqtUser;
+    @Column(name = "mqtt_user")
+    private String mqttUser;
     @Size(max = 512)
-    @Column(name = "mqqt_password")
-    private String mqqtPassword;
+    @Column(name = "mqtt_password")
+    private String mqttPassword;
     private Boolean webhook;
     @Size(max = 512)
     @Column(name = "webhook_secret")
@@ -99,13 +99,13 @@ public class Machines implements Serializable {
     private Integer bus;
     @Size(max = 512)
     private String description;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "machine", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "machine", fetch = FetchType.EAGER)
     private Collection<Tags> tagsCollection;
     @JoinColumn(name = "company", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Companies company;
     @JoinColumn(name = "driver", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private MachDrivers driver;
 
     public Machines() {
@@ -216,28 +216,28 @@ public class Machines implements Serializable {
         this.slot = slot;
     }
 
-    public Boolean getMqqt() {
-        return mqqt;
+    public Boolean getMqtt() {
+        return mqtt;
     }
 
-    public void setMqqt(Boolean mqqt) {
-        this.mqqt = mqqt;
+    public void setMqtt(Boolean mqtt) {
+        this.mqtt = mqtt;
     }
 
-    public String getMqqtUser() {
-        return mqqtUser;
+    public String getMqttUser() {
+        return mqttUser;
     }
 
-    public void setMqqtUser(String mqqtUser) {
-        this.mqqtUser = mqqtUser;
+    public void setMqttUser(String mqttUser) {
+        this.mqttUser = mqttUser;
     }
 
-    public String getMqqtPassword() {
-        return mqqtPassword;
+    public String getMqttPassword() {
+        return mqttPassword;
     }
 
-    public void setMqqtPassword(String mqqtPassword) {
-        this.mqqtPassword = mqqtPassword;
+    public void setMqttPassword(String mqttPassword) {
+        this.mqttPassword = mqttPassword;
     }
 
     public Boolean getWebhook() {

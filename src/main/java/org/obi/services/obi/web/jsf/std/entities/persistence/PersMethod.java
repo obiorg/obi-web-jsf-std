@@ -58,7 +58,7 @@ public class PersMethod implements Serializable {
     private String name;
     @Size(max = 512)
     private String comment;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "method", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "method", fetch = FetchType.EAGER)
     private Collection<Persistence> persistenceCollection;
 
     public PersMethod() {

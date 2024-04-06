@@ -54,7 +54,7 @@ public class UserLoginDataExternal implements Serializable {
     @Size(min = 1, max = 255)
     private String tokenExternalProvider;
     @JoinColumn(name = "externalProvider", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private UserExternalProviders externalProvider;
 
     public UserLoginDataExternal() {

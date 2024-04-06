@@ -8,22 +8,72 @@
     <ui:composition template="/tmpl/MainWindow.xhtml">
 
         <ui:define name="title">
-            <h:outputText value="#{OBI.ListTagsTitle}"></h:outputText>
+            <h:outputText value="#{OBI.ListTagsTitle}" />
         </ui:define>
 
 
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
-
+                <h:commandLink action="#{tagsController.first}" 
+                               styleClass="page-link"
+                               >
+                    <span aria-hidden="true"><i class="fa-solid fa-arrows-rotate"></i></span>
+                </h:commandLink>
 
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{OBI.ListTagsEmpty}" rendered="#{tagsController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{tagsController.items.rowCount > 0}">
-                    <h:outputText value="#{tagsController.pagination.pageFirstItem + 1}..#{tagsController.pagination.pageLastItem + 1}/#{tagsController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{tagsController.previous}" value="#{OBI.Previous} #{tagsController.pagination.pageSize}" rendered="#{tagsController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{tagsController.next}" value="#{OBI.Next} #{tagsController.pagination.pageSize}" rendered="#{tagsController.pagination.hasNextPage}"/>&nbsp;
+
+                    <nav aria-label="navTableTop" class=" mb-0 pb-0">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item  #{!tagsController.pagination.hasPreviousPage?'disabled':''}">
+                                <h:commandLink action="#{tagsController.first}" 
+                                               styleClass="page-link"
+                                               disabled="#{!tagsController.pagination.hasPreviousPage}">
+                                    <span aria-hidden="true"><i class="fa-solid fa-backward-step"></i></span>
+                                </h:commandLink>
+                            </li>
+                            <li class="page-item  #{!tagsController.pagination.hasPreviousPage?'disabled':''}">
+                                <h:commandLink action="#{tagsController.previous}" 
+                                               styleClass="page-link"
+                                               disabled="#{!tagsController.pagination.hasPreviousPage}">
+                                    <span aria-hidden="true"><i class="fa-solid fa-caret-left"></i></span>
+                                </h:commandLink>
+                            </li>
+                            <!--<li class="page-item"><a class="page-link" href="#">1</a></li>-->
+                            <li class="page-item active">
+                                <span class="page-link">#{tagsController.pagination.page+1}</span>
+                            </li>
+                            <!--<li class="page-item"><a class="page-link" href="#">3</a></li>-->
+                            <li class="page-item  #{!tagsController.pagination.hasNextPage?'disabled':''}">
+                                <h:commandLink action="#{tagsController.next}" 
+                                               styleClass="page-link"
+                                               disabled="#{!tagsController.pagination.hasNextPage}">
+                                    <span aria-hidden="true"><i class="fa-solid fa-caret-right"></i></span>
+                                </h:commandLink>
+
+                            </li>
+                            <li class="page-item  #{!tagsController.pagination.hasNextPage?'disabled':''}">
+                                <h:commandLink action="#{tagsController.last}" 
+                                               styleClass="page-link"
+                                               disabled="#{!tagsController.pagination.hasNextPage}">
+                                    <span aria-hidden="true"><i class="fa-solid fa-forward-step"></i></span>
+                                </h:commandLink>
+
+                            </li>
+
+
+                            <h:outputText value="#{tagsController.pagination.pageFirstItem + 1}..#{tagsController.pagination.pageLastItem + 1}/#{tagsController.pagination.itemsCount}"
+                                          />&nbsp;
+                        </ul>
+                    </nav>
+
+
+
+
+
                     <div class="table-responsive">
                         <h:dataTable value="#{tagsController.items}" var="item" border="0" 
                                      cellpadding="0" cellspacing="0" 
@@ -243,9 +293,9 @@
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText value="#{OBI.ListTagsTitle_mqqtTopic}"/>
+                                    <h:outputText value="#{OBI.ListTagsTitle_mqttTopic}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.mqqtTopic}"/>
+                                <h:outputText value="#{item.mqttTopic}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">

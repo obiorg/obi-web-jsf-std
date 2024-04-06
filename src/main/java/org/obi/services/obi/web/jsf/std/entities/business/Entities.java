@@ -73,16 +73,16 @@ public class Entities implements Serializable {
     private Boolean activated;
     @Size(max = 512)
     private String logoPath;
-    @OneToMany(mappedBy = "entity", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "entity", fetch = FetchType.EAGER)
     private Collection<UserRolePermissions> userRolePermissionsCollection;
-    @OneToMany(mappedBy = "entity", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "entity", fetch = FetchType.EAGER)
     private Collection<UserRoles> userRolesCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "entity", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "entity", fetch = FetchType.EAGER)
     private Collection<Businesses> businessesCollection;
     @JoinColumn(name = "location", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Locations location;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "entity", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "entity", fetch = FetchType.EAGER)
     private Collection<MeasUnits> measUnitsCollection;
 
     public Entities() {

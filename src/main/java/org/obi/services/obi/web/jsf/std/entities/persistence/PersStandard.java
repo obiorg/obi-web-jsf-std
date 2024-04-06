@@ -85,12 +85,12 @@ public class PersStandard implements Serializable {
     @Size(max = 512)
     private String errorMsg;
     @JoinColumn(name = "company", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Companies company;
     @JoinColumn(name = "tag", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Tags tag;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "persStandard", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "persStandard", fetch = FetchType.EAGER)
     private Collection<PersStandardLimits> persStandardLimitsCollection;
 
     public PersStandard() {

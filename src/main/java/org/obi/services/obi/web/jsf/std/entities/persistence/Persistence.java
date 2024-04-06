@@ -55,13 +55,13 @@ public class Persistence implements Serializable {
     @Size(max = 512)
     private String comment;
     @JoinColumn(name = "company", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Companies company;
     @JoinColumn(name = "method", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private PersMethod method;
     @JoinColumn(name = "tag", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Tags tag;
 
     public Persistence() {

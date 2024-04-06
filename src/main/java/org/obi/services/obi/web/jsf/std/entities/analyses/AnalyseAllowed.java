@@ -59,16 +59,16 @@ public class AnalyseAllowed implements Serializable {
     @Size(max = 2147483647)
     private String description;
     @JoinColumn(name = "point", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private AnalysePoints point;
     @JoinColumn(name = "type", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private AnalyseTypes type;
     @JoinColumn(name = "company", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Companies company;
     @JoinColumn(name = "tag", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Tags tag;
 
     public AnalyseAllowed() {

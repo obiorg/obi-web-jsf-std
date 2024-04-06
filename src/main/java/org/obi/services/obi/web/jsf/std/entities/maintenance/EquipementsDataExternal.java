@@ -48,13 +48,13 @@ public class EquipementsDataExternal implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date changed;
     @JoinColumn(name = "company", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Companies company;
     @JoinColumn(name = "equipement", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Equipements equipement;
     @JoinColumn(name = "provider", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private EquipementsExternalProviders provider;
 
     public EquipementsDataExternal() {

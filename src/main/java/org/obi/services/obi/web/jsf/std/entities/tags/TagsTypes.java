@@ -70,7 +70,7 @@ public class TagsTypes implements Serializable {
     @Size(max = 45)
     @Column(name = "\"group\"")
     private String group;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "type", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "type", fetch = FetchType.EAGER)
     private Collection<Tags> tagsCollection;
 
     public TagsTypes() {

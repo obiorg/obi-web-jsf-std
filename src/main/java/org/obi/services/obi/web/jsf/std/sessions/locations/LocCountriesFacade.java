@@ -4,7 +4,7 @@
  */
 package org.obi.services.obi.web.jsf.std.sessions.locations;
 
-import org.obi.services.obi.web.jsf.std.sessions.alarms.AbstractFacade;
+import org.obi.services.obi.web.jsf.std.sessions.AbstractFacade;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

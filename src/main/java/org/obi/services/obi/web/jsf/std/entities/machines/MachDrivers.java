@@ -58,7 +58,7 @@ public class MachDrivers implements Serializable {
     private String driver;
     @Size(max = 255)
     private String designation;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "driver", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "driver", fetch = FetchType.EAGER)
     private Collection<Machines> machinesCollection;
 
     public MachDrivers() {

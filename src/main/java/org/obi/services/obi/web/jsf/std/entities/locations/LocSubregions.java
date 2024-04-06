@@ -70,10 +70,10 @@ public class LocSubregions implements Serializable {
     private boolean flag;
     @Size(max = 255)
     private String wikiDataId;
-    @OneToMany(mappedBy = "subregionId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "subregionId", fetch = FetchType.EAGER)
     private Collection<LocCountries> locCountriesCollection;
     @JoinColumn(name = "region_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private LocRegions regionId;
 
     public LocSubregions() {

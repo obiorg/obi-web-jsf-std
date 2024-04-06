@@ -22,9 +22,9 @@
                 <svg class="bi mx-2"  height="48">
                     <use href="#full-dark" />
                 </svg>
-<!--                <div id="close-sidebar">
-                    <i class="fas fa-times"></i>
-                </div>-->
+                <!--                <div id="close-sidebar">
+                                    <i class="fas fa-times"></i>
+                                </div>-->
             </div>
             <div class="sidebar-content">
 
@@ -90,107 +90,341 @@
                         </li>
 
 
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/alarmClasses/List" value="AlarmClasses"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/alarmGroups/List" value="AlarmGroups"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/alarmRender/List" value="AlarmRender"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/alarms/List" value="Alarms"/> </li>
-                        <hr/>
 
-                        <li><h:link class="text-decoration-none " outcome="/app/analyseAllowed/List" value="AnalyseAllowed"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/analyseCategories/List" value="AnalyseCategories"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/analyseMethods/List" value="AnalyseMethods"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/analysePoints/List" value="AnalysePoints"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/analyseTypes/List" value="AnalyseTypes"/> </li>
-                        <hr/>
+                        <!-- Businesses -->
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa-solid fa-briefcase"></i>
+                                <span>#{OBI.SideBarMenuBusinessesSystem}</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>                        
 
-                        <li><h:link class="text-decoration-none " outcome="/app/businesses/List" value="Businesses"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/companies/List" value="Companies"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/entities/List" value="Entities"/> </li>
-                        <hr/>
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/entities/List" 
+                                                value="#{OBI.SideBarMenuBusinesseEntities}"/> </li>
 
-                        <li><h:link class="text-decoration-none " outcome="/app/locCities/List" value="LocCities"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/locCountries/List" value="LocCountries"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/locRegions/List" value="LocRegions"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/locStates/List" value="LocStates"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/locSubregions/List" value="LocSubregions"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/locations/List" value="Locations"/> </li>
-                        <hr/>
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/businesses/List" 
+                                                value="#{OBI.SideBarMenuBusinesseBusinesses}"/> </li>
 
-                        <li><h:link class="text-decoration-none " outcome="/app/machDrivers/List" value="MachDrivers"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/machines/List" value="Machines"/> </li>
-                        <hr/>
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/companies/List" 
+                                                value="#{OBI.SideBarMenuBusinesseCompanies}"/> </li>
 
-                        <li><h:link class="text-decoration-none " outcome="/app/equipements/List" value="Equipements"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/equipementsDataExternal/List" value="EquipementsDataExternal"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/equipementsExternalProviders/List" value="EquipementsExternalProviders"/> </li>
-                        <hr/>
+                                </ul>
+                            </div>
+                        </li>
 
-                        <li><h:link class="text-decoration-none " outcome="/app/measComparators/List" value="MeasComparators"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/measLimits/List" value="MeasLimits"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/measLimitsGroups/List" value="MeasLimitsGroups"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/measUnits/List" value="MeasUnits"/> </li>
-                        <hr/>
 
-                        <li><h:link class="text-decoration-none " outcome="/app/persMethod/List" value="PersMethod"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/persStandard/List" value="PersStandard"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/persStandardLimits/List" value="PersStandardLimits"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/persistence/List" value="Persistence"/> </li>
-                        <hr/>
 
-                        <li><h:link class="text-decoration-none " outcome="/app/tags/List" value="Tags"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/tagsMemories/List" value="TagsMemories"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/tagsTables/List" value="TagsTables"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/tagsTypes/List" value="TagsTypes"/> </li>
-                        <hr/>
+                        <!-- MACHINES -->
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa-solid fa-network-wired"></i>
+                                <span>#{OBI.SideBarMenuMachinesSystem}</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>                        
 
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/userAccount/List" value="UserAccount"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/userAccountRole/List" value="UserAccountRole"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/userEmailVerified/List" value="UserEmailVerified"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/userExternalProviders/List" value="UserExternalProviders"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/userHashingAlgorithms/List" value="UserHashingAlgorithms"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/userLoginData/List" value="UserLoginData"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/userLoginDataExternal/List" value="UserLoginDataExternal"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/userPermissions/List" value="UserPermissions"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/userRolePermissions/List" value="UserRolePermissions"/> </li>
-                        
-                        <li><h:link class="text-decoration-none " outcome="/app/userRoles/List" value="UserRoles"/> </li>
-                        <hr/>
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/machDrivers/List" 
+                                                value="#{OBI.SideBarMenuMachineDrivers}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/machines/List" 
+                                                value="#{OBI.SideBarMenuMachines}"/> </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+
+                        <!-- ALARMS -->
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa-solid fa-bell"></i>
+                                <span>#{OBI.SideBarMenuAlarmSystem}</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>                        
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/alarmGroups/List" 
+                                                value="#{OBI.SideBarMenuAlarmGroups}"/> </li>           
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/alarmClasses/List" 
+                                                value="#{OBI.SideBarMenuAlarmClasses}"/> </li>
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/alarmRender/List" 
+                                                value="#{OBI.SideBarMenuAlarmRender}"/> </li>
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/alarms/List" 
+                                                value="#{OBI.SideBarMenuAlarms}"/> </li>
+                                </ul>
+                            </div>
+                        </li>
+
+
+                        <!-- ANALYSES -->
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa-solid fa-flask-vial"></i>
+                                <span>#{OBI.SideBarMenuAnalysesSystem}</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>                        
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/analyseCategories/List" 
+                                                value="#{OBI.SideBarMenuAnalyseCategories}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/analyseMethods/List" 
+                                                value="#{OBI.SideBarMenuAnalyseMethods}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/analysePoints/List" 
+                                                value="#{OBI.SideBarMenuAnalysePoints}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/analyseTypes/List" 
+                                                value="#{OBI.SideBarMenuAnalyseTypes}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/analyseAllowed/List" 
+                                                value="#{OBI.SideBarMenuAnalyseAllowed}"/> </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+
+
+                        <!-- Localisation -->
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa-solid fa-map-location"></i>
+                                <span>#{OBI.SideBarMenuLocationsSystem}</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>                        
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/locRegions/List" 
+                                                value="#{OBI.SideBarMenuLocationRegions}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/locSubregions/List" 
+                                                value="#{OBI.SideBarMenuLocationSubRegions}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/locCountries/List" 
+                                                value="#{OBI.SideBarMenuLocationCountries}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/locStates/List" 
+                                                value="#{OBI.SideBarMenuLocationStates}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/locCities/List" 
+                                                value="#{OBI.SideBarMenuLocationCities}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/locations/List" 
+                                                value="#{OBI.SideBarMenuLocations}"/> </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+
+
+                        <!-- EQUIPEMENTS -->
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa-solid fa-helmet-safety"></i>
+                                <span>#{OBI.SideBarMenuMaintenanceSystem}</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>                        
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/equipementsExternalProviders/List" 
+                                                value="#{OBI.SideBarMenuMaintenanceEquipExtProviers}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/equipementsDataExternal/List" 
+                                                value="#{OBI.SideBarMenuMaintenanceEquipExtDatas}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/equipements/List" 
+                                                value="#{OBI.SideBarMenuMaintenanceEquipements}"/> </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+
+
+
+
+                        <!-- MEASURES -->
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                                <span>#{OBI.SideBarMenuMeasuresSystem}</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>                        
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/measComparators/List" 
+                                                value="#{OBI.SideBarMenuMeasureComparators}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/measLimits/List" 
+                                                value="#{OBI.SideBarMenuMeasureLimits}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/measLimitsGroups/List" 
+                                                value="#{OBI.SideBarMenuMeasureLimitsGroups}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/measUnits/List" 
+                                                value="#{OBI.SideBarMenuMeasureUnits}"/> </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+
+
+                        <!-- PERSISTENCES -->
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa-solid fa-database"></i>
+                                <span>#{OBI.SideBarMenuPersistencesSystem}</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>                        
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/persMethod/List" 
+                                                value="#{OBI.SideBarMenuPersistenceMethod}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/persStandard/List" 
+                                                value="#{OBI.SideBarMenuPersistenceStandard}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/persStandardLimits/List" 
+                                                value="#{OBI.SideBarMenuPersistenceStandardLimits}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/persistence/List" 
+                                                value="#{OBI.SideBarMenuPersistences}"/> </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+
+
+
+
+                        <!-- TAGS -->
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa-solid fa-tags"></i>
+                                <span>#{OBI.SideBarMenuTagsSystem}</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>                        
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/tagsMemories/List" 
+                                                value="#{OBI.SideBarMenuTagsMemories}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/tagsTypes/List" 
+                                                value="#{OBI.SideBarMenuTagsTypes}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/tagsTables/List" 
+                                                value="#{OBI.SideBarMenuTagsTables}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/tags/List" 
+                                                value="#{OBI.SideBarMenuTags}"/> </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+
+
+
+                        <!-- USERS -->
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa-solid fa-users-gear"></i>
+                                <span>#{OBI.SideBarMenuUsersSystem}</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>                        
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/userAccount/List" 
+                                                value="#{OBI.SideBarMenuUserAccount}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/userAccountRole/List" 
+                                                value="#{OBI.SideBarMenuUserAccountRole}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/userEmailVerified/List" 
+                                                value="#{OBI.SideBarMenuUserEmailVerified}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/userExternalProviders/List" 
+                                                value="#{OBI.SideBarMenuUserExternalProvider}"/> </li>
+                                                
+                                    
+                                                
+                                                
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/userHashingAlgorithms/List" 
+                                                value="#{OBI.SideBarMenuUserHashingAlgorithms}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/userLoginData/List" 
+                                                value="#{OBI.SideBarMenuUserLoginData}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/userLoginDataExternal/List" 
+                                                value="#{OBI.SideBarMenuUserLoginDataExternal}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/userPermissions/List" 
+                                                value="#{OBI.SideBarMenuUserPermissions}"/> </li>
+                                                
+                                    
+                                                
+                                                
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/userRolePermissions/List" 
+                                                value="#{OBI.SideBarMenuUserRolePermissions}"/> </li>
+
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/app/userRoles/List" 
+                                                value="#{OBI.SideBarMenuUserRoles}"/> </li>
+
+                                </ul>
+                            </div>
+                        </li>
+    
+
+
 
 
 
@@ -200,135 +434,11 @@
 
 
                         <!--
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="fa fa-tachometer-alt"></i>
-                                <span>Dashboard</span>
-                                <span class="badge badge-pill badge-warning">New</span>
-                            </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Dashboard 1
-                                            <span class="badge badge-pill badge-success">Pro</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Dashboard 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Dashboard 3</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span>E-commerce</span>
-                                <span class="badge badge-pill badge-danger">3</span>
-                            </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Products
-
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Orders</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Credit cart</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="far fa-gem"></i>
-                                <span>Components</span>
-                            </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">General</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Panels</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Tables</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Icons</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Forms</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="fa fa-chart-line"></i>
-                                <span>Charts</span>
-                            </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Pie chart</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Line chart</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Bar chart</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Histogram</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="fa fa-globe"></i>
-                                <span>Maps</span>
-                            </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Google maps</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Open street map</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+                        
                         <li class="header-menu">
                             <span>Extra</span>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-book"></i>
-                                <span>Documentation</span>
-                                <span class="badge badge-pill badge-primary">Beta</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-calendar"></i>
-                                <span>Calendar</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-folder"></i>
-                                <span>Examples</span>
-                            </a>
-                        </li>
+
                  
                         -->
 
@@ -346,11 +456,11 @@
             <div class="sidebar-footer">
                 <a href="#">
                     <i class="fa fa-bell"></i>
-                    <span class="badge badge-pill badge-warning notification">3</span>
+                    <span class="badge badge-pill badge-warning notification">0</span>
                 </a>
                 <a href="#">
                     <i class="fa fa-envelope"></i>
-                    <span class="badge badge-pill badge-success notification">7</span>
+                    <span class="badge badge-pill badge-success notification">0</span>
                 </a>
                 <a href="#">
                     <i class="fa fa-cog"></i>

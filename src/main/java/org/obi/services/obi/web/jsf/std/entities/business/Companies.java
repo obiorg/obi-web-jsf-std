@@ -14,6 +14,9 @@ import org.obi.services.obi.web.jsf.std.entities.alarms.AlarmGroups;
 import org.obi.services.obi.web.jsf.std.entities.alarms.AlarmClasses;
 import org.obi.services.obi.web.jsf.std.entities.alarms.Alarms;
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -92,55 +95,55 @@ public class Companies implements Serializable {
     private Boolean activated;
     @Size(max = 512)
     private String logoPath;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<EquipementsExternalProviders> equipementsExternalProvidersCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<TagsTables> tagsTablesCollection;
-    @OneToMany(mappedBy = "comapny", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "comapny", fetch = FetchType.EAGER)
     private Collection<UserRolePermissions> userRolePermissionsCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<AnalyseAllowed> analyseAllowedCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<PersStandard> persStandardCollection;
-    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<AnalyseMethods> analyseMethodsCollection;
-    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<AnalyseTypes> analyseTypesCollection;
-    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<MeasLimits> measLimitsCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<Equipements> equipementsCollection;
-    @OneToMany(mappedBy = "comapny", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "comapny", fetch = FetchType.EAGER)
     private Collection<UserRoles> userRolesCollection;
     @JoinColumn(name = "business", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Businesses business;
     @JoinColumn(name = "location", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Locations location;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<PersStandardLimits> persStandardLimitsCollection;
-    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<MeasLimitsGroups> measLimitsGroupsCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<AlarmGroups> alarmGroupsCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<EquipementsDataExternal> equipementsDataExternalCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<Alarms> alarmsCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<AnalysePoints> analysePointsCollection;
-    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<AnalyseCategories> analyseCategoriesCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<Tags> tagsCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<AlarmRender> alarmRenderCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<Persistence> persistenceCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<Machines> machinesCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<AlarmClasses> alarmClassesCollection;
 
     public Companies() {
@@ -474,5 +477,5 @@ public class Companies implements Serializable {
 //        return "org.obi.services.entities.Companies[ id=" + id + " ]";
         return "" + this.company + " - " + this.designation + " (" + this.business + ") [ id=" + id + " ]";
     }
-    
+
 }

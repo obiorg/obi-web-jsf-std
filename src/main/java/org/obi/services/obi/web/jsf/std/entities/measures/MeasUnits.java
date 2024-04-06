@@ -89,12 +89,12 @@ public class MeasUnits implements Serializable {
     private String tagging;
     @Size(max = 512)
     private String comment;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unit", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unit", fetch = FetchType.EAGER)
     private Collection<AnalyseTypes> analyseTypesCollection;
-    @OneToMany(mappedBy = "measureUnit", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "measureUnit", fetch = FetchType.EAGER)
     private Collection<Tags> tagsCollection;
     @JoinColumn(name = "entity", referencedColumnName = "entity")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Entities entity;
 
     public MeasUnits() {

@@ -50,19 +50,19 @@ public class UserRolePermissions implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date changed;
     @JoinColumn(name = "business", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Businesses business;
     @JoinColumn(name = "comapny", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Companies comapny;
     @JoinColumn(name = "entity", referencedColumnName = "entity")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Entities entity;
     @JoinColumn(name = "permission", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private UserPermissions permission;
     @JoinColumn(name = "role", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private UserRoles role;
 
     public UserRolePermissions() {

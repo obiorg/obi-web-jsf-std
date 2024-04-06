@@ -58,7 +58,7 @@ public class TagsMemories implements Serializable {
     private String name;
     @Size(max = 255)
     private String comment;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "memory", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "memory", fetch = FetchType.EAGER)
     private Collection<Tags> tagsCollection;
 
     public TagsMemories() {

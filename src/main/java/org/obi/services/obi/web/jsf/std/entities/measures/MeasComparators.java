@@ -59,9 +59,9 @@ public class MeasComparators implements Serializable {
     private String symbol;
     @Size(max = 255)
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "comparator", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "comparator", fetch = FetchType.EAGER)
     private Collection<MeasLimits> measLimitsCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "comparator", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "comparator", fetch = FetchType.EAGER)
     private Collection<PersStandardLimits> persStandardLimitsCollection;
 
     public MeasComparators() {

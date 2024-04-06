@@ -129,17 +129,17 @@ public class LocCountries implements Serializable {
     private boolean flag;
     @Size(max = 255)
     private String wikiDataId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "countryId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "countryId", fetch = FetchType.EAGER)
     private Collection<LocStates> locStatesCollection;
     @JoinColumn(name = "region_id", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private LocRegions regionId;
     @JoinColumn(name = "subregion_id", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private LocSubregions subregionId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "countryId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "countryId", fetch = FetchType.EAGER)
     private Collection<LocCities> locCitiesCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "country", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "country", fetch = FetchType.EAGER)
     private Collection<Locations> locationsCollection;
 
     public LocCountries() {

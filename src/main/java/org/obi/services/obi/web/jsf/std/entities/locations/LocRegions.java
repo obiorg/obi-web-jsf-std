@@ -69,9 +69,9 @@ public class LocRegions implements Serializable {
     private boolean flag;
     @Size(max = 255)
     private String wikiDataId;
-    @OneToMany(mappedBy = "regionId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "regionId", fetch = FetchType.EAGER)
     private Collection<LocCountries> locCountriesCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "regionId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "regionId", fetch = FetchType.EAGER)
     private Collection<LocSubregions> locSubregionsCollection;
 
     public LocRegions() {

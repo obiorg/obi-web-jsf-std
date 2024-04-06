@@ -80,7 +80,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Tags.findByMesure", query = "SELECT t FROM Tags t WHERE t.mesure = :mesure"),
     @NamedQuery(name = "Tags.findByMesureMin", query = "SELECT t FROM Tags t WHERE t.mesureMin = :mesureMin"),
     @NamedQuery(name = "Tags.findByMesureMax", query = "SELECT t FROM Tags t WHERE t.mesureMax = :mesureMax"),
-    @NamedQuery(name = "Tags.findByMqqtTopic", query = "SELECT t FROM Tags t WHERE t.mqqtTopic = :mqqtTopic"),
+    @NamedQuery(name = "Tags.findByMqqtTopic", query = "SELECT t FROM Tags t WHERE t.mqttTopic = :mqttTopic"),
     @NamedQuery(name = "Tags.findByWebhook", query = "SELECT t FROM Tags t WHERE t.webhook = :webhook"),
     @NamedQuery(name = "Tags.findByLaboratory", query = "SELECT t FROM Tags t WHERE t.laboratory = :laboratory"),
     @NamedQuery(name = "Tags.findByFormula", query = "SELECT t FROM Tags t WHERE t.formula = :formula"),
@@ -150,8 +150,8 @@ public class Tags implements Serializable {
     private Double mesureMin;
     private Double mesureMax;
     @Size(max = 512)
-    @Column(name = "mqqt_topic")
-    private String mqqtTopic;
+    @Column(name = "mqtt_topic")
+    private String mqttTopic;
     @Size(max = 512)
     private String webhook;
     private Boolean laboratory;
@@ -174,36 +174,36 @@ public class Tags implements Serializable {
     private Date persOffsetDateTime;
     @Size(max = 512)
     private String comment;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.EAGER)
     private Collection<AnalyseAllowed> analyseAllowedCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.EAGER)
     private Collection<PersStandard> persStandardCollection;
-    @OneToMany(mappedBy = "tag", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "tag", fetch = FetchType.EAGER)
     private Collection<MeasLimits> measLimitsCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.EAGER)
     private Collection<PersStandardLimits> persStandardLimitsCollection;
     @JoinColumn(name = "alarm", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Alarms alarm;
     @JoinColumn(name = "company", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Companies company;
     @JoinColumn(name = "machine", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Machines machine;
     @JoinColumn(name = "measureUnit", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private MeasUnits measureUnit;
     @JoinColumn(name = "memory", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private TagsMemories memory;
     @JoinColumn(name = "\"table\"", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private TagsTables table;
     @JoinColumn(name = "type", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private TagsTypes type;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.EAGER)
     private Collection<Persistence> persistenceCollection;
 
     public Tags() {
@@ -482,12 +482,12 @@ public class Tags implements Serializable {
         this.mesureMax = mesureMax;
     }
 
-    public String getMqqtTopic() {
-        return mqqtTopic;
+    public String getMqttTopic() {
+        return mqttTopic;
     }
 
-    public void setMqqtTopic(String mqqtTopic) {
-        this.mqqtTopic = mqqtTopic;
+    public void setMqttTopic(String mqttTopic) {
+        this.mqttTopic = mqttTopic;
     }
 
     public String getWebhook() {

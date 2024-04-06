@@ -147,8 +147,8 @@
 
 
                     <h:outputLabel value="MQTT" styleClass="text-end fw-bold"/><hr />
-                    <h:outputLabel value="#{OBI.CreateTagsLabel_mqqtTopic}" for="mqqtTopic" />
-                    <h:inputText id="mqqtTopic" value="#{tagsController.selected.mqqtTopic}" title="#{OBI.CreateTagsTitle_mqqtTopic}" />
+                    <h:outputLabel value="#{OBI.CreateTagsLabel_mqttTopic}" for="mqttTopic" />
+                    <h:inputText id="mqttTopic" value="#{tagsController.selected.mqttTopic}" title="#{OBI.CreateTagsTitle_mqttTopic}" />
 
 
 
@@ -210,7 +210,8 @@
 
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{tagsController.create}" value="#{OBI.CreateTagsSaveLink}" />
+                <h:commandLink action="#{tagsController.create}" 
+                               value="#{OBI.CreateTagsSaveLink}" />
                 <br />
                 <br />
                 <h:commandLink action="#{tagsController.prepareList}" value="#{OBI.CreateTagsShowAllLink}" immediate="true"/>

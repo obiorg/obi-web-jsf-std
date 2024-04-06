@@ -66,13 +66,13 @@ public class AnalyseCategories implements Serializable {
     @Lob
     @Size(max = 2147483647)
     private String description;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category", fetch = FetchType.EAGER)
     private Collection<AnalyseTypes> analyseTypesCollection;
     @JoinColumn(name = "business", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Businesses business;
     @JoinColumn(name = "company", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Companies company;
 
     public AnalyseCategories() {

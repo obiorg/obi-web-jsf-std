@@ -75,7 +75,7 @@ public class UserAccount implements Serializable {
     @NotNull
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
     private Collection<UserAccountRole> userAccountRoleCollection;
 
     public UserAccount() {

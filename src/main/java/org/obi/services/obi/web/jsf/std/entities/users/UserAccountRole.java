@@ -47,10 +47,10 @@ public class UserAccountRole implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date changed;
     @JoinColumn(name = "user", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private UserAccount user;
     @JoinColumn(name = "role", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private UserRoles role;
 
     public UserAccountRole() {

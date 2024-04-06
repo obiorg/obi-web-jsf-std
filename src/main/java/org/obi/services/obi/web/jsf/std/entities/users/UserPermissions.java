@@ -60,12 +60,12 @@ public class UserPermissions implements Serializable {
     private String name;
     @Size(max = 255)
     private String designation;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "permission", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "permission", fetch = FetchType.EAGER)
     private Collection<UserRolePermissions> userRolePermissionsCollection;
-    @OneToMany(mappedBy = "parent", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "parent", fetch = FetchType.EAGER)
     private Collection<UserPermissions> userPermissionsCollection;
     @JoinColumn(name = "parent", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private UserPermissions parent;
 
     public UserPermissions() {

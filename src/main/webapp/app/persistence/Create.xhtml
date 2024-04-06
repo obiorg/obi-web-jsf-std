@@ -1,57 +1,86 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
         <ui:define name="title">
-            <h:outputText value="#{oBI.CreatePersistenceTitle}"></h:outputText>
+            <h:outputText value="#{OBI.CreatePersistenceTitle}"></h:outputText>
         </ui:define>
+
+
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
+
+
+
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{oBI.CreatePersistenceLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{persistenceController.selected.id}" title="#{oBI.CreatePersistenceTitle_id}" required="true" requiredMessage="#{oBI.CreatePersistenceRequiredMessage_id}"/>
-                    <h:outputLabel value="#{oBI.CreatePersistenceLabel_deleted}" for="deleted" />
-                    <h:inputText id="deleted" value="#{persistenceController.selected.deleted}" title="#{oBI.CreatePersistenceTitle_deleted}" />
-                    <h:outputLabel value="#{oBI.CreatePersistenceLabel_created}" for="created" />
-                    <h:inputText id="created" value="#{persistenceController.selected.created}" title="#{oBI.CreatePersistenceTitle_created}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:inputText>
-                    <h:outputLabel value="#{oBI.CreatePersistenceLabel_changed}" for="changed" />
-                    <h:inputText id="changed" value="#{persistenceController.selected.changed}" title="#{oBI.CreatePersistenceTitle_changed}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:inputText>
-                    <h:outputLabel value="#{oBI.CreatePersistenceLabel_activate}" for="activate" />
-                    <h:inputText id="activate" value="#{persistenceController.selected.activate}" title="#{oBI.CreatePersistenceTitle_activate}" />
-                    <h:outputLabel value="#{oBI.CreatePersistenceLabel_comment}" for="comment" />
-                    <h:inputText id="comment" value="#{persistenceController.selected.comment}" title="#{oBI.CreatePersistenceTitle_comment}" />
-                    <h:outputLabel value="#{oBI.CreatePersistenceLabel_company}" for="company" />
-                    <h:selectOneMenu id="company" value="#{persistenceController.selected.company}" title="#{oBI.CreatePersistenceTitle_company}" required="true" requiredMessage="#{oBI.CreatePersistenceRequiredMessage_company}">
+
+                    <h:outputLabel value="#{OBI.CreatePersistenceLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{persistenceController.selected.company}" 
+                                     title="#{OBI.CreatePersistenceTitle_company}" required="true" 
+                                     requiredMessage="#{OBI.CreatePersistenceRequiredMessage_company}">
                         <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{oBI.CreatePersistenceLabel_method}" for="method" />
-                    <h:selectOneMenu id="method" value="#{persistenceController.selected.method}" title="#{oBI.CreatePersistenceTitle_method}" required="true" requiredMessage="#{oBI.CreatePersistenceRequiredMessage_method}">
-                        <f:selectItems value="#{persMethodController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{oBI.CreatePersistenceLabel_tag}" for="tag" />
-                    <h:selectOneMenu id="tag" value="#{persistenceController.selected.tag}" title="#{oBI.CreatePersistenceTitle_tag}" required="true" requiredMessage="#{oBI.CreatePersistenceRequiredMessage_tag}">
+
+                    <h:outputLabel value="#{OBI.CreatePersistenceLabel_tag}" for="tag" />
+                    <h:selectOneMenu id="tag" value="#{persistenceController.selected.tag}" title="#{OBI.CreatePersistenceTitle_tag}" required="true" requiredMessage="#{OBI.CreatePersistenceRequiredMessage_tag}">
                         <f:selectItems value="#{tagsController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+
+                    <h:outputLabel value="#{OBI.CreatePersistenceLabel_method}" for="method" />
+                    <h:selectOneMenu id="method" value="#{persistenceController.selected.method}" title="#{OBI.CreatePersistenceTitle_method}" required="true" requiredMessage="#{OBI.CreatePersistenceRequiredMessage_method}">
+                        <f:selectItems value="#{persMethodController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+
+                    <h:outputLabel value="#{OBI.CreatePersistenceLabel_comment}" for="comment" />
+                    <h:inputText id="comment" value="#{persistenceController.selected.comment}" title="#{OBI.CreatePersistenceTitle_comment}" />
+
+                    <h:outputLabel value="#{OBI.CreatePersistenceLabel_activate}" for="activate" />
+                    <h:selectBooleanCheckbox  id="activate" value="#{persistenceController.selected.activate}" title="#{OBI.CreatePersistenceTitle_activate}" />
+
                 </h:panelGrid>
+
+
+
                 <br />
-                <h:commandLink action="#{persistenceController.create}" value="#{oBI.CreatePersistenceSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{persistenceController.prepareList}" value="#{oBI.CreatePersistenceShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{oBI.CreatePersistenceIndexLink}"/>
+                <div class="container-fluid">
+                    <div class="row">
+                        <h:commandLink 
+                            styleClass="btn btn-outline-primary small me-1 mb-1 col-sm-4  col-md-3 col-lg-2"
+                            action="#{persistenceController.create}"
+                            title="#{OBI.CreatePersistenceSaveLink}"
+                            >
+                            <i class="fa-solid fa-floppy-disk me-1"></i>#{OBI.Save}
+                        </h:commandLink>
+
+
+                        <h:commandLink 
+                            styleClass="btn btn-outline-primary small me-1 mb-1 col-sm-4  col-md-3 col-lg-2"
+                            action="#{persistenceController.prepareList}"
+                            title="#{OBI.CreatePersistenceShowAllLink}"
+                            immediate="true"
+                            >
+                            <i class="fa-solid fa-table-list me-1"></i>#{OBI.List}
+                        </h:commandLink>
+
+
+                        <h:commandLink id="homeLink"
+                                       styleClass="btn btn-outline-secondary small me-1 mb-1 col-sm-4  col-md-3 col-lg-2"
+                                       action="/index.xhtml"
+                                       title="#{OBI.CreatePersistenceIndexLink}"
+                                       >
+                            <i class="fa-solid fa-gauge me-1"></i>#{OBI.Home}
+                        </h:commandLink>
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

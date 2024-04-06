@@ -85,10 +85,10 @@ public class UserLoginData implements Serializable {
     @Size(max = 1024)
     private String image;
     @JoinColumn(name = "emailVerified", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private UserEmailVerified emailVerified;
     @JoinColumn(name = "hashAlgorithm", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private UserHashingAlgorithms hashAlgorithm;
 
     public UserLoginData() {

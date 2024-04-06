@@ -63,9 +63,9 @@ public class AlarmGroups implements Serializable {
     @Size(max = 512)
     private String comment;
     @JoinColumn(name = "company", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Companies company;
-    @OneToMany(mappedBy = "group1", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "group1", fetch = FetchType.EAGER)
     private Collection<Alarms> alarmsCollection;
 
     public AlarmGroups() {

@@ -67,22 +67,22 @@ public class AnalyseTypes implements Serializable {
     @Lob
     @Size(max = 2147483647)
     private String description;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "type", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "type", fetch = FetchType.EAGER)
     private Collection<AnalyseAllowed> analyseAllowedCollection;
     @JoinColumn(name = "category", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private AnalyseCategories category;
     @JoinColumn(name = "method", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private AnalyseMethods method;
     @JoinColumn(name = "business", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Businesses business;
     @JoinColumn(name = "company", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Companies company;
     @JoinColumn(name = "unit", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private MeasUnits unit;
 
     public AnalyseTypes() {

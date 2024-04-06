@@ -70,12 +70,12 @@ public class AnalyseMethods implements Serializable {
     @Size(max = 4096)
     private String filepath;
     @JoinColumn(name = "business", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Businesses business;
     @JoinColumn(name = "company", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Companies company;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "method", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "method", fetch = FetchType.EAGER)
     private Collection<AnalyseTypes> analyseTypesCollection;
 
     public AnalyseMethods() {

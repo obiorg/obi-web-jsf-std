@@ -90,11 +90,11 @@ public class LocStates implements Serializable {
     @Size(max = 255)
     private String wikiDataId;
     @JoinColumn(name = "country_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private LocCountries countryId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "stateId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "stateId", fetch = FetchType.EAGER)
     private Collection<LocCities> locCitiesCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "state", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "state", fetch = FetchType.EAGER)
     private Collection<Locations> locationsCollection;
 
     public LocStates() {

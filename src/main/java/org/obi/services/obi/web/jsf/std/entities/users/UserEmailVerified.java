@@ -51,7 +51,7 @@ public class UserEmailVerified implements Serializable {
     private Date changed;
     @Size(max = 45)
     private String statusDescription;
-    @OneToMany(mappedBy = "emailVerified", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "emailVerified", fetch = FetchType.EAGER)
     private Collection<UserLoginData> userLoginDataCollection;
 
     public UserEmailVerified() {

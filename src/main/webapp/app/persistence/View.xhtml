@@ -1,55 +1,60 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
         <ui:define name="title">
-            <h:outputText value="#{oBI.ViewPersistenceTitle}"></h:outputText>
+            <h:outputText value="#{OBI.ViewPersistenceTitle}"></h:outputText>
         </ui:define>
+
+
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+   
+            
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{oBI.ViewPersistenceLabel_id}"/>
-                    <h:outputText value="#{persistenceController.selected.id}" title="#{oBI.ViewPersistenceTitle_id}"/>
-                    <h:outputText value="#{oBI.ViewPersistenceLabel_deleted}"/>
-                    <h:outputText value="#{persistenceController.selected.deleted}" title="#{oBI.ViewPersistenceTitle_deleted}"/>
-                    <h:outputText value="#{oBI.ViewPersistenceLabel_created}"/>
-                    <h:outputText value="#{persistenceController.selected.created}" title="#{oBI.ViewPersistenceTitle_created}">
+                    <h:outputText value="#{OBI.ViewPersistenceLabel_id}"/>
+                    <h:outputText value="#{persistenceController.selected.id}" title="#{OBI.ViewPersistenceTitle_id}"/>
+                    <h:outputText value="#{OBI.ViewPersistenceLabel_deleted}"/>
+                    <h:outputText value="#{persistenceController.selected.deleted}" title="#{OBI.ViewPersistenceTitle_deleted}"/>
+                    <h:outputText value="#{OBI.ViewPersistenceLabel_created}"/>
+                    <h:outputText value="#{persistenceController.selected.created}" title="#{OBI.ViewPersistenceTitle_created}">
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:outputText>
-                    <h:outputText value="#{oBI.ViewPersistenceLabel_changed}"/>
-                    <h:outputText value="#{persistenceController.selected.changed}" title="#{oBI.ViewPersistenceTitle_changed}">
+                    <h:outputText value="#{OBI.ViewPersistenceLabel_changed}"/>
+                    <h:outputText value="#{persistenceController.selected.changed}" title="#{OBI.ViewPersistenceTitle_changed}">
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:outputText>
-                    <h:outputText value="#{oBI.ViewPersistenceLabel_activate}"/>
-                    <h:outputText value="#{persistenceController.selected.activate}" title="#{oBI.ViewPersistenceTitle_activate}"/>
-                    <h:outputText value="#{oBI.ViewPersistenceLabel_comment}"/>
-                    <h:outputText value="#{persistenceController.selected.comment}" title="#{oBI.ViewPersistenceTitle_comment}"/>
-                    <h:outputText value="#{oBI.ViewPersistenceLabel_company}"/>
-                    <h:outputText value="#{persistenceController.selected.company}" title="#{oBI.ViewPersistenceTitle_company}"/>
-                    <h:outputText value="#{oBI.ViewPersistenceLabel_method}"/>
-                    <h:outputText value="#{persistenceController.selected.method}" title="#{oBI.ViewPersistenceTitle_method}"/>
-                    <h:outputText value="#{oBI.ViewPersistenceLabel_tag}"/>
-                    <h:outputText value="#{persistenceController.selected.tag}" title="#{oBI.ViewPersistenceTitle_tag}"/>
+                    <h:outputText value="#{OBI.ViewPersistenceLabel_activate}"/>
+                    <h:outputText value="#{persistenceController.selected.activate}" title="#{OBI.ViewPersistenceTitle_activate}"/>
+                    <h:outputText value="#{OBI.ViewPersistenceLabel_comment}"/>
+                    <h:outputText value="#{persistenceController.selected.comment}" title="#{OBI.ViewPersistenceTitle_comment}"/>
+                    <h:outputText value="#{OBI.ViewPersistenceLabel_company}"/>
+                    <h:outputText value="#{persistenceController.selected.company}" title="#{OBI.ViewPersistenceTitle_company}"/>
+                    <h:outputText value="#{OBI.ViewPersistenceLabel_method}"/>
+                    <h:outputText value="#{persistenceController.selected.method}" title="#{OBI.ViewPersistenceTitle_method}"/>
+                    <h:outputText value="#{OBI.ViewPersistenceLabel_tag}"/>
+                    <h:outputText value="#{persistenceController.selected.tag}" title="#{OBI.ViewPersistenceTitle_tag}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{persistenceController.destroyAndView}" value="#{oBI.ViewPersistenceDestroyLink}"/>
+                <h:commandLink action="#{persistenceController.destroyAndView}" value="#{OBI.ViewPersistenceDestroyLink}"/>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{oBI.ViewPersistenceEditLink}"/>
+                <h:link outcome="Edit" value="#{OBI.ViewPersistenceEditLink}"/>
                 <br />
-                <h:commandLink action="#{persistenceController.prepareCreate}" value="#{oBI.ViewPersistenceCreateLink}" />
+                <h:commandLink action="#{persistenceController.prepareCreate}" value="#{OBI.ViewPersistenceCreateLink}" />
                 <br />
-                <h:commandLink action="#{persistenceController.prepareList}" value="#{oBI.ViewPersistenceShowAllLink}"/>
+                <h:commandLink action="#{persistenceController.prepareList}" value="#{OBI.ViewPersistenceShowAllLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{oBI.ViewPersistenceIndexLink}"/>
+                <h:link outcome="/index" value="#{OBI.ViewPersistenceIndexLink}"/>
 
             </h:form>
         </ui:define>

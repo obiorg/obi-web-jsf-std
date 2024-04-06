@@ -63,11 +63,11 @@ public class Equipements implements Serializable {
     @Size(max = 255)
     private String name;
     @JoinColumn(name = "company", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Companies company;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "equipement", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "equipement", fetch = FetchType.EAGER)
     private Collection<EquipementsDataExternal> equipementsDataExternalCollection;
-    @OneToMany(mappedBy = "equipement", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "equipement", fetch = FetchType.EAGER)
     private Collection<AnalysePoints> analysePointsCollection;
 
     public Equipements() {

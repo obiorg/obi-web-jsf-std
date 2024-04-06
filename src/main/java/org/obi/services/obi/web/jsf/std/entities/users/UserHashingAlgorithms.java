@@ -58,7 +58,7 @@ public class UserHashingAlgorithms implements Serializable {
     private String algorithmName;
     @Size(max = 255)
     private String designation;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "hashAlgorithm", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "hashAlgorithm", fetch = FetchType.EAGER)
     private Collection<UserLoginData> userLoginDataCollection;
 
     public UserHashingAlgorithms() {

@@ -119,9 +119,9 @@ public class EquipementsExternalProviders implements Serializable {
     @Size(max = 45)
     private String paramStr5;
     @JoinColumn(name = "company", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Companies company;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "provider", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "provider", fetch = FetchType.EAGER)
     private Collection<EquipementsDataExternal> equipementsDataExternalCollection;
 
     public EquipementsExternalProviders() {

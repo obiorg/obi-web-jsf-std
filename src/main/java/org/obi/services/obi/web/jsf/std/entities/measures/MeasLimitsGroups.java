@@ -69,15 +69,15 @@ public class MeasLimitsGroups implements Serializable {
     @Lob
     @Size(max = 2147483647)
     private String description;
-    @OneToMany(mappedBy = "group1", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "group1", fetch = FetchType.EAGER)
     private Collection<MeasLimits> measLimitsCollection;
-    @OneToMany(mappedBy = "group1", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "group1", fetch = FetchType.EAGER)
     private Collection<PersStandardLimits> persStandardLimitsCollection;
     @JoinColumn(name = "business", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Businesses business;
     @JoinColumn(name = "company", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Companies company;
 
     public MeasLimitsGroups() {

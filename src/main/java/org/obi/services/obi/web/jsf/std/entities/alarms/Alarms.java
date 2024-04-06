@@ -70,15 +70,15 @@ public class Alarms implements Serializable {
     @Size(max = 512)
     private String comment;
     @JoinColumn(name = "class", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private AlarmClasses class1;
     @JoinColumn(name = "\"group\"", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private AlarmGroups group1;
     @JoinColumn(name = "company", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Companies company;
-    @OneToMany(mappedBy = "alarm", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "alarm", fetch = FetchType.EAGER)
     private Collection<Tags> tagsCollection;
 
     public Alarms() {

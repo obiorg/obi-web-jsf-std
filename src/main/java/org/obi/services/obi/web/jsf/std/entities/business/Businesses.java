@@ -73,27 +73,27 @@ public class Businesses implements Serializable {
     private Boolean activated;
     @Size(max = 512)
     private String logoPath;
-    @OneToMany(mappedBy = "business", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "business", fetch = FetchType.EAGER)
     private Collection<UserRolePermissions> userRolePermissionsCollection;
-    @OneToMany(mappedBy = "business", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "business", fetch = FetchType.EAGER)
     private Collection<AnalyseMethods> analyseMethodsCollection;
-    @OneToMany(mappedBy = "business", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "business", fetch = FetchType.EAGER)
     private Collection<AnalyseTypes> analyseTypesCollection;
-    @OneToMany(mappedBy = "business", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "business", fetch = FetchType.EAGER)
     private Collection<MeasLimits> measLimitsCollection;
-    @OneToMany(mappedBy = "business", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "business", fetch = FetchType.EAGER)
     private Collection<UserRoles> userRolesCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "business", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "business", fetch = FetchType.EAGER)
     private Collection<Companies> companiesCollection;
-    @OneToMany(mappedBy = "business", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "business", fetch = FetchType.EAGER)
     private Collection<MeasLimitsGroups> measLimitsGroupsCollection;
     @JoinColumn(name = "entity", referencedColumnName = "entity")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Entities entity;
     @JoinColumn(name = "location", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Locations location;
-    @OneToMany(mappedBy = "business", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "business", fetch = FetchType.EAGER)
     private Collection<AnalyseCategories> analyseCategoriesCollection;
 
     public Businesses() {

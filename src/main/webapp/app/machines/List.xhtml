@@ -19,20 +19,49 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                
+
                 <h:outputText escape="false" value="#{OBI.ListMachinesEmpty}" rendered="#{machinesController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{machinesController.items.rowCount > 0}">
                     <h:outputText value="#{machinesController.pagination.pageFirstItem + 1}..#{machinesController.pagination.pageLastItem + 1}/#{machinesController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{machinesController.previous}" value="#{OBI.Previous} #{machinesController.pagination.pageSize}" rendered="#{machinesController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{machinesController.next}" value="#{OBI.Next} #{machinesController.pagination.pageSize}" rendered="#{machinesController.pagination.hasNextPage}"/>&nbsp;
+
+
+
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <h:commandLink action="#{machinesController.previous}" 
+                                               value="#{OBI.Previous} #{machinesController.pagination.pageSize}" 
+                                               styleClass="page-link"
+                                               rendered="#{machinesController.pagination.hasPreviousPage}"/>&nbsp;
+                            </li>
+                            <li class="page-item">
+                                <h:commandLink action="#{machinesController.previous}" 
+                                               value="#{OBI.Previous} #{machinesController.pagination.pageSize}" 
+                                               styleClass="page-link"
+                                               rendered="#{machinesController.pagination.hasPreviousPage}"/>&nbsp;
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <h:commandLink action="#{machinesController.next}" 
+                                               value="#{OBI.Next} #{machinesController.pagination.pageSize}" 
+                                               styleClass="page-link"
+                                               rendered="#{machinesController.pagination.hasNextPage}"/>&nbsp;
+                            </li>
+                        </ul>
+                    </nav>
+
+
+
+
                     <h:dataTable value="#{machinesController.items}" 
-                                     var="item" border="0" 
-                                     cellpadding="0" cellspacing="0" 
-                                     styleClass="table table-responsive table-striped table-sm table-bordered"
-                                     rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" 
-                                     headerClass="table-dark"
-                                     style="border:solid 1px">
-                            <h:column>
+                                 var="item" border="0" 
+                                 cellpadding="0" cellspacing="0" 
+                                 styleClass="table table-responsive table-striped table-sm table-bordered"
+                                 rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" 
+                                 headerClass="table-dark"
+                                 style="border:solid 1px">
+                        <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{OBI.ListMachinesTitle_id}"/>
                             </f:facet>
@@ -110,21 +139,21 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{OBI.ListMachinesTitle_mqqt}"/>
+                                <h:outputText value="#{OBI.ListMachinesTitle_mqtt}"/>
                             </f:facet>
-                            <h:outputText value="#{item.mqqt}"/>
+                            <h:outputText value="#{item.mqtt}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{OBI.ListMachinesTitle_mqqtUser}"/>
+                                <h:outputText value="#{OBI.ListMachinesTitle_mqttUser}"/>
                             </f:facet>
-                            <h:outputText value="#{item.mqqtUser}"/>
+                            <h:outputText value="#{item.mqttUser}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{OBI.ListMachinesTitle_mqqtPassword}"/>
+                                <h:outputText value="#{OBI.ListMachinesTitle_mqttPassword}"/>
                             </f:facet>
-                            <h:outputText value="#{item.mqqtPassword}"/>
+                            <h:outputText value="#{item.mqttPassword}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
@@ -154,13 +183,13 @@
                             <f:facet name="header">
                                 <h:outputText value="#{OBI.ListMachinesTitle_company}"/>
                             </f:facet>
-                            <h:outputText value="#{item.company}"/>
+                            <h:outputText value="#{item.company.designation} [#{item.company.id}]"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{OBI.ListMachinesTitle_driver}"/>
                             </f:facet>
-                            <h:outputText value="#{item.driver}"/>
+                            <h:outputText value="#{item.driver.driver} [#{item.driver.id}]"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
@@ -174,11 +203,101 @@
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
-                <br />
-                <h:commandLink action="#{machinesController.prepareCreate}" value="#{OBI.ListMachinesCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{OBI.ListMachinesIndexLink}"/>
+
+
+
+
+
+
+                <h:commandLink id="createLink"
+                               styleClass="btn btn-outline-primary"
+
+                               action="Create.xhtml?faces-redirect=true"
+                               actionListener="#{machinesController.prepareCreate}"
+                               >
+                    <i class="fa-solid fa-circle-plus"></i>#{OBI.Create}
+                </h:commandLink>
+
+                <h:commandLink id="homeLink"
+                               styleClass="btn btn-outline-secondary"
+
+                               action="/index.xhtml?faces-redirect=true"
+                               title="#{OBI.ListMachinesCreateLink}"
+                               >
+                    <i class="fa-solid fa-gauge"></i>#{OBI.Home}
+                </h:commandLink>
+
+
+
+
+
+
+                <!--                
+                                
+                                <p:commandButton id="viewButton"
+                                                 icon="ui-btn-View"
+                                                 styleClass="options-btn"
+                                                 value="#{ism.View}"
+                                                 action="View.xhtml?faces-redirect=true"
+                                                 title="Permet de visualiser la non conformité sélectionné."
+                                                 disabled="#{empty nonConformiteRequestController.selected 
+                            or empty nonConformiteRequestController.selected.ncrId}"
+                />
+<p:commandButton id="editButton"
+                icon="ui-btn-Edit"
+                styleClass="options-btn"
+                value="#{ism.Edit}"
+                action="Edit.xhtml?faces-redirect=true"
+                title="Permet d'editer la non conformité sélectionné."
+                disabled="#{empty nonConformiteRequestController.selected 
+                            or empty nonConformiteRequestController.selected.ncrId
+                            or nonConformiteRequestController.selected.ncrState.id!=1}"
+                />
+<p:commandButton id="validateButton"
+                icon="ui-btn-Approuve"
+                styleClass="options-btn"
+                value="#{ism.Validate}"
+                action="Validate.xhtml?faces-redirect=true"
+                title="Permet d'accepter ou refuser la non conformité sélectionné."
+                disabled="#{empty nonConformiteRequestController.selected 
+                            or empty nonConformiteRequestController.selected.ncrId
+                            or nonConformiteRequestController.selected.ncrState.id!=1}"
+                rendered="#{request.isUserInRole('SNC_REQUEST_VA')}"
+                />
+<p:commandButton    id="actionButton"
+                   icon="ui-btn-Actions"
+                   styleClass="options-btn"
+                   value="#{ism.Action}"
+                   action="Action.xhtml?faces-redirect=true"
+                   title="Permet d'ajouter une action à la non conformité sélectionné."
+                   actionListener="#{nonConformiteActionsController.prepareAction(
+                                  nonConformiteRequestController.selected)}"
+                disabled="#{empty nonConformiteRequestController.selected 
+                            or empty nonConformiteRequestController.selected.ncrId
+                            or (nonConformiteRequestController.selected.ncrState.id!=2 
+                            and nonConformiteRequestController.selected.ncrState.id!=3)}"
+                />
+<p:commandButton id="deleteButton"
+             icon="ui-btn-Delete"
+             styleClass="options-btn"
+             value="#{ism.Delete}"
+             title="Permet de supprimer la non conformité sélectionné !"
+             actionListener="#{nonConformiteRequestController.destroy()}"
+             update=":bodyForm:datalist,westGroup,:growl"
+             onstart=";
+                #{viewConfirmDialog.dlg.setHeader(ism.NonConformiteRequestDlgHeader)};
+                #{viewConfirmDialog.dlg.setSeverity('alert')};
+                #{viewConfirmDialog.dlg.setMessage(ism.NonConformiteRequestDlgMessage)}
+                PF('mainConfirmDialog').show()"
+                disabled="#{empty nonConformiteRequestController.selected 
+                            or empty nonConformiteRequestController.selected.ncrId
+                            or nonConformiteRequestController.selected.ncrState.id!=1}"
+                rendered="#{request.isUserInRole('SNC_REQUEST_E')}"
+                >
+   <p:confirm  />
+</p:commandButton>-->
+
+
             </h:form>
         </ui:define>
     </ui:composition>
