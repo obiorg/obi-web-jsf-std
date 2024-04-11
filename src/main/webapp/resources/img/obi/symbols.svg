@@ -833,5 +833,47 @@
                 </g>
             </g>
         </symbol>  
+  
+
+
+
+
+
+
+
+
+
+
+
+        <symbol id="tank_co2"                 
+                viewBox="0 0 20.605202 48.465057"
+                width="30.0mm"
+                height="12.5mm"
+        >
+
+            <path
+                d="m -60335.474,-347795.06 h -381.807 c 0.1,-6.97 -0.318,-4.87 0,-10.09 90.581,-0.13 -78.914,0 15,0 v -14.85 h -151.089 v 14.85 h 16.089 v 10.09 h -37.802 c -100.803,0 -182.513,81.72 -182.513,182.52 0,100.8 81.711,182.52 182.513,182.52 h 539.609 c 100.803,0 182.508,-81.72 182.508,-182.52 0,-100.8 -81.705,-182.52 -182.508,-182.52 z"
+                id="path2"
+                style="fill:#aa4400" />
+            <text
+                xml:space="preserve"
+                id="text439"
+                style="font-size:192px;font-family:Impact;-inkscape-font-specification:Impact;text-align:center;white-space:pre;shape-inside:url(#rect441);display:inline;fill:#ffccaa;stroke:#1a1a1a;stroke-width:5.66929"
+                transform="translate(-61109.495,-348170.38)"><tspan
+                x="360.06445"
+                y="632.53592"
+                id="tspan675">CO2</tspan></text>
+        </symbol>
+
+
+
+
+
+
+
+
+
+
+
     </defs>
 </svg>  

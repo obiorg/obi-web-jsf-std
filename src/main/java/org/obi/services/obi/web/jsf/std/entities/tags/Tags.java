@@ -80,7 +80,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Tags.findByMesure", query = "SELECT t FROM Tags t WHERE t.mesure = :mesure"),
     @NamedQuery(name = "Tags.findByMesureMin", query = "SELECT t FROM Tags t WHERE t.mesureMin = :mesureMin"),
     @NamedQuery(name = "Tags.findByMesureMax", query = "SELECT t FROM Tags t WHERE t.mesureMax = :mesureMax"),
-    @NamedQuery(name = "Tags.findByMqqtTopic", query = "SELECT t FROM Tags t WHERE t.mqttTopic = :mqttTopic"),
+    @NamedQuery(name = "Tags.findByMqttTopic", query = "SELECT t FROM Tags t WHERE t.mqttTopic = :mqttTopic"),
     @NamedQuery(name = "Tags.findByWebhook", query = "SELECT t FROM Tags t WHERE t.webhook = :webhook"),
     @NamedQuery(name = "Tags.findByLaboratory", query = "SELECT t FROM Tags t WHERE t.laboratory = :laboratory"),
     @NamedQuery(name = "Tags.findByFormula", query = "SELECT t FROM Tags t WHERE t.formula = :formula"),
@@ -174,38 +174,41 @@ public class Tags implements Serializable {
     private Date persOffsetDateTime;
     @Size(max = 512)
     private String comment;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.LAZY)
     private Collection<AnalyseAllowed> analyseAllowedCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.LAZY)
     private Collection<PersStandard> persStandardCollection;
-    @OneToMany(mappedBy = "tag", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "tag", fetch = FetchType.LAZY)
     private Collection<MeasLimits> measLimitsCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.LAZY)
     private Collection<PersStandardLimits> persStandardLimitsCollection;
     @JoinColumn(name = "alarm", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Alarms alarm;
     @JoinColumn(name = "company", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Companies company;
     @JoinColumn(name = "machine", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Machines machine;
     @JoinColumn(name = "measureUnit", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private MeasUnits measureUnit;
     @JoinColumn(name = "memory", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private TagsMemories memory;
     @JoinColumn(name = "\"table\"", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private TagsTables table;
     @JoinColumn(name = "type", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private TagsTypes type;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag", fetch = FetchType.LAZY)
     private Collection<Persistence> persistenceCollection;
-
+    @JoinColumn(name = "list", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private TagsLists list;
+    
     public Tags() {
     }
 
@@ -710,6 +713,16 @@ public class Tags implements Serializable {
         this.type = type;
     }
 
+    
+    public TagsLists getList() {
+        return list;
+    }
+
+    public void setList(TagsLists list) {
+        this.list = list;
+    }
+
+    
     @XmlTransient
     public Collection<Persistence> getPersistenceCollection() {
         return persistenceCollection;

@@ -4,7 +4,7 @@
  */
 package org.obi.services.obi.web.jsf.std.sessions.maintenance;
 
-import org.obi.services.obi.web.jsf.std.sessions.AbstractFacade;
+import org.obi.services.obi.web.jsf.std.sessions.Abstract.AbstractFacade;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

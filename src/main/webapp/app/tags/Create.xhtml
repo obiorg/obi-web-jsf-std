@@ -209,15 +209,41 @@
 
 
                 </h:panelGrid>
+
+
+
+
                 <br />
-                <h:commandLink action="#{tagsController.create}" 
-                               value="#{OBI.CreateTagsSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{tagsController.prepareList}" value="#{OBI.CreateTagsShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{OBI.CreateTagsIndexLink}"/>
+                <div class="container-fluid">
+                    <div class="row">
+                        <h:commandLink 
+                            styleClass="btn btn-outline-primary small me-1 mb-1 col-sm-4  col-md-3 col-lg-2"
+                            action="#{tagsController.create}"
+                            title="#{OBI.CreateTagsSaveLink}"
+                            >
+                            <i class="fa-solid fa-floppy-disk me-1"></i>#{OBI.Save}
+                        </h:commandLink>
+
+
+                        <h:commandLink 
+                            styleClass="btn btn-outline-primary small me-1 mb-1 col-sm-4  col-md-3 col-lg-2"
+                            action="#{tagsController.prepareList}"
+                            title="#{OBI.CreateTagsShowAllLink}"
+                            immediate="true"
+                            >
+                            <i class="fa-solid fa-table-list me-1"></i>#{OBI.List}
+                        </h:commandLink>
+
+
+                        <h:commandLink id="homeLink"
+                                       styleClass="btn btn-outline-secondary small me-1 mb-1 col-sm-4  col-md-3 col-lg-2"
+                                       action="/index.xhtml"
+                                       title="#{OBI.CreateTagsIndexLink}"
+                                       >
+                            <i class="fa-solid fa-gauge me-1"></i>#{OBI.Home}
+                        </h:commandLink>
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

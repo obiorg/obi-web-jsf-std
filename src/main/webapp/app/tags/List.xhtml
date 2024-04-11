@@ -453,11 +453,30 @@
 
                     </div>
                 </h:panelGroup>
+
+
+
                 <br />
-                <h:commandLink action="#{tagsController.prepareCreate}" value="#{OBI.ListTagsCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{OBI.ListTagsIndexLink}"/>
+                <div class="container-fluid">
+                    <div class="row">
+                        <h:commandLink id="createLink"
+                                       styleClass="btn btn-outline-primary small me-1 mb-1 col-sm-4  col-md-3 col-lg-2"
+                                       action="Create.xhtml?faces-redirect=true"
+                                       actionListener="#{tagsController.prepareCreate}"
+                                       title="#{OBI.ListTagsCreateLink}"
+                                       >
+                            <i class="fa-solid fa-circle-plus"></i>#{OBI.Create}
+                        </h:commandLink>
+
+                        <h:commandLink id="homeLink"
+                                       styleClass="btn btn-outline-secondary small me-1 mb-1 col-sm-4  col-md-3 col-lg-2"
+                                       action="/index.xhtml?faces-redirect=true"
+                                       title="#{OBI.ListTagsIndexLink}"
+                                       >
+                            <i class="fa-solid fa-gauge"></i>#{OBI.Home}
+                        </h:commandLink>
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

@@ -208,11 +208,12 @@ public class TagsController implements Serializable {
     }
 
     public Tags getTags(java.lang.Integer id) {
+        ejbFacade.flush();
         Tags t = ejbFacade.find(id);
-        System.out.println("Tags id(" + id + ") => " + t.toString()
-                + " float=" + t.getVFloat() 
-                + " vStamp = " + t.getVStamp().toString()
-        );
+//        System.out.println("Tags id(" + id + ") => " + t.toString()
+//                + " float=" + t.getVFloat() 
+//                + " vStamp = " + t.getVStamp().toString()
+//        );
         return t;
     }
 

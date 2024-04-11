@@ -13,7 +13,7 @@
 
     <ui:composition template="/tmpl/MainWindow.xhtml">
         <ui:define name="title">
-            <h:outputText value="TOD - Pressions"></h:outputText>
+            <h:outputText value="Vue Générale"></h:outputText>
         </ui:define>
 
 
@@ -30,36 +30,219 @@
 
 
                         <o:vignette id="dataTOD35"
-                                    name="TOD 35 [bar]"
-                                    subname="#{tagsController.getTags(17).VInt}"
-                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
-
-                                    value="#{tagsController.getTags(1).VFloat}"
-                                    stamp="#{tagsController.getTags(1).VStamp}"
                                     symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(1)}"
+                                    status="#{tagsController.getTags(17)}"
                                     symbolWidth="38" 
                                     symbolHeight="91" 
                                     pattern="#0.0000"
-                                    listener="#{tagsController.getTags(1)}"
+                                    listener="#{viewUtil.init()}"
                                     />
-                        
+
                         <o:vignette id="dataTOD36"
-                                    name="TOD 36 [bar]"
-                                    subname="#{tagsController.getTags(18).VInt}"
-                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
-
-                                    value="#{tagsController.getTags(2).VFloat}"
-                                    stamp="#{tagsController.getTags(2).VStamp}"
                                     symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(2)}"
+                                    status="#{tagsController.getTags(18)}"
                                     symbolWidth="38" 
                                     symbolHeight="91" 
                                     pattern="#0.0000"
-                                    listener="#{tagsController.getTags(2)}"
+                                    listener="#{viewUtil.init()}"
                                     />
+
+                        <o:vignette id="dataTOD37"
+                                    symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(3)}"
+                                    status="#{tagsController.getTags(19)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="#0.0000"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                        <o:vignette id="dataTOD38"
+                                    symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(4)}"
+                                    status="#{tagsController.getTags(20)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="#0.0000"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                        <o:vignette id="dataTOD39"
+                                    symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(5)}"
+                                    status="#{tagsController.getTags(21)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="#0.0000"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                        <o:vignette id="dataTOD40"
+                                    symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(6)}"
+                                    status="#{tagsController.getTags(22)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="#0.0000"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                        <o:vignette id="dataTOD41"
+                                    symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(7)}"
+                                    status="#{tagsController.getTags(23)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="#0.0000"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                        <o:vignette id="dataTOD42"
+                                    symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(8)}"
+                                    status="#{tagsController.getTags(24)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="#0.0000"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                        <o:vignette id="dataTOD43"
+                                    symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(9)}"
+                                    status="#{tagsController.getTags(25)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="#0.0000"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                        <o:vignette id="dataTOD44"
+                                    symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(10)}"
+                                    status="#{tagsController.getTags(26)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="#0.0000"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                        <o:vignette id="dataTOD45"
+                                    symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(11)}"
+                                    status="#{tagsController.getTags(27)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="#0.0000"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                        <o:vignette id="dataTOD46"
+                                    symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(12)}"
+                                    status="#{tagsController.getTags(28)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="#0.0000"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                        <o:vignette id="dataTOD47"
+                                    symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(13)}"
+                                    status="#{tagsController.getTags(29)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="#0.0000"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                        <o:vignette id="dataTOD48"
+                                    symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(14)}"
+                                    status="#{tagsController.getTags(30)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="#0.0000"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                        <o:vignette id="dataTOD17"
+                                    symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(15)}"
+                                    status="#{tagsController.getTags(31)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="#0.0000"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                        <o:vignette id="dataTOD18"
+                                    symbol="#tank_cct" 
+                                    subname_ico="fa-solid fa-arrows-turn-to-dots"
+                                    value="#{tagsController.getTags(16)}"
+                                    status="#{tagsController.getTags(32)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="#0.0000"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
 
                     </div>
                 </div>
 
+
+                <div class="container-fluid">
+                    <div class="row mb-1"><div class="col"><h5>Stockage CO2</h5></div></div>
+
+                    <div class="row">
+                        <o:vignette id="stkC02T1"
+                                    symbol="#tank_co2" 
+                                    value="#{tagsController.getTags(34)}"
+                                    symbolWidth="60" 
+                                    symbolHeight="24" 
+                                    pattern="###,###"
+                                    listener="#{viewUtil.init()}"
+                                    />
+                        
+                        <o:vignette id="stkC02T2"
+                                    symbol="#tank_co2" 
+                                    value="#{tagsController.getTags(35)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="###,###"
+                                    listener="#{viewUtil.init()}"
+                                    />
+                        
+                        <o:vignette id="stkC02T3"
+                                    symbol="#tank_co2" 
+                                    value="#{tagsController.getTags(33)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="###,###"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                    </div>
+                </div>
 
             </h:form>
 

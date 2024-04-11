@@ -13,6 +13,8 @@ import org.obi.services.obi.web.jsf.std.entities.alarms.AlarmRender;
 import org.obi.services.obi.web.jsf.std.entities.alarms.AlarmGroups;
 import org.obi.services.obi.web.jsf.std.entities.alarms.AlarmClasses;
 import org.obi.services.obi.web.jsf.std.entities.alarms.Alarms;
+import org.obi.services.obi.web.jsf.std.entities.tags.TagsLists;
+import org.obi.services.obi.web.jsf.std.entities.tags.TagsListsContent;
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -145,6 +147,11 @@ public class Companies implements Serializable {
     private Collection<Machines> machinesCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     private Collection<AlarmClasses> alarmClassesCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    private Collection<TagsLists> tagsListsCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    private Collection<TagsListsContent> tagsListsContentCollection;
+
 
     public Companies() {
     }
@@ -450,6 +457,26 @@ public class Companies implements Serializable {
 
     public void setAlarmClassesCollection(Collection<AlarmClasses> alarmClassesCollection) {
         this.alarmClassesCollection = alarmClassesCollection;
+    }
+
+    
+    
+    @XmlTransient
+    public Collection<TagsLists> getTagsListsCollection() {
+        return tagsListsCollection;
+    }
+
+    public void setTagsListsCollection(Collection<TagsLists> tagsListsCollection) {
+        this.tagsListsCollection = tagsListsCollection;
+    }
+
+    @XmlTransient
+    public Collection<TagsListsContent> getTagsListsContentCollection() {
+        return tagsListsContentCollection;
+    }
+
+    public void setTagsListsContentCollection(Collection<TagsListsContent> tagsListsContentCollection) {
+        this.tagsListsContentCollection = tagsListsContentCollection;
     }
 
     @Override

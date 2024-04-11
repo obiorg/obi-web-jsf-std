@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.obi.services.obi.web.jsf.std.sessions;
+package org.obi.services.obi.web.jsf.std.sessions.Abstract;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +32,10 @@ public abstract class AbstractFacade<T> {
 
     protected abstract EntityManager getEntityManager();
 
+    public void flush() {
+        getEntityManager().flush();
+    }
+
     public void create(T entity) {
         getEntityManager().persist(entity);
     }
@@ -45,16 +49,22 @@ public abstract class AbstractFacade<T> {
     }
 
     public T find(Object id) {
-        return getEntityManager().find(entityClass, id);
+        getEntityManager().flush();
+        T entity = getEntityManager().find(entityClass, id);
+        getEntityManager().refresh(entity);
+        return entity;
     }
 
     public List<T> findAll() {
+        getEntityManager().flush();
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
-        return getEntityManager().createQuery(cq).getResultList();
+        List<T> entities = getEntityManager().createQuery(cq).getResultList();
+        return entities;
     }
 
     public List<T> findRange(int[] range) {
+        getEntityManager().flush();
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
         javax.persistence.Query q = getEntityManager().createQuery(cq);
@@ -64,6 +74,7 @@ public abstract class AbstractFacade<T> {
     }
 
     public int count() {
+        getEntityManager().flush();
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         javax.persistence.criteria.Root<T> rt = cq.from(entityClass);
         cq.select(getEntityManager().getCriteriaBuilder().count(rt));
@@ -77,6 +88,7 @@ public abstract class AbstractFacade<T> {
     //
     // /////////////////////////////////////////////////////////////////////////
     public List<T> findAllByFieldDescending(String field) {
+        getEntityManager().flush();
         CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
         CriteriaQuery<T> cq = cb.createQuery(entityClass);
         Root<T> root = cq.from(entityClass);
@@ -99,6 +111,7 @@ public abstract class AbstractFacade<T> {
      * @return number of items found with specified criteria
      */
     public Integer countByCriterias(Map<String, Object> filters) {
+        getEntityManager().flush();
         CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
         CriteriaQuery<Long> cq = cb.createQuery(Long.class);
         Root<T> root = cq.from(entityClass);
@@ -163,6 +176,7 @@ public abstract class AbstractFacade<T> {
      */
     public List<T> findByCriterias(Integer first, Integer pageSize, Map<String, String> sorts, Map<String, Object> filters) {
 
+        getEntityManager().flush();
         CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
         CriteriaQuery<T> cq = cb.createQuery(entityClass);
         Root<T> root = cq.from(entityClass);
@@ -250,6 +264,7 @@ public abstract class AbstractFacade<T> {
      * @return a predicate attribute containing all where clause
      */
     protected List<Predicate> filterBy(Map<String, Object> filters, CriteriaBuilder cb, Root<T> root) {
+        getEntityManager().flush();
         // null in case of empty filters
         if (filters == null || filters.isEmpty()) {
             return null;
@@ -274,6 +289,7 @@ public abstract class AbstractFacade<T> {
      * @return from or to date as string
      */
     protected String readPartOfDateRange(String dateRange, Boolean isFrom) {
+        getEntityManager().flush();
         String filterText = (dateRange == null) ? null : dateRange.trim();
         if (filterText == null || filterText.equals("")) {
             return null;

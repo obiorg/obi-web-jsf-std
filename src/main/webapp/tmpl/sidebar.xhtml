@@ -101,15 +101,15 @@
                                 <ul>                        
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/entities/List" 
+                                                outcome="/app/business/entities/List" 
                                                 value="#{OBI.SideBarMenuBusinesseEntities}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/businesses/List" 
+                                                outcome="/app/business/businesses/List" 
                                                 value="#{OBI.SideBarMenuBusinesseBusinesses}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/companies/List" 
+                                                outcome="/app/business/companies/List" 
                                                 value="#{OBI.SideBarMenuBusinesseCompanies}"/> </li>
 
                                 </ul>
@@ -128,7 +128,7 @@
                                 <ul>                        
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/machDrivers/List" 
+                                                outcome="/app/machines/drivers/List" 
                                                 value="#{OBI.SideBarMenuMachineDrivers}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
@@ -140,7 +140,7 @@
                         </li>
 
 
-                        <!-- ALARMS -->
+                        <!-- ALARMS --> 
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="fa-solid fa-bell"></i>
@@ -149,13 +149,13 @@
                             <div class="sidebar-submenu">
                                 <ul>                        
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/alarmGroups/List" 
+                                                outcome="/app/alarms/groups/List" 
                                                 value="#{OBI.SideBarMenuAlarmGroups}"/> </li>           
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/alarmClasses/List" 
+                                                outcome="/app/alarms/classes/List" 
                                                 value="#{OBI.SideBarMenuAlarmClasses}"/> </li>
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/alarmRender/List" 
+                                                outcome="/app/alarms/render/List" 
                                                 value="#{OBI.SideBarMenuAlarmRender}"/> </li>
                                     <li><h:link class="text-decoration-none " 
                                                 outcome="/app/alarms/List" 
@@ -175,23 +175,23 @@
                                 <ul>                        
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/analyseCategories/List" 
+                                                outcome="/app/analyses/categories/List" 
                                                 value="#{OBI.SideBarMenuAnalyseCategories}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/analyseMethods/List" 
+                                                outcome="/app/analyses/methods/List" 
                                                 value="#{OBI.SideBarMenuAnalyseMethods}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/analysePoints/List" 
+                                                outcome="/app/analyses/points/List" 
                                                 value="#{OBI.SideBarMenuAnalysePoints}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/analyseTypes/List" 
+                                                outcome="/app/analyses/types/List" 
                                                 value="#{OBI.SideBarMenuAnalyseTypes}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/analyseAllowed/List" 
+                                                outcome="/app/analyses/allowed/List" 
                                                 value="#{OBI.SideBarMenuAnalyseAllowed}"/> </li>
 
                                 </ul>
@@ -210,23 +210,23 @@
                                 <ul>                        
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/locRegions/List" 
+                                                outcome="/app/locations/regions/List" 
                                                 value="#{OBI.SideBarMenuLocationRegions}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/locSubregions/List" 
+                                                outcome="/app/locations/countries/List" 
                                                 value="#{OBI.SideBarMenuLocationSubRegions}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/locCountries/List" 
+                                                outcome="/app/locations/countries/List" 
                                                 value="#{OBI.SideBarMenuLocationCountries}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/locStates/List" 
+                                                outcome="/app/locations/states/List" 
                                                 value="#{OBI.SideBarMenuLocationStates}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/locCities/List" 
+                                                outcome="/app/locations/cities/List" 
                                                 value="#{OBI.SideBarMenuLocationCities}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
@@ -249,15 +249,15 @@
                                 <ul>                        
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/equipementsExternalProviders/List" 
+                                                outcome="/app/maintenance/equipements/externalProviders/List" 
                                                 value="#{OBI.SideBarMenuMaintenanceEquipExtProviers}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/equipementsDataExternal/List" 
+                                                outcome="/app/maintenance/equipements/dataExternal/List" 
                                                 value="#{OBI.SideBarMenuMaintenanceEquipExtDatas}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/equipements/List" 
+                                                outcome="/app/maintenance/equipements/List" 
                                                 value="#{OBI.SideBarMenuMaintenanceEquipements}"/> </li>
 
                                 </ul>
@@ -278,19 +278,19 @@
                                 <ul>                        
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/measComparators/List" 
+                                                outcome="/app/measures/comparators/List" 
                                                 value="#{OBI.SideBarMenuMeasureComparators}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/measLimits/List" 
+                                                outcome="/app/measures/limits/List" 
                                                 value="#{OBI.SideBarMenuMeasureLimits}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/measLimitsGroups/List" 
+                                                outcome="/app/measures/limits/groups/List" 
                                                 value="#{OBI.SideBarMenuMeasureLimitsGroups}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/measUnits/List" 
+                                                outcome="/app/measures/units/List" 
                                                 value="#{OBI.SideBarMenuMeasureUnits}"/> </li>
 
                                 </ul>
@@ -309,15 +309,15 @@
                                 <ul>                        
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/persMethod/List" 
+                                                outcome="/app/persistence/method/List" 
                                                 value="#{OBI.SideBarMenuPersistenceMethod}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/persStandard/List" 
+                                                outcome="/app/persistence/standard/List" 
                                                 value="#{OBI.SideBarMenuPersistenceStandard}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/persStandardLimits/List" 
+                                                outcome="/app/persistence/standard/limits/List" 
                                                 value="#{OBI.SideBarMenuPersistenceStandardLimits}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
@@ -342,15 +342,15 @@
                                 <ul>                        
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/tagsMemories/List" 
+                                                outcome="/app/tags/memories/List" 
                                                 value="#{OBI.SideBarMenuTagsMemories}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/tagsTypes/List" 
+                                                outcome="/app/tags/types/List" 
                                                 value="#{OBI.SideBarMenuTagsTypes}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/tagsTables/List" 
+                                                outcome="/app/tags/tables/List" 
                                                 value="#{OBI.SideBarMenuTagsTables}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
@@ -374,55 +374,55 @@
                                 <ul>                        
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/userAccount/List" 
+                                                outcome="/app/users/account/List" 
                                                 value="#{OBI.SideBarMenuUserAccount}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/userAccountRole/List" 
+                                                outcome="/app/users/accountRole/List" 
                                                 value="#{OBI.SideBarMenuUserAccountRole}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/userEmailVerified/List" 
+                                                outcome="/app/users/emailVerified/List" 
                                                 value="#{OBI.SideBarMenuUserEmailVerified}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/userExternalProviders/List" 
+                                                outcome="/app/users/externalProviders/List" 
                                                 value="#{OBI.SideBarMenuUserExternalProvider}"/> </li>
-                                                
-                                    
-                                                
-                                                
+
+
+
+
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/userHashingAlgorithms/List" 
+                                                outcome="/app/users/hashingAlgorithms/List" 
                                                 value="#{OBI.SideBarMenuUserHashingAlgorithms}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/userLoginData/List" 
+                                                outcome="/app/users/loginData/List" 
                                                 value="#{OBI.SideBarMenuUserLoginData}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/userLoginDataExternal/List" 
+                                                outcome="/app/users/loginDataExternal/List" 
                                                 value="#{OBI.SideBarMenuUserLoginDataExternal}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/userPermissions/List" 
+                                                outcome="/app/users/permissions/List" 
                                                 value="#{OBI.SideBarMenuUserPermissions}"/> </li>
-                                                
-                                    
-                                                
-                                                
+
+
+
+
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/userRolePermissions/List" 
+                                                outcome="/app/users/rolePermissions/List" 
                                                 value="#{OBI.SideBarMenuUserRolePermissions}"/> </li>
 
                                     <li><h:link class="text-decoration-none " 
-                                                outcome="/app/userRoles/List" 
+                                                outcome="/app/users/roles/List" 
                                                 value="#{OBI.SideBarMenuUserRoles}"/> </li>
 
                                 </ul>
                             </div>
                         </li>
-    
+
 
 
 
