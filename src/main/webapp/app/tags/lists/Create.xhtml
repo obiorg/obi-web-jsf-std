@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.CreateTagsListsTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+
+            <!--
+            <h:outputLabel value="#{OBI.CreateTagsListsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{tagsListsController.selected.id}" title="#{OBI.CreateTagsListsTitle_id}" required="true" requiredMessage="#{OBI.CreateTagsListsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{OBI.CreateTagsListsLabel_deleted}" for="deleted" />
+                    <h:inputText id="deleted" value="#{tagsListsController.selected.deleted}" title="#{OBI.CreateTagsListsTitle_deleted}" />
+                    <h:outputLabel value="#{OBI.CreateTagsListsLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{tagsListsController.selected.created}" title="#{OBI.CreateTagsListsTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{OBI.CreateTagsListsLabel_changed}" for="changed" />
+                    <h:inputText id="changed" value="#{tagsListsController.selected.changed}" title="#{OBI.CreateTagsListsTitle_changed}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+            -->
+            
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{OBI.CreateTagsListsLabel_company}" for="company" />
+                    <h:selectOneMenu id="company" value="#{tagsListsController.selected.company}" title="#{OBI.CreateTagsListsTitle_company}" required="true" requiredMessage="#{OBI.CreateTagsListsRequiredMessage_company}">
+                        <f:selectItems value="#{companiesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel value="#{OBI.CreateTagsListsLabel_type}" for="type" />
+                    <h:selectOneMenu id="type" value="#{tagsListsController.selected.type}" title="#{OBI.CreateTagsListsTitle_type}" >
+                        <f:selectItems value="#{tagsListsTypesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel value="#{OBI.CreateTagsListsLabel_list}" for="list" />
+                    <h:inputText id="list" value="#{tagsListsController.selected.list}" title="#{OBI.CreateTagsListsTitle_list}" required="true" requiredMessage="#{OBI.CreateTagsListsRequiredMessage_list}"/>
+                    <h:outputLabel value="#{OBI.CreateTagsListsLabel_designation}" for="designation" />
+                    <h:inputText id="designation" value="#{tagsListsController.selected.designation}" title="#{OBI.CreateTagsListsTitle_designation}" />
+                    <h:outputLabel value="#{OBI.CreateTagsListsLabel_comment}" for="comment" />
+                    <h:inputText id="comment" value="#{tagsListsController.selected.comment}" title="#{OBI.CreateTagsListsTitle_comment}" />
+                    
+                    
+                </h:panelGrid>
+                
+                
+                
+                
+
+                <br />
+                <div class="container-fluid">
+                    <div class="row">
+                        <h:commandLink 
+                            styleClass="btn btn-outline-primary small me-1 mb-1 col-sm-4  col-md-3 col-lg-2"
+                            action="#{tagsListsController.create}"
+                            title="#{OBI.CreateTagsListsSaveLink}"
+                            >
+                            <i class="fa-solid fa-floppy-disk me-1"></i>#{OBI.Save}
+                        </h:commandLink>
+
+
+                        <h:commandLink 
+                            styleClass="btn btn-outline-primary small me-1 mb-1 col-sm-4  col-md-3 col-lg-2"
+                            action="#{tagsListsController.prepareList}"
+                            title="#{OBI.CreateTagsListsShowAllLink}"
+                            immediate="true"
+                            >
+                            <i class="fa-solid fa-table-list me-1"></i>#{OBI.List}
+                        </h:commandLink>
+
+
+                        <h:commandLink id="homeLink"
+                                       styleClass="btn btn-outline-secondary small me-1 mb-1 col-sm-4  col-md-3 col-lg-2"
+                                       action="/index.xhtml"
+                                       title="#{OBI.CreateTagsListsIndexLink}"
+                                       >
+                            <i class="fa-solid fa-gauge me-1"></i>#{OBI.Home}
+                        </h:commandLink>
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

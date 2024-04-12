@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{oBI.CreateLocSubregionsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{oBI.CreateLocSubregionsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{locSubregionsController.selected.id}" title="#{oBI.CreateLocSubregionsTitle_id}" required="true" requiredMessage="#{oBI.CreateLocSubregionsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{oBI.CreateLocSubregionsLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{locSubregionsController.selected.name}" title="#{oBI.CreateLocSubregionsTitle_name}" required="true" requiredMessage="#{oBI.CreateLocSubregionsRequiredMessage_name}"/>
+                    <h:outputLabel value="#{oBI.CreateLocSubregionsLabel_translations}" for="translations" />
+                    <h:inputTextarea rows="4" cols="30" id="translations" value="#{locSubregionsController.selected.translations}" title="#{oBI.CreateLocSubregionsTitle_translations}" />
+                    <h:outputLabel value="#{oBI.CreateLocSubregionsLabel_createdAt}" for="createdAt" />
+                    <h:inputText id="createdAt" value="#{locSubregionsController.selected.createdAt}" title="#{oBI.CreateLocSubregionsTitle_createdAt}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateLocSubregionsLabel_updatedAt}" for="updatedAt" />
+                    <h:inputText id="updatedAt" value="#{locSubregionsController.selected.updatedAt}" title="#{oBI.CreateLocSubregionsTitle_updatedAt}" required="true" requiredMessage="#{oBI.CreateLocSubregionsRequiredMessage_updatedAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{oBI.CreateLocSubregionsLabel_flag}" for="flag" />
+                    <h:inputText id="flag" value="#{locSubregionsController.selected.flag}" title="#{oBI.CreateLocSubregionsTitle_flag}" required="true" requiredMessage="#{oBI.CreateLocSubregionsRequiredMessage_flag}"/>
+                    <h:outputLabel value="#{oBI.CreateLocSubregionsLabel_wikiDataId}" for="wikiDataId" />
+                    <h:inputText id="wikiDataId" value="#{locSubregionsController.selected.wikiDataId}" title="#{oBI.CreateLocSubregionsTitle_wikiDataId}" />
+                    <h:outputLabel value="#{oBI.CreateLocSubregionsLabel_regionId}" for="regionId" />
+                    <h:selectOneMenu id="regionId" value="#{locSubregionsController.selected.regionId}" title="#{oBI.CreateLocSubregionsTitle_regionId}" required="true" requiredMessage="#{oBI.CreateLocSubregionsRequiredMessage_regionId}">
+                        <f:selectItems value="#{locRegionsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{locSubregionsController.create}" value="#{oBI.CreateLocSubregionsSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{locSubregionsController.prepareList}" value="#{oBI.CreateLocSubregionsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{oBI.CreateLocSubregionsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

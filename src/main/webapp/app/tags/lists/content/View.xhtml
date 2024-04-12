@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.ViewTagsListsContentTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+
+            
+
+            
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{OBI.ViewTagsListsContentLabel_id}"/>
+                    <h:outputText value="#{tagsListsContentController.selected.id}" title="#{OBI.ViewTagsListsContentTitle_id}"/>
+                    <h:outputText value="#{OBI.ViewTagsListsContentLabel_deleted}"/>
+                    <h:outputText value="#{tagsListsContentController.selected.deleted}" title="#{OBI.ViewTagsListsContentTitle_deleted}"/>
+                    <h:outputText value="#{OBI.ViewTagsListsContentLabel_created}"/>
+                    <h:outputText value="#{tagsListsContentController.selected.created}" title="#{OBI.ViewTagsListsContentTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewTagsListsContentLabel_changed}"/>
+                    <h:outputText value="#{tagsListsContentController.selected.changed}" title="#{OBI.ViewTagsListsContentTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewTagsListsContentLabel_content}"/>
+                    <h:outputText value="#{tagsListsContentController.selected.content}" title="#{OBI.ViewTagsListsContentTitle_content}"/>
+                    <h:outputText value="#{OBI.ViewTagsListsContentLabel_value}"/>
+                    <h:outputText value="#{tagsListsContentController.selected.value}" title="#{OBI.ViewTagsListsContentTitle_value}"/>
+                    <h:outputText value="#{OBI.ViewTagsListsContentLabel_default1}"/>
+                    <h:outputText value="#{tagsListsContentController.selected.default1}" title="#{OBI.ViewTagsListsContentTitle_default1}"/>
+                    <h:outputText value="#{OBI.ViewTagsListsContentLabel_width}"/>
+                    <h:outputText value="#{tagsListsContentController.selected.width}" title="#{OBI.ViewTagsListsContentTitle_width}"/>
+                    <h:outputText value="#{OBI.ViewTagsListsContentLabel_height}"/>
+                    <h:outputText value="#{tagsListsContentController.selected.height}" title="#{OBI.ViewTagsListsContentTitle_height}"/>
+                    <h:outputText value="#{OBI.ViewTagsListsContentLabel_comment}"/>
+                    <h:outputText value="#{tagsListsContentController.selected.comment}" title="#{OBI.ViewTagsListsContentTitle_comment}"/>
+                    <h:outputText value="#{OBI.ViewTagsListsContentLabel_company}"/>
+                    <h:outputText value="#{tagsListsContentController.selected.company}" title="#{OBI.ViewTagsListsContentTitle_company}"/>
+                    <h:outputText value="#{OBI.ViewTagsListsContentLabel_list}"/>
+                    <h:outputText value="#{tagsListsContentController.selected.list}" title="#{OBI.ViewTagsListsContentTitle_list}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tagsListsContentController.destroyAndView}" value="#{OBI.ViewTagsListsContentDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{OBI.ViewTagsListsContentEditLink}"/>
+                <br />
+                <h:commandLink action="#{tagsListsContentController.prepareCreate}" value="#{OBI.ViewTagsListsContentCreateLink}" />
+                <br />
+                <h:commandLink action="#{tagsListsContentController.prepareList}" value="#{OBI.ViewTagsListsContentShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.ViewTagsListsContentIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

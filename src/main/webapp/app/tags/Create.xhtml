@@ -92,6 +92,10 @@
                     <h:inputText disabled="true" id="VFloat" value="#{tagsController.selected.VFloat}" title="#{OBI.CreateTagsTitle_VFloat}" />
                     <h:outputLabel value="#{OBI.CreateTagsLabel_VInt}" for="VInt" />
                     <h:inputText disabled="true" id="VInt" value="#{tagsController.selected.VInt}" title="#{OBI.CreateTagsTitle_VInt}" />
+                    <h:outputLabel value="#{OBI.CreateTagsLabel_list}" for="list" />
+                    <h:selectOneMenu id="list" value="#{tagsController.selected.list}" title="#{OBI.CreateTagsTitle_list}" >
+                        <f:selectItems value="#{tagsListsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
                     <h:outputLabel value="#{OBI.CreateTagsLabel_VBool}" for="VBool" />
                     <h:inputText disabled="true" id="VBool" value="#{tagsController.selected.VBool}" title="#{OBI.CreateTagsTitle_VBool}" />
                     <h:outputLabel value="#{OBI.CreateTagsLabel_VStr}" for="VStr" />

@@ -40,5 +40,9 @@
             <base-name>/OBI</base-name>
             <var>OBI</var>
         </resource-bundle>
+        <resource-bundle>
+            <base-name>/tmp/OBI</base-name>
+            <var>oBI</var>
+        </resource-bundle>
     </application>
 </faces-config>

@@ -19,7 +19,7 @@
             </h:panelGroup>
 
 
-            
+
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{OBI.EditTagsLabel_id}" for="id" />
@@ -32,9 +32,9 @@
                     </h:selectOneMenu>
                     <h:outputLabel value="#{OBI.EditTagsLabel_deleted}" for="deleted" />
                     <h:inputText id="deleted" value="#{tagsController.selected.deleted}" title="#{OBI.EditTagsTitle_deleted}" />
-                    
 
-                    
+
+
                     <h:outputLabel value="Connections" styleClass="text-end fw-bold"/><hr />
                     <h:outputLabel value="#{OBI.EditTagsLabel_table}" for="table" />
                     <h:selectOneMenu id="table" value="#{tagsController.selected.table}" title="#{OBI.EditTagsTitle_table}" >
@@ -58,9 +58,9 @@
                     <h:inputText id="byte1" value="#{tagsController.selected.byte1}" title="#{OBI.EditTagsTitle_byte1}" />
                     <h:outputLabel value="#{OBI.EditTagsLabel_bit}" for="bit" />
                     <h:inputText id="bit" value="#{tagsController.selected.bit}" title="#{OBI.EditTagsTitle_bit}" />
-                    
-                    
-                    
+
+
+
                     <h:outputLabel value="Collection" styleClass="text-end fw-bold"/><hr />
                     <h:outputLabel value="#{OBI.EditTagsLabel_active}" for="active" />
                     <h:inputText id="active" value="#{tagsController.selected.active}" title="#{OBI.EditTagsTitle_active}" />
@@ -76,14 +76,18 @@
                     <h:inputText id="deltaBool" value="#{tagsController.selected.deltaBool}" title="#{OBI.EditTagsTitle_deltaBool}" />
                     <h:outputLabel value="#{OBI.EditTagsLabel_deltaDateTime}" for="deltaDateTime" />
                     <h:inputText id="deltaDateTime" value="#{tagsController.selected.deltaDateTime}" title="#{OBI.EditTagsTitle_deltaDateTime}" />
-                    
-                    
-                    
+
+
+
                     <h:outputLabel value="Valeur actuel" styleClass="text-end fw-bold"/><hr />
                     <h:outputLabel value="#{OBI.EditTagsLabel_VFloat}" for="VFloat" />
                     <h:inputText disabled="true" id="VFloat" value="#{tagsController.selected.VFloat}" title="#{OBI.EditTagsTitle_VFloat}" />
                     <h:outputLabel value="#{OBI.EditTagsLabel_VInt}" for="VInt" />
                     <h:inputText disabled="true" id="VInt" value="#{tagsController.selected.VInt}" title="#{OBI.EditTagsTitle_VInt}" />
+                    <h:outputLabel value="#{OBI.EditTagsLabel_list}" for="list" />
+                    <h:selectOneMenu id="list" value="#{tagsController.selected.list}" title="#{OBI.EditTagsTitle_list}" >
+                        <f:selectItems value="#{tagsListsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
                     <h:outputLabel value="#{OBI.EditTagsLabel_VBool}" for="VBool" />
                     <h:inputText disabled="true" id="VBool" value="#{tagsController.selected.VBool}" title="#{OBI.EditTagsTitle_VBool}" />
                     <h:outputLabel value="#{OBI.EditTagsLabel_VStr}" for="VStr" />
@@ -96,9 +100,9 @@
                     <h:inputText disabled="true" id="VStamp" value="#{tagsController.selected.VStamp}" title="#{OBI.EditTagsTitle_VStamp}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    
-                    
-                    
+
+
+
                     <h:outputLabel value="Valeur par Défaut" styleClass="text-end fw-bold"/><hr />
                     <h:outputLabel value="#{OBI.EditTagsLabel_VDefault}" for="VDefault" />
                     <h:inputText id="VDefault" value="#{tagsController.selected.VDefault}" title="#{OBI.EditTagsTitle_VDefault}" />
@@ -118,19 +122,19 @@
                     <h:inputText id="VStampDefault" value="#{tagsController.selected.VStampDefault}" title="#{OBI.EditTagsTitle_VStampDefault}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    
-                    
-                    
-                    
+
+
+
+
                     <h:outputLabel value="COMPTEURS" styleClass="text-end fw-bold"/><hr />
                     <h:outputLabel value="#{OBI.EditTagsLabel_counter}" for="counter" />
                     <h:inputText id="counter" value="#{tagsController.selected.counter}" title="#{OBI.EditTagsTitle_counter}" />
                     <h:outputLabel value="#{OBI.EditTagsLabel_counterType}" for="counterType" />
                     <h:inputText id="counterType" value="#{tagsController.selected.counterType}" title="#{OBI.EditTagsTitle_counterType}" />
-                    
-                    
-                    
-                    
+
+
+
+
                     <h:outputLabel value="MESURES" styleClass="text-end fw-bold"/><hr />
                     <h:outputLabel value="#{OBI.EditTagsLabel_mesure}" for="mesure" />
                     <h:inputText id="mesure" value="#{tagsController.selected.mesure}" title="#{OBI.EditTagsTitle_mesure}" />
@@ -142,27 +146,27 @@
                     <h:selectOneMenu id="measureUnit" value="#{tagsController.selected.measureUnit}" title="#{OBI.EditTagsTitle_measureUnit}" >
                         <f:selectItems value="#{measUnitsController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    
-                    
-                    
+
+
+
                     <h:outputLabel value="MQTT" styleClass="text-end fw-bold"/><hr />
                     <h:outputLabel value="#{OBI.EditTagsLabel_mqttTopic}" for="mqttTopic" />
                     <h:inputText id="mqttTopic" value="#{tagsController.selected.mqttTopic}" title="#{OBI.EditTagsTitle_mqttTopic}" />
-                    
-                    
-                    
-                    
+
+
+
+
                     <h:outputLabel value="WEBHOOK" styleClass="text-end fw-bold"/><hr />
                     <h:outputLabel value="#{OBI.EditTagsLabel_webhook}" for="webhook" />
                     <h:inputText id="webhook" value="#{tagsController.selected.webhook}" title="#{OBI.EditTagsTitle_webhook}" />
-                    
-                    
-                    
-                    
+
+
+
+
                     <h:outputLabel value="LINKS" styleClass="text-end fw-bold"/><hr />
                     <h:outputLabel value="#{OBI.EditTagsLabel_laboratory}" for="laboratory" />
                     <h:inputText id="laboratory" value="#{tagsController.selected.laboratory}" title="#{OBI.EditTagsTitle_laboratory}" />
-                    
+
                     <h:outputLabel /> <hr />
                     <h:outputLabel value="#{OBI.EditTagsLabel_formula}" for="formula" />
                     <h:inputText id="formula" value="#{tagsController.selected.formula}" title="#{OBI.EditTagsTitle_formula}" />
@@ -170,7 +174,7 @@
                     <h:inputText id="formCalculus" value="#{tagsController.selected.formCalculus}" title="#{OBI.EditTagsTitle_formCalculus}" />
                     <h:outputLabel value="#{OBI.EditTagsLabel_formProcessing}" for="formProcessing" />
                     <h:inputText id="formProcessing" value="#{tagsController.selected.formProcessing}" title="#{OBI.EditTagsTitle_formProcessing}" />
-                    
+
                     <h:outputLabel /> <hr />
                     <h:outputLabel value="#{OBI.EditTagsLabel_error}" for="error" />
                     <h:inputText id="error" value="#{tagsController.selected.error}" title="#{OBI.EditTagsTitle_error}" />
@@ -180,7 +184,7 @@
                     <h:inputText id="errorStamp" value="#{tagsController.selected.errorStamp}" title="#{OBI.EditTagsTitle_errorStamp}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    
+
                     <h:outputLabel /> <hr />
                     <h:outputLabel value="#{OBI.EditTagsLabel_alarmEnable}" for="alarmEnable" />
                     <h:inputText id="alarmEnable" value="#{tagsController.selected.alarmEnable}" title="#{OBI.EditTagsTitle_alarmEnable}" />
@@ -188,9 +192,9 @@
                     <h:selectOneMenu id="alarm" value="#{tagsController.selected.alarm}" title="#{OBI.EditTagsTitle_alarm}" >
                         <f:selectItems value="#{alarmsController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    
-                    
-                    
+
+
+
                     <h:outputLabel value="PERSISTENCE" styleClass="text-end fw-bold"/><hr />
                     <h:outputLabel value="#{OBI.EditTagsLabel_persistenceEnable}" for="persistenceEnable" />
                     <h:inputText id="persistenceEnable" value="#{tagsController.selected.persistenceEnable}" title="#{OBI.EditTagsTitle_persistenceEnable}" />
@@ -206,10 +210,10 @@
                     <h:inputText id="persOffsetDateTime" value="#{tagsController.selected.persOffsetDateTime}" title="#{OBI.EditTagsTitle_persOffsetDateTime}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    
-                    
-                    
-                    
+
+
+
+
                     <h:outputLabel value="INFORMATIONS" styleClass="text-end fw-bold"/><hr />
                     <h:outputLabel value="#{OBI.EditTagsLabel_comment}" for="comment" />
                     <h:inputText id="comment" value="#{tagsController.selected.comment}" title="#{OBI.EditTagsTitle_comment}" />
@@ -221,8 +225,8 @@
                     <h:inputText disabled="true" id="changed" value="#{tagsController.selected.changed}" title="#{OBI.EditTagsTitle_changed}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    
-                    
+
+
                 </h:panelGrid>
                 <h:commandLink action="#{tagsController.update}" value="#{OBI.EditTagsSaveLink}"/>
                 <br />

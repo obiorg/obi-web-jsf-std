@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.ViewTagsListsTypesTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+
+            
+
+            
+            
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{OBI.ViewTagsListsTypesLabel_id}"/>
+                    <h:outputText value="#{tagsListsTypesController.selected.id}" title="#{OBI.ViewTagsListsTypesTitle_id}"/>
+                    <h:outputText value="#{OBI.ViewTagsListsTypesLabel_deleted}"/>
+                    <h:outputText value="#{tagsListsTypesController.selected.deleted}" title="#{OBI.ViewTagsListsTypesTitle_deleted}"/>
+                    <h:outputText value="#{OBI.ViewTagsListsTypesLabel_created}"/>
+                    <h:outputText value="#{tagsListsTypesController.selected.created}" title="#{OBI.ViewTagsListsTypesTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewTagsListsTypesLabel_changed}"/>
+                    <h:outputText value="#{tagsListsTypesController.selected.changed}" title="#{OBI.ViewTagsListsTypesTitle_changed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{OBI.ViewTagsListsTypesLabel_designation}"/>
+                    <h:outputText value="#{tagsListsTypesController.selected.designation}" title="#{OBI.ViewTagsListsTypesTitle_designation}"/>
+                    <h:outputText value="#{OBI.ViewTagsListsTypesLabel_comment}"/>
+                    <h:outputText value="#{tagsListsTypesController.selected.comment}" title="#{OBI.ViewTagsListsTypesTitle_comment}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tagsListsTypesController.destroyAndView}" value="#{OBI.ViewTagsListsTypesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{OBI.ViewTagsListsTypesEditLink}"/>
+                <br />
+                <h:commandLink action="#{tagsListsTypesController.prepareCreate}" value="#{OBI.ViewTagsListsTypesCreateLink}" />
+                <br />
+                <h:commandLink action="#{tagsListsTypesController.prepareList}" value="#{OBI.ViewTagsListsTypesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{OBI.ViewTagsListsTypesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

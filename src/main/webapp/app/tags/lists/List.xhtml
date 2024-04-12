@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+
+        <ui:define name="title">
+            <h:outputText value="#{OBI.ListTagsListsTitle}"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+
+
+                <h:outputText escape="false" value="#{OBI.ListTagsListsEmpty}" rendered="#{tagsListsController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{tagsListsController.items.rowCount > 0}">
+                    <h:outputText value="#{tagsListsController.pagination.pageFirstItem + 1}..#{tagsListsController.pagination.pageLastItem + 1}/#{tagsListsController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{tagsListsController.previous}" value="#{OBI.Previous} #{tagsListsController.pagination.pageSize}" rendered="#{tagsListsController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{tagsListsController.next}" value="#{OBI.Next} #{tagsListsController.pagination.pageSize}" rendered="#{tagsListsController.pagination.hasNextPage}"/>&nbsp;
+
+
+
+
+
+                    <div class="table-responsive">
+                        <h:dataTable value="#{tagsListsController.items}" var="item" border="0" 
+                                     cellpadding="0" cellspacing="0" 
+                                     styleClass="table table-responsive table-striped table-sm table-bordered"
+                                     rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" 
+                                     headerClass="table-dark"
+                                     style="border:solid 1px">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{OBI.ListTagsListsTitle_id}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.id}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{OBI.ListTagsListsTitle_deleted}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.deleted}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{OBI.ListTagsListsTitle_created}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.created}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                </h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{OBI.ListTagsListsTitle_changed}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.changed}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                </h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{OBI.ListTagsListsTitle_list}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.list}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{OBI.ListTagsListsTitle_designation}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.designation}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{OBI.ListTagsListsTitle_comment}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.comment}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{OBI.ListTagsListsTitle_company}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.company}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{OBI.ListTagsListsTitle_type}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.type}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="&nbsp;"/>
+                                </f:facet>
+                                <h:commandLink action="#{tagsListsController.prepareView}" value="#{OBI.ListTagsListsViewLink}"/>
+                                <h:outputText value=" "/>
+                                <h:commandLink action="#{tagsListsController.prepareEdit}" value="#{OBI.ListTagsListsEditLink}"/>
+                                <h:outputText value=" "/>
+                                <h:commandLink action="#{tagsListsController.destroy}" value="#{OBI.ListTagsListsDestroyLink}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+                </h:panelGroup>
+
+
+
+
+                <br />
+                <div class="container-fluid">
+                    <div class="row">
+                        <h:commandLink id="createLink"
+                                       styleClass="btn btn-outline-primary small me-1 mb-1 col-sm-4  col-md-3 col-lg-2"
+                                       action="Create.xhtml?faces-redirect=true"
+                                       actionListener="#{tagsListsController.prepareCreate}"
+                                       title="#{OBI.ListTagsListsCreateLink}"
+                                       >
+                            <i class="fa-solid fa-circle-plus"></i>#{OBI.Create}
+                        </h:commandLink>
+
+                        <h:commandLink id="homeLink"
+                                       styleClass="btn btn-outline-secondary small me-1 mb-1 col-sm-4  col-md-3 col-lg-2"
+                                       action="/index.xhtml?faces-redirect=true"
+                                       title="#{OBI.ListTagsListsIndexLink}"
+                                       >
+                            <i class="fa-solid fa-gauge"></i>#{OBI.Home}
+                        </h:commandLink>
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
