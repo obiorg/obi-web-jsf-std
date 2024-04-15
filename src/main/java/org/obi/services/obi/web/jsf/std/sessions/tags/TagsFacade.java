@@ -4,6 +4,7 @@
  */
 package org.obi.services.obi.web.jsf.std.sessions.tags;
 
+import javax.annotation.PreDestroy;
 import org.obi.services.obi.web.jsf.std.sessions.Abstract.AbstractFacade;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -28,5 +29,5 @@ public class TagsFacade extends AbstractFacade<Tags> {
     public TagsFacade() {
         super(Tags.class);
     }
-    
+
 }

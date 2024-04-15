@@ -23,7 +23,7 @@
         <composite:attribute name = "outcome"       type="java.lang.String" />
         <composite:attribute name = "locale"        type="java.lang.String"     default="fr"/>
         <composite:attribute name = "stampPattern"  type="java.lang.String"     default="HH:mm:ss"/> <!--dd/MM/yyyy--> 
-        
+
     </composite:interface>
 
     <composite:implementation >
@@ -59,6 +59,7 @@
                                     <div class="d-inline-flex align-items-center">
                                         <i class="#{cc.attrs.subname_ico} #{cc.attrs.subname_ico==null?'collapse':''}"></i>
                                         <div class="caption #{cc.attrs.status.VInt==null?'collapse':''}">&ensp;#{cc.attrs.status.VInt}</div>
+                                        <!--<div class="caption #{cc.attrs.status.VInt==null?'collapse':''}">&ensp;#{cc.attrs.status.getStateOfListContent()}</div>-->
                                     </div>
                                 </div>
                                 <!-- Date line -->
@@ -103,10 +104,12 @@
                         />
             </h:commandButton>
             <script type="text/javascript">
-                setInterval(function () {
-                    document.querySelector('[id$=":#{cc.id}_refresh"]').click();
+                document.addEventListener("DOMContentLoaded", function (event) {
+                    setInterval(function () {
+                        document.querySelector('[id$=":#{cc.id}_refresh"]').click();
+                    }, #{cc.attrs.second} * 1000);
+                });
 
-                }, #{cc.attrs.second} * 1000);
             </script>
         </h:panelGroup> 
 

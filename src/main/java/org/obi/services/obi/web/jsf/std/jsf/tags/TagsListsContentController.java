@@ -19,6 +19,7 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import org.obi.services.obi.web.jsf.std.entities.tags.TagsLists;
 
 @Named("tagsListsContentController")
 @SessionScoped
@@ -196,6 +197,10 @@ public class TagsListsContentController implements Serializable {
 
     public TagsListsContent getTagsListsContent(java.lang.Integer id) {
         return ejbFacade.find(id);
+    }
+
+    public TagsListsContent findByListAndContent(TagsLists tl, Integer vInt) {
+        return ejbFacade.findByListAndContent(tl, vInt);
     }
 
     @FacesConverter(forClass = TagsListsContent.class)
