@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+
+      xmlns:o="http://xmlns.jcp.org/jsf/composite/obicomp"
+      lang="fr"
+      data-bs-theme="light"
+      >
+    <!--xmlns:p="http://primefaces.org/ui"-->
+
+    <ui:composition template="/tmpl/MainWindow.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Utilité de production"></h:outputText>
+        </ui:define>
+
+
+        <ui:define name="body">
+
+
+            <h:form id="APIForm">
+
+
+
+                <div class="container-fluid">
+                    <div class="row mb-1"><div class="col"><h5>Stockage CO2</h5></div></div>
+
+                    <div class="row">
+                        <o:vignette id="stkC02T1"
+                                    symbol="#tank_co2" 
+                                    value="#{tagsController.getTags(34)}"
+                                    symbolWidth="60" 
+                                    symbolHeight="24" 
+                                    pattern="###,###"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                        <o:vignette id="stkC02T2"
+                                    symbol="#tank_co2" 
+                                    value="#{tagsController.getTags(35)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="###,###"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                        <o:vignette id="stkC02T3"
+                                    symbol="#tank_co2" 
+                                    value="#{tagsController.getTags(33)}"
+                                    symbolWidth="38" 
+                                    symbolHeight="91" 
+                                    pattern="###,###"
+                                    listener="#{viewUtil.init()}"
+                                    />
+
+                    </div>
+                </div>
+
+            </h:form>
+
+
+        </ui:define>
+    </ui:composition>
+
+</html>

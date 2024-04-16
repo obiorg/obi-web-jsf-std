@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -19,6 +20,7 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import org.obi.services.obi.web.jsf.std.entities.tags.TagsListsContent;
 
 @Named("tagsController")
 @SessionScoped
@@ -30,6 +32,16 @@ public class TagsController implements Serializable {
     private org.obi.services.obi.web.jsf.std.sessions.tags.TagsFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+
+//    @Inject
+//    private TagsListsController tagsListsController;
+    /**
+     * Injection of analyse type controller
+     */
+//    @ManagedProperty(value = "#{tagsListsContentController}")
+//    TagsListsContentController tagsListsContentController;
+    @EJB
+    private org.obi.services.obi.web.jsf.std.sessions.tags.TagsListsContentFacade ejbFacadeTagsListsContent;
 
     public TagsController() {
     }
@@ -87,7 +99,11 @@ public class TagsController implements Serializable {
             current.setChanged(Date.from(Instant.now()));
             current.setCreated(Date.from(Instant.now()));
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/OBI").getString("TagsCreated"));
+            JsfUtil.addSuccessMessage(
+                    current.toString() + " "
+                    + ResourceBundle.getBundle("/OBI").getString("TagsCreated")
+                    + " à " + current.getCreated().toString()
+            );
             return prepareCreate();
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/OBI").getString("PersistenceErrorOccured"));
@@ -174,19 +190,18 @@ public class TagsController implements Serializable {
         pagination = null;
     }
 
-    
     public String first() {
         getPagination().firstPage();
         recreateModel();
         return "List";
     }
-    
+
     public String last() {
         getPagination().lastPage();
         recreateModel();
         return "List";
     }
-    
+
     public String next() {
         getPagination().nextPage();
         recreateModel();
@@ -208,13 +223,51 @@ public class TagsController implements Serializable {
     }
 
     public Tags getTags(java.lang.Integer id) {
-        ejbFacade.flush();
         Tags t = ejbFacade.find(id);
 //        System.out.println("Tags id(" + id + ") => " + t.toString()
 //                + " float=" + t.getVFloat() 
 //                + " vStamp = " + t.getVStamp().toString()
 //        );
         return t;
+    }
+
+    /**
+     * Get State Of List Content
+     * <p>
+     * This method allow to check if a list is define for the current tags and
+     * return empty result "" is is null.
+     * <p>
+     * Otherwise we collect current list from that list we recover corresponding
+     * content associate to current vInt value of the current tags.
+     *
+     * @return
+     */
+    public TagsListsContent getStateOfListContent() {
+
+        /**
+         * Quit if current item is not define
+         */
+        if (current == null) {
+            return null;
+        }
+        /**
+         * If not define return empty string
+         */
+        if (current.getList() == null) {
+            return null;
+        }
+
+        TagsListsContent tlc = ejbFacadeTagsListsContent.findByListAndContent(current.getList(),
+                current.getVInt());
+
+        /**
+         * Empty value return if no Tags list content find for the parameter
+         */
+        if (tlc == null) {
+            return null;
+        }
+
+        return tlc;
     }
 
     @FacesConverter(forClass = Tags.class)

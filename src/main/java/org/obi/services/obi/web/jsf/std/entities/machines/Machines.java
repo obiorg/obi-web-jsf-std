@@ -319,10 +319,8 @@ public class Machines implements Serializable {
 
     @Override
     public String toString() {
-//        return "org.obi.services.entities.Machines[ id=" + id + " ]";
-        return "" + this.name + " - " + this.address 
-                + " (" + this.company.toString()
-                + ") [ id=" + id + " ]";
+        return "" + this.name + " - " + this.address
+                + " [" + this.company.getCompany() + "] [id=" + id + "]";
     }
-    
+
 }

@@ -32,63 +32,51 @@
 
 
 
-                <!--
-                <div class="sidebar-header">
-                    <div class="user-pic">
-                        <h:graphicImage class="img-responsive img-rounded" 
-                                        library="img"
-                                        name="ism/hr/avatar3.png"
-                                        alt="Utilisateur" />
-                    </div>
-                    
-                    <div class="user-info">
-                        <span class="user-name">Raphaël
-                            <strong>Hendrick</strong>
-                        </span>
-                        <span class="user-role">Administrator</span>
-                        <span class="user-status">
-                            <i class="fa fa-circle"></i>
-                            <span>Online</span>
-                        </span>
-                    </div>
-                </div>
-                -->
-
-
-                <!-- sidebar-header  -->
-                <!--
-                <div class="sidebar-search">
-                    <div>
-                        <div class="input-group">
-                            <input type="text" class="form-control search-menu" 
-                                   placeholder="Search..."/>
-                            <div class="input-group-append">
-                                <span class="input-group-text">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                -->
-
 
 
                 <!-- sidebar-search  -->
                 <div class="sidebar-menu">
                     <ul>
                         <li class="header-menu">
-                            <span>General</span>
+                            <span>Real Time</span>
                         </li>
 
-                        <li>
-                            <h:link class="text-decoration-none "
-                                    outcome="/index" >
+                        <!-- COLD BLOCK -->
+                        <li class="sidebar-dropdown">
+                            <a href="#">
                                 <i class="fa-solid fa-jar"></i>
-                                <span>TOD - Pressions</span>  
-                            </h:link>
+                                <span>COLD BLOCK</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>                        
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/rt/cb/cct" 
+                                                value="TODs"/></li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                         <!-- UTILITE PRODUCTION -->
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa-solid fa-jar"></i>
+                                <span>Utilité de production</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>                        
+                                    <li><h:link class="text-decoration-none " 
+                                                outcome="/rt/up/CO2" 
+                                                value="CO2"/></li>
+                                </ul>
+                            </div>
                         </li>
 
+                        <hr />
+
+
+                        <li class="header-menu">
+                            <span>Système</span>
+                        </li>
 
 
                         <!-- Businesses -->
@@ -364,14 +352,14 @@
                                     <li><h:link class="text-decoration-none " 
                                                 outcome="/app/tags/lists/content/List" 
                                                 value="#{OBI.SideBarMenuTagsListsContent}"/> </li>
-                                             
-                                                
-                                                
-                                                
+
+
+
+
                                     <li><h:link class="text-decoration-none " 
                                                 outcome="/app/tags/List" 
                                                 value="#{OBI.SideBarMenuTags}"/> </li>
-                                                
+
 
                                 </ul>
                             </div>

@@ -10,6 +10,7 @@
         <composite:attribute name = "value"         type="org.obi.services.obi.web.jsf.std.entities.tags.Tags"  required="true" />
         <composite:attribute name = "subname"       type="java.lang.String" />
         <composite:attribute name = "status"        type="org.obi.services.obi.web.jsf.std.entities.tags.Tags" />
+        <composite:attribute name = "state"         type="java.lang.String" shortDescription="Display content of status"/>
         <composite:attribute name = "subname_ico"   type="java.lang.String" />
         <composite:attribute name = "stamp"         type="java.lang.String" />
         <composite:attribute name = "issvg"         type="java.lang.Boolean"    default="true" shortDescription="Indicate if svg symbol is provide (true) otherwise fontawesome (false)"/>
@@ -19,6 +20,7 @@
         <composite:attribute name = "styleClass"    type="java.lang.String"     default="col-sm-12 col-md-12 col-lg-4 col-xl-3 col-xxl-3 "/>
         <composite:attribute name = "pattern"       type="java.lang.String"     default="#.####" />
         <composite:attribute name = "listener"      method-signature="java.lang.String listener()"  />
+        
         <composite:attribute name = "second"        type="java.lang.Integer"    default="5" />
         <composite:attribute name = "outcome"       type="java.lang.String" />
         <composite:attribute name = "locale"        type="java.lang.String"     default="fr"/>
@@ -58,7 +60,8 @@
                                 <div class="card-text #{cc.attrs.status.VInt==null?'collapse':(cc.attrs.subname_ico==null?'collapse':'')}">
                                     <div class="d-inline-flex align-items-center">
                                         <i class="#{cc.attrs.subname_ico} #{cc.attrs.subname_ico==null?'collapse':''}"></i>
-                                        <div class="caption #{cc.attrs.status.VInt==null?'collapse':''}">&ensp;#{cc.attrs.status.VInt}</div>
+                                        <!--<div class="caption #{cc.attrs.status.VInt==null?'collapse':''}">&ensp;#{cc.attrs.status.VInt}</div>-->
+                                        <div class="caption #{cc.attrs.state==null?'collapse':''}">&ensp;#{cc.attrs.state}</div>
                                     </div>
                                 </div>
                                 <!-- Date line -->
@@ -103,10 +106,12 @@
                         />
             </h:commandButton>
             <script type="text/javascript">
+                document.addEventListener("DOMContentLoaded", function (event) {
                 setInterval(function () {
                     document.querySelector('[id$=":#{cc.id}_refresh"]').click();
+                    }, #{cc.attrs.second} * 1000);
+                });
 
-                }, #{cc.attrs.second} * 1000);
             </script>
         </h:panelGroup> 
 

@@ -46,7 +46,11 @@ import org.obi.services.obi.web.jsf.std.entities.business.Companies;
     @NamedQuery(name = "TagsListsContent.findByDefault1", query = "SELECT t FROM TagsListsContent t WHERE t.default1 = :default1"),
     @NamedQuery(name = "TagsListsContent.findByWidth", query = "SELECT t FROM TagsListsContent t WHERE t.width = :width"),
     @NamedQuery(name = "TagsListsContent.findByHeight", query = "SELECT t FROM TagsListsContent t WHERE t.height = :height"),
-    @NamedQuery(name = "TagsListsContent.findByComment", query = "SELECT t FROM TagsListsContent t WHERE t.comment = :comment")})
+    @NamedQuery(name = "TagsListsContent.findByComment", query = "SELECT t FROM TagsListsContent t WHERE t.comment = :comment"),
+
+    @NamedQuery(name = "TagsListsContent.findByListAndContent", query = "SELECT t FROM TagsListsContent t WHERE t.list = :list AND t.content = :content")
+
+})
 public class TagsListsContent implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <composite:interface>
+        <composite:attribute name = "name"          type="java.lang.String" default=""     required="false" />
+        <composite:attribute name = "volume"        type="org.obi.services.obi.web.jsf.std.entities.tags.Tags"  required="true" />
+        <composite:attribute name = "pressure"      type="org.obi.services.obi.web.jsf.std.entities.tags.Tags"  required="true" />
+
+        <composite:attribute name = "temperature"   type="org.obi.services.obi.web.jsf.std.entities.tags.Tags"  required="true" shortDescription="Indicate gloabl temperature"/>
+        <composite:attribute name = "temperatureB"  type="org.obi.services.obi.web.jsf.std.entities.tags.Tags"  required="true" shortDescription="Indicate bottom temperature"/>
+
+        <composite:attribute name = "subname"       type="java.lang.String" />
+        <composite:attribute name = "status"        type="org.obi.services.obi.web.jsf.std.entities.tags.Tags" />
+        <composite:attribute name = "state"         type="java.lang.String" shortDescription="Display content of status"/>
+        <composite:attribute name = "subname_ico"   type="java.lang.String" />
+        <composite:attribute name = "stamp"         type="java.lang.String" />
+        <composite:attribute name = "issvg"         type="java.lang.Boolean"    default="true" shortDescription="Indicate if svg symbol is provide (true) otherwise fontawesome (false)"/>
+        <composite:attribute name = "symbol"        type="java.lang.String" />
+        <composite:attribute name = "symbolWidth"   type="java.lang.Integer"    default="40" />
+        <composite:attribute name = "symbolHeight"  type="java.lang.Integer"    default="48" />
+        <composite:attribute name = "styleClass"    type="java.lang.String"     default="col-xs-sm-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3"/>
+        <composite:attribute name = "pattern"       type="java.lang.String"     default="#.####" />
+        <composite:attribute name = "listener"      method-signature="java.lang.String listener()"  />
+
+        <composite:attribute name = "second"        type="java.lang.Integer"    default="5" />
+        <composite:attribute name = "outcome"       type="java.lang.String" />
+        <composite:attribute name = "locale"        type="java.lang.String"     default="fr"/>
+        <composite:attribute name = "stampPattern"  type="java.lang.String"     default="HH:mm:ss"/> <!--dd/MM/yyyy--> 
+
+    </composite:interface>
+
+    <composite:implementation >
+        <h:outputStylesheet library = "obicomp" name="css/cct_0.0.0.css" /> 
+        <!-- #{cc.attrs.name} -->
+        <div class="#{cc.attrs.styleClass}">
+
+            <h:link class="text-decoration-none "
+                    disabled="#{cc.attrs.outcome == null}"
+                    outcome="#{cc.attrs.outcome}" >
+
+                <div class="card card-raised border-start border-primary border-4 mb-2">
+                    <div class="card-body px-4  border-top">
+                        <div class="card-header">
+                            <!-- COMPONENT TITLE -->
+                            <div class="display-6 card-body-number"> 
+                                <h:outputText value="#{cc.attrs.name}" rendered="#{!cc.attrs.name.matches('')}"/>
+                                <h:outputText value="#{cc.attrs.pressure.name}" rendered="#{cc.attrs.name.matches('')}"/>
+                                <!-- Sub line -->
+                                <div class="d-inline-flex h6 card-text align-items-end #{cc.attrs.status.VInt==null?'collapse':(cc.attrs.subname_ico==null?'collapse':'')}">
+                                    <i class="#{cc.attrs.subname_ico} #{cc.attrs.subname_ico==null?'collapse':''}"></i>
+                                        <!--<div class="caption #{cc.attrs.status.VInt==null?'collapse':''}">&ensp;#{cc.attrs.status.VInt}</div>-->
+                                    <h:panelGroup id="#{cc.id}_state">
+                                        <h:outputText styleClass="#{cc.attrs.state==null?'collapse':''}"
+                                                      value="&ensp;#{cc.attrs.state}"/>
+                                    </h:panelGroup>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="d-flex justify-content align-items-start p-2">
+
+                            <!-- Icon -->
+                            <div class="#{cc.attrs.issvg ? '' : 'icon-circle bg-primary'} text-white">
+                                <h:panelGroup rendered="#{cc.attrs.issvg}">
+                                    <svg class="bi "  
+                                         width="#{cc.attrs.symbolWidth}"
+                                         height="#{cc.attrs.symbolHeight}"
+                                         >
+                                        <use href="#{cc.attrs.symbol}" />
+                                    </svg>
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{!cc.attrs.issvg}">
+                                    <i class="#{cc.attrs.symbol}"></i>
+                                </h:panelGroup>
+                            </div>
+
+
+
+
+
+                            <!-- Text -->&ensp;
+                            <div class="ms-2">
+
+
+                                <!-- VOLUME -->
+                                <div class="card-text ">
+                                    <h:panelGroup id="#{cc.id}_volume" layout="block">
+                                        <!--<i class="fa-solid fa-fill"></i>-->
+                                        <h:outputText value="#{cc.attrs.volume.VFloat}" styleClass="card-body-volume">
+                                            <f:convertNumber pattern="#,###.0 hl" locale="fr"  />
+                                        </h:outputText>
+                                    </h:panelGroup>
+                                </div>
+
+                                <!-- PRESSURE -->
+                                <div class="card-text">
+                                    <h:panelGroup id="#{cc.id}_pressure" layout="block">
+                                        <!--<i class="fa-solid fa-gauge-high"></i>-->
+                                        <h:outputText value="#{cc.attrs.pressure.VFloat}" styleClass="card-body-pressure">
+                                            <f:convertNumber pattern="#{cc.attrs.pattern} bar" locale="fr"  />
+                                        </h:outputText>
+                                    </h:panelGroup>
+                                </div>
+
+
+
+                                <!-- Temperatures -->
+                                <div class="card-text">
+                                    <div class="d-inline-flex align-items-center">
+                                        <i class="fa-solid fa-temperature-three-quarters"></i>
+                                        <h:outputText value="#{cc.attrs.temperature.VFloat}" styleClass="caption">
+                                            <f:convertNumber pattern="&ensp;##.# °C" locale="fr"  />
+                                        </h:outputText>
+                                        <h:outputLabel value="&ensp;(Tm)" />
+                                    </div>
+                                </div>
+                                <div class="card-text">
+                                    <div class="d-inline-flex align-items-center">
+                                        <i class="fa-solid fa-temperature-three-quarters"></i>
+                                        <h:outputText value="#{cc.attrs.temperatureB.VFloat}" styleClass="caption">
+                                            <f:convertNumber pattern="&ensp;##.# °C" locale="fr"  />
+                                        </h:outputText>
+                                        <h:outputLabel value="&ensp;(Tb)" />
+                                    </div>
+                                </div>
+
+
+                                <!-- Date line -->
+                                <div class="card-text">
+                                    <div class="d-inline-flex align-items-center">
+                                        <i class="fa-solid fa-clock"></i>
+                                        <h:outputText  id="#{cc.id}_stamp"  class="caption" value="#{cc.attrs.pressure.VStamp}">
+                                            <f:convertDateTime pattern="&ensp;#{cc.attrs.stampPattern}" />
+                                        </h:outputText>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </h:link>
+        </div>
+        <h:panelGroup rendered="#{cc.attrs.listener != null}">
+            <h:commandButton id="#{cc.id}_refresh" value="Hidden" style="display:none" >
+                <f:ajax execute="@form" 
+                        render="#{cc.id}:#{cc.id}_state #{cc.id}:#{cc.id}_volume #{cc.id}:#{cc.id}_pressure #{cc.id}:#{cc.id}_stamp"
+                        listener="#{cc.attrs.listener}" 
+                        />
+            </h:commandButton>
+            <script type="text/javascript">
+                document.addEventListener("DOMContentLoaded", function (event) {
+                    setInterval(function () {
+                        document.querySelector('[id$=":#{cc.id}_refresh"]').click();
+                    }, #{cc.attrs.second} * 1000);
+                });
+
+            </script>
+        </h:panelGroup> 
+
+
+
+
+
+    </composite:implementation>
+</html>

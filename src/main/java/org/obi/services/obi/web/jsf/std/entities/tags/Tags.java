@@ -755,7 +755,7 @@ public class Tags implements Serializable {
     @Override
     public String toString() {
 //        return "org.obi.services.entities.Tags[ id=" + id + " ]";
-        return "" + this.name + " - " + this.getMachine().getName() + " [ id=" + id + " ]";
+        return "" + this.name + " - " + this.getMachine().getName() + " [id=" + id + "]";
     }
     
 }
