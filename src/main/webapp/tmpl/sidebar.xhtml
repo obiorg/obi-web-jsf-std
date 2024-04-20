@@ -9,73 +9,66 @@
 
     <ui:composition >
 
-        <!--
-            <a id="show-sidebar" class="btn btn-sm btn-dark z-2000" href="#">
-                <i class="fas fa-bars"></i>
-            </a>
-        -->
 
         <nav id="sidebar" class="sidebar-wrapper">
 
-
+            <!-- BRAND -->
             <div class="sidebar-brand shadow sticky">
-                <svg class="bi mx-2"  height="48">
-                    <use href="#full-dark" />
-                </svg>
-                <!--                <div id="close-sidebar">
-                                    <i class="fas fa-times"></i>
-                                </div>-->
+                <h:form>
+                    <h:commandLink action="/index">
+                        <svg class="bi mx-2"  height="48">
+                            <use href="#full-dark" />
+                        </svg>
+                    </h:commandLink>
+                </h:form>
             </div>
+
+            <!-- SIDEBAR CONTENT -->
             <div class="sidebar-content">
 
-
-
-
-
-
-
-                <!-- sidebar-search  -->
+                <!-- sidebar-menu  -->
                 <div class="sidebar-menu">
                     <ul>
                         <li class="header-menu">
-                            <span>Real Time</span>
+                            <span>#{OBI.SideBarMenuMainRealTime}</span>
                         </li>
 
                         <!-- COLD BLOCK -->
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="fa-solid fa-jar"></i>
-                                <span>COLD BLOCK</span>
+                                <span>&ensp;#{OBI.SideBarMenuColdBlock}</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>                        
-                                    <li><h:link class="text-decoration-none " 
+                                    <li>
+                                        <h:link class="text-decoration-none " 
                                                 outcome="/rt/cb/cct" 
-                                                value="TODs"/></li>
+                                                value="#{OBI.SideBarMenuColdBlockCCTs}"/>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
-                        
-                         <!-- UTILITE PRODUCTION -->
+
+                        <!-- UTILITE PRODUCTION -->
                         <li class="sidebar-dropdown">
                             <a href="#">
-                                <i class="fa-solid fa-jar"></i>
-                                <span>Utilité de production</span>
+                                <i class="fa-solid fa-screwdriver"></i>
+                                <span>&ensp;#{OBI.SideBarMenuUtilities}</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>                        
                                     <li><h:link class="text-decoration-none " 
                                                 outcome="/rt/up/CO2" 
-                                                value="CO2"/></li>
+                                                value="#{OBI.SideBarMenuUtilitiesCO2}"/></li>
                                 </ul>
                             </div>
                         </li>
 
-                        <hr />
-
-
+                        
+                        <hr class="mt-0 mb-0" />
                         <li class="header-menu">
-                            <span>Système</span>
+                            <span>#{OBI.SideBarMenuMainSystem}</span>
                         </li>
 
 
@@ -450,7 +443,6 @@
 
                     </ul>
                 </div>
-                <!-- sidebar-menu  -->
             </div>
 
 
@@ -475,7 +467,6 @@
                 </a>
             </div>
         </nav>
-
 
     </ui:composition>
 
